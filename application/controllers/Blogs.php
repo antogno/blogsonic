@@ -29,15 +29,15 @@ class Blogs extends MY_Controller
             if (isset($date_min) && isset($date_max)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
                 $date_max = date('Y-m-d H:i:s', strtotime($date_max.' 23:59:59'));
-                $blogs = $this->Blogs_model->get_blog($limit, $order, $date_min, $date_max);
+                $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, $date_max);
             } elseif (isset($date_min)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $blogs = $this->Blogs_model->get_blog($limit, $order, $date_min, FALSE);
+                $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, FALSE);
             } elseif (isset($date_max)) {
                 $date_max = date('Y-m-d H:i:s', strtotime($date_max.' 23:59:59'));
-                $blogs = $this->Blogs_model->get_blog($limit, $order, FALSE, $date_max);
+                $blogs = $this->Blogs_model->getBlog($limit, $order, FALSE, $date_max);
             } else {
-                $blogs = $this->Blogs_model->get_blog($limit, $order, FALSE, FALSE);
+                $blogs = $this->Blogs_model->getBlog($limit, $order, FALSE, FALSE);
             }
 
             if ($blogs) {
@@ -48,7 +48,7 @@ class Blogs extends MY_Controller
                 foreach ($blogs as $blog) {
                     $data['blog_id'] = $blog->id;
                     $data['blog_title'] = $blog->title;
-                    $data['blog_user'] = $this->Blogs_model->get_user($blog->user_id);
+                    $data['blog_user'] = $this->Blogs_model->getUser($blog->user_id);
                     $data['blog_created_at'] = date('d-m-Y H:i', strtotime($blog->created_at));
                     $this->load->view('blogs/index', $data);
                 }
@@ -85,15 +85,15 @@ class Blogs extends MY_Controller
             if (isset($date_min) && isset($date_max)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
                 $date_max = date('Y-m-d H:i:s', strtotime($date_max.' 23:59:59'));
-                $blogs = $this->Blogs_model->get_blog($this->Blogs_model->blogs_number(), $order, $date_min, $date_max);
+                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, $date_max);
             } elseif (isset($date_min)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $blogs = $this->Blogs_model->get_blog($this->Blogs_model->blogs_number(), $order, $date_min, FALSE);
+                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, FALSE);
             } elseif (isset($date_max)) {
                 $date_max = date('Y-m-d H:i:s', strtotime($date_max.' 23:59:59'));
-                $blogs = $this->Blogs_model->get_blog($this->Blogs_model->blogs_number(), $order, FALSE, $date_max);
+                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, FALSE, $date_max);
             } else {
-                $blogs = $this->Blogs_model->get_blog($this->Blogs_model->blogs_number(), $order, FALSE, FALSE);
+                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, FALSE, FALSE);
             }
 
             if ($blogs) {
@@ -102,7 +102,7 @@ class Blogs extends MY_Controller
                 $this->load->view('blogs/options');
 
                 foreach ($blogs as $key => $blog) {
-                    $user = $this->Blogs_model->get_user($blog->user_id);
+                    $user = $this->Blogs_model->getUser($blog->user_id);
                     if ((strtolower($user) == strtolower($this->session->userdata('username'))) && ($limit > 0)) {
                         $data['myblogs'] = TRUE;
                         $data['blog_id'] = $blog->id;
@@ -149,9 +149,9 @@ class Blogs extends MY_Controller
             $data = array(
                 'title' => $this->input->post('title'),
                 'body' => $this->input->post('body'),
-                'user_id' => $this->Blogs_model->get_user_id($this->session->userdata('username'))
+                'user_id' => $this->Blogs_model->getUser_id($this->session->userdata('username'))
             );
-            $this->Blogs_model->insert_blog($data);
+            $this->Blogs_model->insertBlog($data);
 
             redirect($this->session->userdata('language').'blogs/myblogs');
         } else {
@@ -170,7 +170,7 @@ class Blogs extends MY_Controller
         $id = $this->uri->segment(4);
 
         if ($id) {
-            $blog = $this->Blogs_model->get_blog($this->Blogs_model->blogs_number(), 'desc', FALSE, FALSE, $id);
+            $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', FALSE, FALSE, $id);
 
             if ($blog) {
 
@@ -181,7 +181,7 @@ class Blogs extends MY_Controller
                     'created_at' => $this->lang->line('blogs_created_at'),
                     'body' => $this->lang->line('blogs_body'),
                     'id' => $blog->id,
-                    'view_user' => $this->Blogs_model->get_user($blog->user_id),
+                    'view_user' => $this->Blogs_model->getUser($blog->user_id),
                     'view_created_at' => date('d-m-Y H:i', strtotime($blog->created_at)),
                     'view_body' => $blog->body,
                     'delete' => $this->lang->line('view_delete'),
@@ -191,7 +191,7 @@ class Blogs extends MY_Controller
                 $this->form_validation->set_rules('id', '', 'required');
 
                 if ($this->form_validation->run()) {
-                    $this->Blogs_model->delete_blog($data['id']);
+                    $this->Blogs_model->deleteBlog($data['id']);
                     redirect($this->session->userdata('language').'blogs/all');
                 } else {
                     $this->load->view('partials/header', $data);
@@ -215,10 +215,10 @@ class Blogs extends MY_Controller
         $id = $this->uri->segment(4);
 
         if ($id) {
-            $blog = $this->Blogs_model->get_blog($this->Blogs_model->blogs_number(), 'desc', FALSE, FALSE, $id);
+            $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', FALSE, FALSE, $id);
 
             if ($blog) {
-                $user = $this->Blogs_model->get_user($blog->user_id);
+                $user = $this->Blogs_model->getUser($blog->user_id);
 
                 if ((strtolower($user) == strtolower($this->session->userdata('username')))) {
                     
@@ -242,7 +242,7 @@ class Blogs extends MY_Controller
                             'title' => $this->input->post('title'),
                             'body' => $this->input->post('body')
                         );
-                        $this->Blogs_model->update_blog($data);
+                        $this->Blogs_model->updateBlog($data);
                         
                         redirect($this->session->userdata('language').'blogs/myblogs');
                     } else {

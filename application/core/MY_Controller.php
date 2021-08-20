@@ -9,17 +9,17 @@ class MY_Controller extends CI_Controller
 
         parent::__construct();
 
-        $this->load_language();
+        $this->loadLanguage();
 
     }
 
-    public function load_language()
+    public function loadLanguage()
     {
 
         $this->load->model('Profiles_model');
 
         if ($this->session->userdata('logged_in')) {
-            $profile_language = $this->Profiles_model->get_user($this->session->userdata('username'));
+            $profile_language = $this->Profiles_model->getUser($this->session->userdata('username'));
             $profile_language = $profile_language->language;
 
             if ($profile_language == 'en') {
@@ -70,7 +70,7 @@ class MY_Controller extends CI_Controller
 
     }
 
-    public function new_password()
+    public function newPassword()
     {
 
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.$!?@';
@@ -85,7 +85,7 @@ class MY_Controller extends CI_Controller
 
     }
 
-    public function send_new_password($email, $password)
+    public function sendNewPassword($email, $password)
     {
 
         $this->load->library('email');

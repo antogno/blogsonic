@@ -39,63 +39,63 @@
 
             $('#change_options').click(function() {
                 let segments = window.location.href.split('/');
-                if(segments.length == 8) {
-                    if($('#change_limit').val()) {
+                if (segments.length == 8) {
+                    if ($('#change_limit').val()) {
                         segments.push($('#change_limit').val());
                     } else {
                         segments.push(5);
                     }
-                    if($('#change_order').val()) {
+                    if ($('#change_order').val()) {
                         segments.push($('#change_order').val());
                     } else {
                         segments.push('desc');
                     }
-                    if($('#date_min').val()) {
+                    if ($('#date_min').val()) {
                         segments.push($('#date_min').val());
                     } else {
                         segments.push('1970-01-01');
                     }
-                    if($('#date_max').val()) {
+                    if ($('#date_max').val()) {
                         segments.push($('#date_max').val());
                     } else {
                         let today = new Date().toISOString().slice(0, 10);
                         segments.push(today);
                     }
                     window.location = segments.join('/');
-                } else if(segments.length == 9) {
-                    if($('#change_limit').val()) {
+                } else if (segments.length == 9) {
+                    if ($('#change_limit').val()) {
                         segments[8] = $('#change_limit').val();
                     }
-                    if($('#change_order').val()) {
+                    if ($('#change_order').val()) {
                         segments.push($('#change_order').val());
                     } else {
                         segments.push('desc');
                     }
-                    if($('#date_min').val()) {
+                    if ($('#date_min').val()) {
                         segments.push($('#date_min').val());
                     } else {
                         segments.push('1970-01-01');
                     }
-                    if($('#date_max').val()) {
+                    if ($('#date_max').val()) {
                         segments.push($('#date_max').val());
                     } else {
                         let today = new Date().toISOString().slice(0, 10);
                         segments.push(today);
                     }
                     window.location = segments.join('/');
-                } else if(segments.length == 10) {
+                } else if (segments.length == 10) {
                     if($('#change_limit').val()) {
                         segments[8] = $('#change_limit').val();
                     }
-                    if($('#change_order').val()) {
+                    if ($('#change_order').val()) {
                         segments[9] = $('#change_order').val();
                     }
-                    if($('#date_min').val()) {
+                    if ($('#date_min').val()) {
                         segments.push($('#date_min').val());
                     } else {
                         segments.push('1970-01-01');
                     }
-                    if($('#date_max').val()) {
+                    if ($('#date_max').val()) {
                         segments.push($('#date_max').val());
                     } else {
                         let today = new Date().toISOString().slice(0, 10);
@@ -103,16 +103,16 @@
                     }
                     window.location = segments.join('/');
                 } else if (segments.length == 11) {
-                    if($('#change_limit').val()) {
+                    if ($('#change_limit').val()) {
                         segments[8] = $('#change_limit').val();
                     }
-                    if($('#change_order').val()) {
+                    if ($('#change_order').val()) {
                         segments[9] = $('#change_order').val();
                     }
-                    if($('#date_min').val()) {
+                    if ($('#date_min').val()) {
                         segments[10] = $('#date_min').val();
                     }
-                    if($('#date_max').val()) {
+                    if ($('#date_max').val()) {
                         segments.push($('#date_max').val());
                     } else {
                         let today = new Date().toISOString().slice(0, 10);
@@ -120,16 +120,16 @@
                     }
                     window.location = segments.join('/');
                 } else if (segments.length == 12) {
-                    if($('#change_limit').val()) {
+                    if ($('#change_limit').val()) {
                         segments[8] = $('#change_limit').val();
                     }
-                    if($('#change_order').val()) {
+                    if ($('#change_order').val()) {
                         segments[9] = $('#change_order').val();
                     }
-                    if($('#date_min').val()) {
+                    if ($('#date_min').val()) {
                         segments[10] = $('#date_min').val();
                     }
-                    if($('#date_max').val()) {
+                    if ($('#date_max').val()) {
                         segments[11] = $('#date_max').val();
                     }
                     window.location = segments.join('/');

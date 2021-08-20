@@ -29,7 +29,7 @@ class Profiles extends MY_Controller
 
         if ($this->session->userdata('logged_in')) {
             $data['username'] = $this->session->userdata('username');
-            $profile = $this->Profiles_model->get_user($data['username']);
+            $profile = $this->Profiles_model->getUser($data['username']);
             $data['username'] = $this->lang->line('profile_username');
             $data['profile_name'] = $profile->name;
             $data['profile_surname'] = $profile->surname;
@@ -100,7 +100,7 @@ class Profiles extends MY_Controller
                     $this->session->set_userdata('logged_in_fail', FALSE);
                     $username = $this->input->post('username');
                     $this->session->set_userdata('username', $username);
-                    $language = $this->Profiles_model->get_user($username);
+                    $language = $this->Profiles_model->getUser($username);
                     $this->session->set_userdata('language', $language->language.'/');
 
                     redirect($this->session->userdata('language').'profiles');
@@ -202,7 +202,7 @@ class Profiles extends MY_Controller
                 redirect($this->session->userdata('language').'profiles');
             } else {
                 $data['username'] = $this->session->userdata('username');
-                $profile = $this->Profiles_model->get_user($data['username']);
+                $profile = $this->Profiles_model->getUser($data['username']);
                 $data['username'] = $this->lang->line('profile_username');
                 $data['profile_name'] = $profile->name;
                 $data['profile_surname'] = $profile->surname;
@@ -255,7 +255,7 @@ class Profiles extends MY_Controller
         $this->form_validation->set_rules('new_password', $data['form_new_password'], 'trim|required|min_length[8]|max_length[50]|differs[old_password]');
 
         if ($this->form_validation->run()) {
-            $user = $this->Profiles_model->get_user($this->session->userdata('username'));
+            $user = $this->Profiles_model->getUser($this->session->userdata('username'));
             if (password_verify($this->input->post('old_password'), $user->password)) {
                 $data = array('password' => $this->input->post('new_password'));
                 $this->Profiles_model->update_user($this->session->userdata('username'), $data);
@@ -292,12 +292,12 @@ class Profiles extends MY_Controller
         $this->form_validation->set_rules('email', $data['form_email'], 'required|max_length[50]|valid_email');
 
         if ($this->form_validation->run()) {
-            $profile = $this->Profiles_model->get_user_by_email($this->input->post('email'));
+            $profile = $this->Profiles_model->getUser_by_email($this->input->post('email'));
             if ($profile) {
                 $email = $this->input->post('email');
-                $password = $this->new_password();
+                $password = $this->newPassword();
                 $this->Profiles_model->new_password($email, $password);
-                $this->send_new_password($email, $password);
+                $this->sendNewPassword($email, $password);
                 $this->session->set_userdata('forgot_password_success', TRUE);
                 $this->session->set_userdata('forgot_password_fail', FALSE);
 
