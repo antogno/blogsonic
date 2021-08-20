@@ -93,7 +93,7 @@ class Profiles extends MY_Controller
 
         if ($this->form_validation->run()) {
             if ($this->session->userdata('logged_in')) {
-                redirect($this->session->userdata('language').'profiles/login', 'refresh');
+                redirect($this->session->userdata('language') . 'profiles/login', 'refresh');
             } else {
                 if ($this->Profiles_model->login($this->input->post())) {
                     $this->session->set_userdata('logged_in', TRUE);
@@ -101,14 +101,14 @@ class Profiles extends MY_Controller
                     $username = $this->input->post('username');
                     $this->session->set_userdata('username', $username);
                     $language = $this->Profiles_model->getUser($username);
-                    $this->session->set_userdata('language', $language->language.'/');
+                    $this->session->set_userdata('language', $language->language . '/');
 
-                    redirect($this->session->userdata('language').'profiles');
+                    redirect($this->session->userdata('language') . 'profiles');
                 } else {
                     $this->session->set_userdata('logged_in', FALSE);
                     $this->session->set_userdata('logged_in_fail', TRUE);
 
-                    redirect($this->session->userdata('language').'profiles/login', 'refresh');
+                    redirect($this->session->userdata('language') . 'profiles/login', 'refresh');
                 }
             }
         } else {
@@ -167,7 +167,7 @@ class Profiles extends MY_Controller
             $this->Profiles_model->register($this->input->post(), $password);
             $this->session->set_userdata('registered', TRUE);
 
-            redirect($this->session->userdata('language').'profiles/register', 'refresh');
+            redirect($this->session->userdata('language') . 'profiles/register', 'refresh');
         } else {
             $this->load->view('partials/header', $data);
             $this->load->view('profiles/register', $data);
@@ -199,7 +199,7 @@ class Profiles extends MY_Controller
 
             if ($this->form_validation->run()) {
                 $this->Profiles_model->update_user($this->session->userdata('username'), $this->input->post());
-                redirect($this->session->userdata('language').'profiles');
+                redirect($this->session->userdata('language') . 'profiles');
             } else {
                 $data['username'] = $this->session->userdata('username');
                 $profile = $this->Profiles_model->getUser($data['username']);
@@ -262,12 +262,12 @@ class Profiles extends MY_Controller
                 $this->session->set_userdata('password_changed', TRUE);
                 $this->session->set_userdata('password_not_changed', FALSE);
 
-                redirect($this->session->userdata('language').'profiles/password', 'refresh');
+                redirect($this->session->userdata('language') . 'profiles/password', 'refresh');
             } else {
                 $this->session->set_userdata('password_changed', FALSE);
                 $this->session->set_userdata('password_not_changed', TRUE);
 
-                redirect($this->session->userdata('language').'profiles/password', 'refresh');
+                redirect($this->session->userdata('language') . 'profiles/password', 'refresh');
             }
         } else {
             $this->load->view('partials/header', $data);
@@ -301,12 +301,12 @@ class Profiles extends MY_Controller
                 $this->session->set_userdata('forgot_password_success', TRUE);
                 $this->session->set_userdata('forgot_password_fail', FALSE);
 
-                redirect($this->session->userdata('language').'profiles/forgot', 'refresh');
+                redirect($this->session->userdata('language') . 'profiles/forgot', 'refresh');
             } else {
                 $this->session->set_userdata('forgot_password_success', FALSE);
                 $this->session->set_userdata('forgot_password_fail', TRUE);
 
-                redirect($this->session->userdata('language').'profiles/forgot', 'refresh');
+                redirect($this->session->userdata('language') . 'profiles/forgot', 'refresh');
             }
         } else {
             $this->load->view('partials/header', $data);

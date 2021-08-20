@@ -23,12 +23,12 @@ class MY_Controller extends CI_Controller
             $profile_language = $profile_language->language;
 
             if ($profile_language == 'en') {
-                $this->session->set_userdata('language', $profile_language.'/');
+                $this->session->set_userdata('language', $profile_language . '/');
                 $language = 'english';
                 $this->config->set_item('language', $language);
                 $this->lang->load('blogsonic', $language);
             } elseif ($profile_language == 'it') {
-                $this->session->set_userdata('language', $profile_language.'/');
+                $this->session->set_userdata('language', $profile_language . '/');
                 $language = 'italian';
                 $this->config->set_item('language', $language);
                 $this->lang->load('blogsonic', $language);
@@ -38,12 +38,12 @@ class MY_Controller extends CI_Controller
             $uri_language = $this->uri->segment(1);
 
             if ($uri_language == 'en') {
-                $this->session->set_userdata('language', $uri_language.'/');
+                $this->session->set_userdata('language', $uri_language . '/');
                 $language = 'english';
                 $this->config->set_item('language', $language);
                 $this->lang->load('blogsonic', $language);
             } elseif ($uri_language == 'it') {
-                $this->session->set_userdata('language', $uri_language.'/');
+                $this->session->set_userdata('language', $uri_language . '/');
                 $language = 'italian';
                 $this->config->set_item('language', $language);
                 $this->lang->load('blogsonic', $language);
@@ -54,12 +54,12 @@ class MY_Controller extends CI_Controller
                 $browser_language = in_array($browser_language, $accept) ? $browser_language : 'en';
 
                 if ($browser_language == 'it') {
-                    $this->session->set_userdata('language', $browser_language.'/');
+                    $this->session->set_userdata('language', $browser_language . '/');
                     $language = 'italian';
                     $this->config->set_item('language', $language);
                     $this->lang->load('blogsonic', $language);
                 } else {
-                    $this->session->set_userdata('language', $uri_language.'/');
+                    $this->session->set_userdata('language', $uri_language . '/');
                     $language = 'english';
                     $this->config->set_item('language', $language);
                     $this->lang->load('blogsonic', $language);
@@ -107,7 +107,7 @@ class MY_Controller extends CI_Controller
         $this->email->subject($this->lang->line('forgot_password_email_subject'));
 
         $this->email->message(
-            '<p>'.$this->lang->line('forgot_password_email_body').'<strong>'.$password.'</strong></p>'
+            '<p>'.$this->lang->line('forgot_password_email_body') . '<strong>' . $password . '</strong></p>'
         );
 
         $this->email->send();

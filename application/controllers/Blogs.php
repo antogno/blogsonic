@@ -28,13 +28,13 @@ class Blogs extends MY_Controller
         if ((is_numeric($limit) && $limit > 0 && $limit <= 20) && ($order == 'desc' || $order == 'asc')) {
             if (isset($date_min) && isset($date_max)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max.' 23:59:59'));
+                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
                 $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, $date_max);
             } elseif (isset($date_min)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
                 $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, FALSE);
             } elseif (isset($date_max)) {
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max.' 23:59:59'));
+                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
                 $blogs = $this->Blogs_model->getBlog($limit, $order, FALSE, $date_max);
             } else {
                 $blogs = $this->Blogs_model->getBlog($limit, $order, FALSE, FALSE);
@@ -61,7 +61,7 @@ class Blogs extends MY_Controller
                 $this->load->view('partials/footer');
             }
         } else {
-            redirect($this->session->userdata('language').'blogs/all', 'refresh');
+            redirect($this->session->userdata('language') . 'blogs/all', 'refresh');
         }
 
     }
@@ -84,13 +84,13 @@ class Blogs extends MY_Controller
         if ((is_numeric($limit) && $limit > 0 && $limit <= 20) && ($order == 'desc' || $order == 'asc')) {
             if (isset($date_min) && isset($date_max)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max.' 23:59:59'));
+                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
                 $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, $date_max);
             } elseif (isset($date_min)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
                 $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, FALSE);
             } elseif (isset($date_max)) {
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max.' 23:59:59'));
+                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
                 $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, FALSE, $date_max);
             } else {
                 $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, FALSE, FALSE);
@@ -124,7 +124,7 @@ class Blogs extends MY_Controller
                 $this->load->view('partials/footer');
             }
         } else {
-            redirect($this->session->userdata('language').'blogs/myblogs', 'refresh');
+            redirect($this->session->userdata('language') . 'blogs/myblogs', 'refresh');
         }
 
     }
@@ -153,7 +153,7 @@ class Blogs extends MY_Controller
             );
             $this->Blogs_model->insertBlog($data);
 
-            redirect($this->session->userdata('language').'blogs/myblogs');
+            redirect($this->session->userdata('language') . 'blogs/myblogs');
         } else {
             $this->load->view('partials/header', $data);
             $this->load->view('blogs/newblog', $data);
@@ -192,7 +192,7 @@ class Blogs extends MY_Controller
 
                 if ($this->form_validation->run()) {
                     $this->Blogs_model->deleteBlog($data['id']);
-                    redirect($this->session->userdata('language').'blogs/all');
+                    redirect($this->session->userdata('language') . 'blogs/all');
                 } else {
                     $this->load->view('partials/header', $data);
                     $this->load->view('blogs/view', $data);
@@ -244,7 +244,7 @@ class Blogs extends MY_Controller
                         );
                         $this->Blogs_model->updateBlog($data);
                         
-                        redirect($this->session->userdata('language').'blogs/myblogs');
+                        redirect($this->session->userdata('language') . 'blogs/myblogs');
                     } else {
                         $this->load->view('partials/header', $data);
                         $this->load->view('blogs/edit', $data);
