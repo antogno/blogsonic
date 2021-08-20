@@ -17,12 +17,12 @@ Blogsonic.org was created using the following tools and technologies:
 
 ## Who created Blogsonic.org?
 
-The designer and creator of Blogsonic.org it's me , that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here]('https://www.linkedin.com/in/antonio-granaldi/).
+The designer and creator of Blogsonic.org it's me, that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here](https://www.linkedin.com/in/antonio-granaldi/).
 
 ## How can I contact you?
 
-You can contact me on my LinkedIn profile above, or by sending an email to [mailto](mailto:tonio.granaldi@gmail.com).
+You can contact me on my LinkedIn profile above, or by sending an email to [tonio.granaldi@gmail.com](mailto:tonio.granaldi@gmail.com).
 
 ## Can I use the Blogsonic.org source code?
 
-Of course! You can find everything you need on [GitHub]('https://github.com/antogno/blogsonic').
+Of course! You can find everything you need on [GitHub](https://github.com/antogno/blogsonic).
