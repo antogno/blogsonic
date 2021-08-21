@@ -28,5 +28,5 @@
     <p><?= $this->lang->line('about_19'); ?> <a href="mailto:tonio.granaldi@gmail.com">tonio.granaldi@gmail.com</a>.</p>
     <p><strong><?= $this->lang->line('about_20'); ?></strong></p>
     <p><?= $this->lang->line('about_21'); ?>
-    <a target="_blank" href="https://github.com/"><?= $this->lang->line('about_22'); ?></a>.</p>
+    <a target="_blank" href="https://github.com/antogno/blogsonic"><?= $this->lang->line('about_22'); ?></a>.</p>
 </div>
