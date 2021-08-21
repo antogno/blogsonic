@@ -58,7 +58,7 @@ class Profiles extends MY_Controller
 
             if ($this->form_validation->run()) {
                 $this->session->sess_destroy();
-                $this->Profiles_model->delete_user($profile->username);
+                $this->Profiles_model->deleteUser($profile->username);
 
                 redirect($this->session->userdata('language'));
             } else {
@@ -198,7 +198,7 @@ class Profiles extends MY_Controller
             $this->form_validation->set_rules('language', $data['language'], 'required|max_length[2]');
 
             if ($this->form_validation->run()) {
-                $this->Profiles_model->update_user($this->session->userdata('username'), $this->input->post());
+                $this->Profiles_model->updateUser($this->session->userdata('username'), $this->input->post());
                 redirect($this->session->userdata('language') . 'profiles');
             } else {
                 $data['username'] = $this->session->userdata('username');
@@ -258,7 +258,7 @@ class Profiles extends MY_Controller
             $user = $this->Profiles_model->getUser($this->session->userdata('username'));
             if (password_verify($this->input->post('old_password'), $user->password)) {
                 $data = array('password' => $this->input->post('new_password'));
-                $this->Profiles_model->update_user($this->session->userdata('username'), $data);
+                $this->Profiles_model->updateUser($this->session->userdata('username'), $data);
                 $this->session->set_userdata('password_changed', TRUE);
                 $this->session->set_userdata('password_not_changed', FALSE);
 
@@ -292,7 +292,7 @@ class Profiles extends MY_Controller
         $this->form_validation->set_rules('email', $data['form_email'], 'required|max_length[50]|valid_email');
 
         if ($this->form_validation->run()) {
-            $profile = $this->Profiles_model->getUser_by_email($this->input->post('email'));
+            $profile = $this->Profiles_model->getUserByEmail($this->input->post('email'));
             if ($profile) {
                 $email = $this->input->post('email');
                 $password = $this->newPassword();

@@ -91,7 +91,7 @@ class Blogs_model extends CI_Model
 
     }
 
-    public function update_blog($data){
+    public function updateBlog($data){
 
         $this->db->where('id', $data['id']);
         $this->db->set('title', $data['title']);

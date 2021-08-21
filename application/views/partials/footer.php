@@ -138,7 +138,11 @@
 
             $('#change_language').change(function() {
                 let segments = window.location.href.split('/');
-                segments[5] = $(this).val();
+                segments.forEach(function (item, index) {
+                    if (item.indexOf('blogsonic') >= 0) {
+                        segments[index + 1] = $('#change_language').val();
+                    }
+                });
                 window.location = segments.join('/');
             });
         });

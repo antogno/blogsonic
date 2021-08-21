@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<?= base_url('public/assets/css/bootstrap.min.css'); ?>"/>
     <link rel="stylesheet" href="<?= base_url('public/assets/css/style.css'); ?>"/>
     <link rel="stylesheet" href="<?= base_url('public/assets/font-awesome-4.7.0/css/font-awesome.min.css'); ?>"/>
-    <script src="<?= base_url('public/assets/js/bootstrap.bundle.min.js'); ?>" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="<?= base_url('public/assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
 <body>
     <div class="modal" id="cookiebar">

@@ -11,7 +11,7 @@ class Profiles_model extends CI_Model
 
     }
 
-    public function get_user($username)
+    public function getUser($username)
     {
 
         $this->db->where('username', $username);
@@ -20,7 +20,7 @@ class Profiles_model extends CI_Model
 
     }
 
-    public function get_user_by_email($email)
+    public function getUserByEmail($email)
     {
 
         $this->db->where('email', $email);
@@ -29,7 +29,7 @@ class Profiles_model extends CI_Model
 
     }
 
-    public function new_password($email, $password)
+    public function newPassword($email, $password)
     {
 
         $this->db->where('email', $email);
@@ -38,7 +38,7 @@ class Profiles_model extends CI_Model
 
     }
 
-    public function update_user($username, $data)
+    public function updateUser($username, $data)
     {
 
         $this->db->where('username', $username);
@@ -72,7 +72,7 @@ class Profiles_model extends CI_Model
 
     }
 
-    public function delete_user($username)
+    public function deleteUser($username)
     {
 
         $this->db->where('username', $username);

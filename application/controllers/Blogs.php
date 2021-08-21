@@ -149,7 +149,7 @@ class Blogs extends MY_Controller
             $data = array(
                 'title' => $this->input->post('title'),
                 'body' => $this->input->post('body'),
-                'user_id' => $this->Blogs_model->getUser_id($this->session->userdata('username'))
+                'user_id' => $this->Blogs_model->getUserId($this->session->userdata('username'))
             );
             $this->Blogs_model->insertBlog($data);
 
