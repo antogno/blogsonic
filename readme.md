@@ -97,7 +97,7 @@ $config['base_url'] = ''; // Base URL (e.g.: http://localhost/blogsonic/)
 
 ## Add your email informations to MY_Controller::sendNewPassword found in `application/core/MY_Controller.php`
 
-This email will be used to send a new password to a user who has forgotten it.
+This email will be used to send a new password to a user who has forgotten it. If you use Gmail, Google may block the automatic sending of the email. To turn this off, login to your Google account and enable the option "Allow less secure apps", by [clicking here](https://myaccount.google.com/lesssecureapps).
 
 ```php
 $config['smtp_host'] = ''; // SMTP host (e.g.: ssl://smtp.googlemail.com)
