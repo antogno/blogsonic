@@ -296,7 +296,7 @@ class Profiles extends MY_Controller
             if ($profile) {
                 $email = $this->input->post('email');
                 $password = $this->newPassword();
-                $this->Profiles_model->new_password($email, $password);
+                $this->Profiles_model->newPassword($email, $password);
                 $this->sendNewPassword($email, $password);
                 $this->session->set_userdata('forgot_password_success', TRUE);
                 $this->session->set_userdata('forgot_password_fail', FALSE);
