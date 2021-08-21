@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'blogsonic',
+	'hostname' => '', // Hostame (e.g.: localhost)
+	'username' => '', // Database username (e.g.: root)
+	'password' => '', // Password
+	'database' => '', // Database name (e.g.: blogsonic)
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

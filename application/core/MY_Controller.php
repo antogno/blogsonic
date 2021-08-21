@@ -90,11 +90,11 @@ class MY_Controller extends CI_Controller
 
         $this->load->library('email');
 
-        $config['protocol']    = 'smtp';
-        $config['smtp_port']    = '465';
-        $config['smtp_host'] = 'ssl://smtp.googlemail.com';
-        $config['smtp_user'] = ''; // username@gmail.com
-        $config['smtp_pass'] = ''; // password
+        $config['protocol'] = 'smtp';
+        $config['smtp_port'] = '465';
+        $config['smtp_host'] = ''; // SMTP host (e.g.: ssl://smtp.googlemail.com)
+        $config['smtp_user'] = ''; // User (e.g.: example@gmail.com)
+        $config['smtp_pass'] = ''; // Password
         $config['charset'] = 'iso-8859-1';
         $config['crlf'] = "\r\n";
         $config['newline'] = "\r\n";
@@ -102,7 +102,7 @@ class MY_Controller extends CI_Controller
         $config['validate'] = TRUE; 
 
         $this->email->initialize($config);
-        $this->email->from('', 'Blogsonic.org'); // username@gmail.com
+        $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
         $this->email->to($email);
         $this->email->subject($this->lang->line('forgot_password_email_subject'));
 
