@@ -3,7 +3,7 @@
     <div class="form-group">
         <footer style="padding: 0 1rem 1rem 1rem">
             <?php
-                if(!$this->session->userdata('logged_in')) {
+                if ( ! $this->session->userdata('logged_in')) {
             ?>
                 <label class="form-label">
                     <select class="form-select" id="change_language">
@@ -28,7 +28,7 @@
     <script src="<?= base_url('public/assets/js/script.js'); ?>"></script>
     <script>
         $(document).ready(function() {
-            if (!localStorage.getItem('cookie')) {
+            if ( ! localStorage.getItem('cookie')) {
                 $('#cookiebar').modal('show');
             }
 
@@ -38,8 +38,15 @@
             });
 
             $('#change_options').click(function() {
+                let blogsonic_segment = [];
                 let segments = window.location.href.split('/');
-                if (segments.length == 8) {
+                segments.forEach(function (item, index) {
+                    if (item.indexOf('blogsonic') >= 0) {
+                        blogsonic_segment.push(index + 1);
+                    }
+                });
+
+                if (segments.length == blogsonic_segment[0] + 3) {
                     if ($('#change_limit').val()) {
                         segments.push($('#change_limit').val());
                     } else {
@@ -62,9 +69,9 @@
                         segments.push(today);
                     }
                     window.location = segments.join('/');
-                } else if (segments.length == 9) {
+                } else if (segments.length == blogsonic_segment[0] + 4) {
                     if ($('#change_limit').val()) {
-                        segments[8] = $('#change_limit').val();
+                        segments[blogsonic_segment[0] + 3] = $('#change_limit').val();
                     }
                     if ($('#change_order').val()) {
                         segments.push($('#change_order').val());
@@ -83,12 +90,12 @@
                         segments.push(today);
                     }
                     window.location = segments.join('/');
-                } else if (segments.length == 10) {
-                    if($('#change_limit').val()) {
-                        segments[8] = $('#change_limit').val();
+                } else if (segments.length == blogsonic_segment[0] + 5) {
+                    if ($('#change_limit').val()) {
+                        segments[blogsonic_segment[0] + 3] = $('#change_limit').val();
                     }
                     if ($('#change_order').val()) {
-                        segments[9] = $('#change_order').val();
+                        segments[blogsonic_segment[0] + 4] = $('#change_order').val();
                     }
                     if ($('#date_min').val()) {
                         segments.push($('#date_min').val());
@@ -102,15 +109,15 @@
                         segments.push(today);
                     }
                     window.location = segments.join('/');
-                } else if (segments.length == 11) {
+                } else if (segments.length == blogsonic_segment[0] + 6) {
                     if ($('#change_limit').val()) {
-                        segments[8] = $('#change_limit').val();
+                        segments[blogsonic_segment[0] + 3] = $('#change_limit').val();
                     }
                     if ($('#change_order').val()) {
-                        segments[9] = $('#change_order').val();
+                        segments[blogsonic_segment[0] + 4] = $('#change_order').val();
                     }
                     if ($('#date_min').val()) {
-                        segments[10] = $('#date_min').val();
+                        segments[blogsonic_segment[0] + 5] = $('#date_min').val();
                     }
                     if ($('#date_max').val()) {
                         segments.push($('#date_max').val());
@@ -119,18 +126,18 @@
                         segments.push(today);
                     }
                     window.location = segments.join('/');
-                } else if (segments.length == 12) {
+                } else if (segments.length == blogsonic_segment[0] + 7) {
                     if ($('#change_limit').val()) {
-                        segments[8] = $('#change_limit').val();
+                        segments[blogsonic_segment[0] + 3] = $('#change_limit').val();
                     }
                     if ($('#change_order').val()) {
-                        segments[9] = $('#change_order').val();
+                        segments[blogsonic_segment[0] + 4] = $('#change_order').val();
                     }
                     if ($('#date_min').val()) {
-                        segments[10] = $('#date_min').val();
+                        segments[blogsonic_segment[0] + 5] = $('#date_min').val();
                     }
                     if ($('#date_max').val()) {
-                        segments[11] = $('#date_max').val();
+                        segments[blogsonic_segment[0] + 6] = $('#date_max').val();
                     }
                     window.location = segments.join('/');
                 }
