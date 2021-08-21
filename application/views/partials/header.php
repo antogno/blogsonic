@@ -104,7 +104,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" target="_blank" href="https://github.com/">
+                        <a class="nav-link" target="_blank" href="https://github.com/antogno/blogsonic">
                             <i class="fa fa-github" aria-hidden="true"></i>&nbsp;GitHub
                             <span class="visually-hidden"></span>
                         </a>
