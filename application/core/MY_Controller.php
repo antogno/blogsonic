@@ -23,30 +23,39 @@ class MY_Controller extends CI_Controller
             $profile_language = $profile_language->language;
 
             if ($profile_language == 'en') {
+
                 $this->session->set_userdata('language', $profile_language . '/');
                 $language = 'english';
                 $this->config->set_item('language', $language);
                 $this->lang->load('blogsonic', $language);
+
             } elseif ($profile_language == 'it') {
+
                 $this->session->set_userdata('language', $profile_language . '/');
                 $language = 'italian';
                 $this->config->set_item('language', $language);
                 $this->lang->load('blogsonic', $language);
+                
             }
 
         } else {
+
             $uri_language = $this->uri->segment(1);
 
             if ($uri_language == 'en') {
+
                 $this->session->set_userdata('language', $uri_language . '/');
                 $language = 'english';
                 $this->config->set_item('language', $language);
                 $this->lang->load('blogsonic', $language);
+
             } elseif ($uri_language == 'it') {
+
                 $this->session->set_userdata('language', $uri_language . '/');
                 $language = 'italian';
                 $this->config->set_item('language', $language);
                 $this->lang->load('blogsonic', $language);
+
             } else {
                 
                 $browser_language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
@@ -59,6 +68,7 @@ class MY_Controller extends CI_Controller
                     $this->config->set_item('language', $language);
                     $this->lang->load('blogsonic', $language);
                 } else {
+                    $uri_language = 'en';
                     $this->session->set_userdata('language', $uri_language . '/');
                     $language = 'english';
                     $this->config->set_item('language', $language);
@@ -66,6 +76,7 @@ class MY_Controller extends CI_Controller
                 }
 
             }
+
         }
 
     }
