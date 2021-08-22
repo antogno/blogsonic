@@ -96,17 +96,23 @@ class Profiles extends MY_Controller
                 redirect($this->session->userdata('language') . 'profiles/login', 'refresh');
             } else {
                 if ($this->Profiles_model->login($this->input->post())) {
-                    $this->session->set_userdata('logged_in', TRUE);
-                    $this->session->set_userdata('logged_in_fail', FALSE);
-                    $username = $this->input->post('username');
-                    $this->session->set_userdata('username', $username);
-                    $language = $this->Profiles_model->getUser($username);
-                    $this->session->set_userdata('language', $language->language . '/');
+
+                    $user_session = array(
+                        'logged_in' => TRUE,
+                        'logged_in_fail' => FALSE,
+                        'username' => $this->input->post('username'),
+                        'language' => $this->Profiles_model->getUser($this->input->post('username'))->language . '/'
+                    );
+                    $this->session->set_userdata($user_session);
 
                     redirect($this->session->userdata('language') . 'profiles');
                 } else {
-                    $this->session->set_userdata('logged_in', FALSE);
-                    $this->session->set_userdata('logged_in_fail', TRUE);
+
+                    $user_session = array(
+                        'logged_in' => FALSE,
+                        'logged_in_fail' => TRUE
+                    );
+                    $this->session->set_userdata($user_session);
 
                     redirect($this->session->userdata('language') . 'profiles/login', 'refresh');
                 }
@@ -165,7 +171,11 @@ class Profiles extends MY_Controller
         if ($this->form_validation->run()) {
             $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
             $this->Profiles_model->register($this->input->post(), $password);
-            $this->session->set_userdata('registered', TRUE);
+
+            $user_session = array(
+                'registered' => TRUE
+            );
+            $this->session->set_userdata($user_session);
 
             redirect($this->session->userdata('language') . 'profiles/register', 'refresh');
         } else {
@@ -259,13 +269,21 @@ class Profiles extends MY_Controller
             if (password_verify($this->input->post('old_password'), $user->password)) {
                 $data = array('password' => $this->input->post('new_password'));
                 $this->Profiles_model->updateUser($this->session->userdata('username'), $data);
-                $this->session->set_userdata('password_changed', TRUE);
-                $this->session->set_userdata('password_not_changed', FALSE);
+
+                $user_session = array(
+                    'password_changed' => TRUE,
+                    'password_not_changed' => FALSE
+                );
+                $this->session->set_userdata($user_session);
 
                 redirect($this->session->userdata('language') . 'profiles/password', 'refresh');
             } else {
-                $this->session->set_userdata('password_changed', FALSE);
-                $this->session->set_userdata('password_not_changed', TRUE);
+
+                $user_session = array(
+                    'password_changed' => FALSE,
+                    'password_not_changed' => TRUE
+                );
+                $this->session->set_userdata($user_session);
 
                 redirect($this->session->userdata('language') . 'profiles/password', 'refresh');
             }
@@ -298,13 +316,21 @@ class Profiles extends MY_Controller
                 $password = $this->newPassword();
                 $this->Profiles_model->newPassword($email, $password);
                 $this->sendNewPassword($email, $password);
-                $this->session->set_userdata('forgot_password_success', TRUE);
-                $this->session->set_userdata('forgot_password_fail', FALSE);
+
+                $user_session = array(
+                    'forgot_password_success' => TRUE,
+                    'forgot_password_fail' => FALSE
+                );
+                $this->session->set_userdata($user_session);
 
                 redirect($this->session->userdata('language') . 'profiles/forgot', 'refresh');
             } else {
-                $this->session->set_userdata('forgot_password_success', FALSE);
-                $this->session->set_userdata('forgot_password_fail', TRUE);
+
+                $user_session = array(
+                    'forgot_password_success' => FALSE,
+                    'forgot_password_fail' => TRUE
+                );
+                $this->session->set_userdata($user_session);
 
                 redirect($this->session->userdata('language') . 'profiles/forgot', 'refresh');
             }

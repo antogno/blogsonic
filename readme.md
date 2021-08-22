@@ -9,7 +9,7 @@ Blogsonic.org was created using the following tools and technologies:
 * Front-end:
     * HTML;
     * CSS (framework: Bootstrap);
-    * Javascript;
+    * JavaScript;
     * jQuery.
 * Back-end:
     * PHP (framework: CodeIgniter 3.1.11);
@@ -95,9 +95,9 @@ Follow the next steps to set up Blogsonic.
 $config['base_url'] = ''; // Base URL (e.g.: http://localhost/blogsonic/)
 ```
 
-## Add your email informations to MY_Controller::sendNewPassword found in `application/core/MY_Controller.php`
+## Add your email informations in the `application/core/MY_Controller.php` file
 
-This email will be used to send a new password to a user who has forgotten it. If you use Gmail, Google may block the automatic sending of the email. To turn this off, login to your Google account and enable the option "Allow less secure apps", by [clicking here](https://myaccount.google.com/lesssecureapps).
+This email will be used to send a new password to a user who has forgotten it. If you use Gmail, Google may block the automatic sending of the email. To turn this off, login to your Google account and enable the option "Allow less secure apps", [by clicking here](https://myaccount.google.com/lesssecureapps).
 
 ```php
 $config['smtp_host'] = ''; // SMTP host (e.g.: ssl://smtp.googlemail.com)

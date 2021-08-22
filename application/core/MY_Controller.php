@@ -19,43 +19,20 @@ class MY_Controller extends CI_Controller
         $this->load->model('Profiles_model');
 
         if ($this->session->userdata('logged_in')) {
+
             $profile_language = $this->Profiles_model->getUser($this->session->userdata('username'));
             $profile_language = $profile_language->language;
 
-            if ($profile_language == 'en') {
-
-                $this->session->set_userdata('language', $profile_language . '/');
-                $language = 'english';
-                $this->config->set_item('language', $language);
-                $this->lang->load('blogsonic', $language);
-
-            } elseif ($profile_language == 'it') {
-
-                $this->session->set_userdata('language', $profile_language . '/');
+            if ($profile_language == 'it') {
                 $language = 'italian';
-                $this->config->set_item('language', $language);
-                $this->lang->load('blogsonic', $language);
-                
             }
 
         } else {
 
-            $uri_language = $this->uri->segment(1);
-
-            if ($uri_language == 'en') {
-
-                $this->session->set_userdata('language', $uri_language . '/');
-                $language = 'english';
-                $this->config->set_item('language', $language);
-                $this->lang->load('blogsonic', $language);
-
-            } elseif ($uri_language == 'it') {
-
-                $this->session->set_userdata('language', $uri_language . '/');
+            if ($this->uri->segment(1) == 'it') {
                 $language = 'italian';
-                $this->config->set_item('language', $language);
-                $this->lang->load('blogsonic', $language);
-
+            } elseif ($this->uri->segment(1) == 'en') {
+                $language = 'english';
             } else {
                 
                 $browser_language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
@@ -63,21 +40,25 @@ class MY_Controller extends CI_Controller
                 $browser_language = in_array($browser_language, $accept) ? $browser_language : 'en';
 
                 if ($browser_language == 'it') {
-                    $this->session->set_userdata('language', $browser_language . '/');
                     $language = 'italian';
-                    $this->config->set_item('language', $language);
-                    $this->lang->load('blogsonic', $language);
-                } else {
-                    $uri_language = 'en';
-                    $this->session->set_userdata('language', $uri_language . '/');
-                    $language = 'english';
-                    $this->config->set_item('language', $language);
-                    $this->lang->load('blogsonic', $language);
                 }
 
             }
 
         }
+
+        if ( ! isset($language)) {
+            $language = 'english';
+        }
+
+        $uri_language = substr($language, 0, 2);
+
+        $user_session = array(
+            'language' => $uri_language . '/'
+        );
+        $this->session->set_userdata($user_session);
+        $this->config->set_item('language', $language);
+        $this->lang->load('blogsonic', $language);
 
     }
 
