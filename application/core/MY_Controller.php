@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Extension of the Application Controller Class
+ * 
+ * @author  Antonio Granaldi
+ */
 class MY_Controller extends CI_Controller
 {
 
@@ -12,7 +17,12 @@ class MY_Controller extends CI_Controller
         $this->loadLanguage();
 
     }
-
+    
+    /**
+     * Loads the website language based on the Profile settings (if logged-in), the URL or the browser main language
+     *
+     * @return  void
+     */
     public function loadLanguage()
     {
 
@@ -61,7 +71,12 @@ class MY_Controller extends CI_Controller
         $this->lang->load('blogsonic', $language);
 
     }
-
+    
+    /**
+     * Generates a new password
+     *
+     * @return  string
+     */
     public function newPassword()
     {
 
@@ -76,8 +91,15 @@ class MY_Controller extends CI_Controller
         return $password;
 
     }
-
-    public function sendNewPassword($email, $password)
+    
+    /**
+     * Sends the given password to the given email address
+     *
+     * @param   string $email the email address to send the new password to.
+     * @param   string $password the new password.
+     * @return  void
+     */
+    public function sendNewPassword(string $email, string $password)
     {
 
         $this->load->library('email');
@@ -91,7 +113,7 @@ class MY_Controller extends CI_Controller
         $config['crlf'] = "\r\n";
         $config['newline'] = "\r\n";
         $config['mailtype'] = 'html';
-        $config['validate'] = TRUE; 
+        $config['validate'] = true; 
 
         $this->email->initialize($config);
         $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)

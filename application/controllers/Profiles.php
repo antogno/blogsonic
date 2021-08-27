@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Profiles Controller Class
+ * 
+ * @author  Antonio Granaldi
+ */
 class Profiles extends MY_Controller
 {
 
@@ -10,7 +15,12 @@ class Profiles extends MY_Controller
         parent::__construct();
 
     }
-
+    
+    /**
+     * Shows the main Profile page
+     *
+     * @return  void
+     */
     public function index()
     {
 
@@ -75,7 +85,12 @@ class Profiles extends MY_Controller
         }
 
     }
-
+    
+    /**
+     * Shows the login page
+     *
+     * @return  void
+     */
     public function login()
     {
 
@@ -98,8 +113,8 @@ class Profiles extends MY_Controller
                 if ($this->Profiles_model->login($this->input->post())) {
 
                     $user_session = array(
-                        'logged_in' => TRUE,
-                        'logged_in_fail' => FALSE,
+                        'logged_in' => true,
+                        'logged_in_fail' => false,
                         'username' => $this->input->post('username'),
                         'language' => $this->Profiles_model->getUser($this->input->post('username'))->language . '/'
                     );
@@ -109,8 +124,8 @@ class Profiles extends MY_Controller
                 } else {
 
                     $user_session = array(
-                        'logged_in' => FALSE,
-                        'logged_in_fail' => TRUE
+                        'logged_in' => false,
+                        'logged_in_fail' => true
                     );
                     $this->session->set_userdata($user_session);
 
@@ -124,7 +139,12 @@ class Profiles extends MY_Controller
         }
 
     }
-
+    
+    /**
+     * Logs out from the current logged-in Profile
+     *
+     * @return  void
+     */
     public function logout()
     {
 
@@ -135,7 +155,12 @@ class Profiles extends MY_Controller
         $this->load->view('partials/footer');
 
     }
-
+    
+    /**
+     * Shows the register page
+     *
+     * @return  void
+     */
     public function register()
     {
 
@@ -173,7 +198,7 @@ class Profiles extends MY_Controller
             $this->Profiles_model->register($this->input->post(), $password);
 
             $user_session = array(
-                'registered' => TRUE
+                'registered' => true
             );
             $this->session->set_userdata($user_session);
 
@@ -185,7 +210,12 @@ class Profiles extends MY_Controller
         }
 
     }
-
+    
+    /**
+     * Shows the edit page for the logged-in Profile
+     *
+     * @return  void
+     */
     public function edit()
     {
 
@@ -248,7 +278,12 @@ class Profiles extends MY_Controller
         }
 
     }
-
+    
+    /**
+     * Shows the change password page
+     *
+     * @return  void
+     */
     public function password()
     {
 
@@ -271,8 +306,8 @@ class Profiles extends MY_Controller
                 $this->Profiles_model->updateUser($this->session->userdata('username'), $data);
 
                 $user_session = array(
-                    'password_changed' => TRUE,
-                    'password_not_changed' => FALSE
+                    'password_changed' => true,
+                    'password_not_changed' => false
                 );
                 $this->session->set_userdata($user_session);
 
@@ -280,8 +315,8 @@ class Profiles extends MY_Controller
             } else {
 
                 $user_session = array(
-                    'password_changed' => FALSE,
-                    'password_not_changed' => TRUE
+                    'password_changed' => false,
+                    'password_not_changed' => true
                 );
                 $this->session->set_userdata($user_session);
 
@@ -294,7 +329,12 @@ class Profiles extends MY_Controller
         }
 
     }
-
+    
+    /**
+     * Shows the forgot password page
+     *
+     * @return  void
+     */
     public function forgot()
     {
 
@@ -318,8 +358,8 @@ class Profiles extends MY_Controller
                 $this->sendNewPassword($email, $password);
 
                 $user_session = array(
-                    'forgot_password_success' => TRUE,
-                    'forgot_password_fail' => FALSE
+                    'forgot_password_success' => true,
+                    'forgot_password_fail' => false
                 );
                 $this->session->set_userdata($user_session);
 
@@ -327,8 +367,8 @@ class Profiles extends MY_Controller
             } else {
 
                 $user_session = array(
-                    'forgot_password_success' => FALSE,
-                    'forgot_password_fail' => TRUE
+                    'forgot_password_success' => false,
+                    'forgot_password_fail' => true
                 );
                 $this->session->set_userdata($user_session);
 

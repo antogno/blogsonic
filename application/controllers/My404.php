@@ -1,14 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Error 404 Controller Class
+ * 
+ * @author  Antonio Granaldi
+ */
 class My404 extends MY_Controller
 {
 
-    public function __construct() {
+    public function __construct()
+    {
 
         parent::__construct();
 
     }
+
+    /**
+     * Shows a custom created page in case of a 404 error
+     * 
+     * @return  void
+     */
     public function index()
     {
 

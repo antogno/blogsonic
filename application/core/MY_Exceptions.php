@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Extension of the Exceptions Class
+ * 
+ * @author  Antonio Granaldi
+ */
 class MY_Exceptions extends CI_Exceptions
 {
 
@@ -11,7 +16,12 @@ class MY_Exceptions extends CI_Exceptions
 
     }
     
-    public function show_404($page = '', $log_error = TRUE)
+    /**
+     * Extension of the 404 Page Handler
+     * 
+     * @return  void
+     */
+    public function show_404($page = '', $log_error = true)
     {
 
         $CI =& get_instance();

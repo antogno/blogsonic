@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Static pages Controller Class
+ * 
+ * @author  Antonio Granaldi
+ */
 class Pages extends MY_Controller
 {
 
@@ -11,7 +16,13 @@ class Pages extends MY_Controller
 
     }
 
-    public function view($page = 'home')
+    /**
+     * View a particular static pages
+     * 
+     * @param   string $page the name of the page to view.
+     * @return  void
+     */
+    public function view(string $page = 'home')
     {
 
         if (file_exists(APPPATH . 'views/pages/' . $page . '.php')) {

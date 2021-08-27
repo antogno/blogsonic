@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Blogs Controller Class
+ * 
+ * @author  Antonio Granaldi
+ */
 class Blogs extends MY_Controller
 {
 
@@ -11,13 +16,22 @@ class Blogs extends MY_Controller
 
     }
 
-    public function all($limit = 5, $order = 'desc', $date_min = NULL, $date_max = NULL)
+    /**
+     * Shows all the Blogs
+     * 
+     * @param   int $limit the maximum number of Blogs to show.
+     * @param   string $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
+     * @param   string $date_min the minimum date in which to start showing Blogs.
+     * @param   string $date_max the maximum date of Blogs to show.
+     * @return  void
+     */
+    public function all(int $limit = 5, string $order = 'desc', string $date_min = null, string $date_max = null)
     {
 
         $this->load->model('Blogs_model');
 
         $data = array(
-            'blogs' => FALSE,
+            'blogs' => false,
             'title' => $this->lang->line('blogs_title'),
             'blogs_title' => $this->lang->line('blogs_actual_title'),
             'user' => $this->lang->line('blogs_user'),
@@ -32,16 +46,16 @@ class Blogs extends MY_Controller
                 $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, $date_max);
             } elseif (isset($date_min)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, FALSE);
+                $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, false);
             } elseif (isset($date_max)) {
                 $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
-                $blogs = $this->Blogs_model->getBlog($limit, $order, FALSE, $date_max);
+                $blogs = $this->Blogs_model->getBlog($limit, $order, false, $date_max);
             } else {
-                $blogs = $this->Blogs_model->getBlog($limit, $order, FALSE, FALSE);
+                $blogs = $this->Blogs_model->getBlog($limit, $order, false, false);
             }
 
             if ($blogs) {
-                $data['blogs'] = TRUE;
+                $data['blogs'] = true;
                 $this->load->view('partials/header', $data);
                 $this->load->view('blogs/options');
 
@@ -66,14 +80,23 @@ class Blogs extends MY_Controller
 
     }
 
-    public function myblogs($limit = 5, $order = 'desc', $date_min = NULL, $date_max = NULL)
+    /**
+     * Shows all the Blogs of the logged-in user
+     * 
+     * @param   int $limit the maximum number of Blogs to show.
+     * @param   string $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
+     * @param   string $date_min the minimum date in which to start showing Blogs.
+     * @param   string $date_max the maximum date of showed Blogs.
+     * @return  void
+     */
+    public function myblogs(int $limit = 5, string $order = 'desc', string $date_min = null, string $date_max = null)
     {
 
         $this->load->model('Blogs_model');
 
         $data = array(
-            'blogs' => FALSE,
-            'myblogs' => FALSE,
+            'blogs' => false,
+            'myblogs' => false,
             'title' => $this->lang->line('myblogs_title'),
             'blogs_title' => $this->lang->line('blogs_actual_title'),
             'user' => $this->lang->line('blogs_user'),
@@ -88,30 +111,30 @@ class Blogs extends MY_Controller
                 $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, $date_max);
             } elseif (isset($date_min)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, FALSE);
+                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, false);
             } elseif (isset($date_max)) {
                 $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
-                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, FALSE, $date_max);
+                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, false, $date_max);
             } else {
-                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, FALSE, FALSE);
+                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, false, false);
             }
 
             if ($blogs) {
-                $data['blogs'] = TRUE;
+                $data['blogs'] = true;
                 $this->load->view('partials/header', $data);
                 $this->load->view('blogs/options');
 
                 foreach ($blogs as $key => $blog) {
                     $user = $this->Blogs_model->getUser($blog->user_id);
                     if ((strtolower($user) == strtolower($this->session->userdata('username'))) && ($limit > 0)) {
-                        $data['myblogs'] = TRUE;
+                        $data['myblogs'] = true;
                         $data['blog_id'] = $blog->id;
                         $data['blog_title'] = $blog->title;
                         $data['blog_user'] = $user;
                         $data['blog_created_at'] = date('d-m-Y H:i', strtotime($blog->created_at));
                         $this->load->view('blogs/myblogs', $data);
                         $limit--;
-                    } elseif ($key === array_key_last($blogs) && $data['myblogs'] === FALSE) {
+                    } elseif ($key === array_key_last($blogs) && $data['myblogs'] === false) {
                         $this->load->view('blogs/myblogs', $data);
                     }
                 }
@@ -129,6 +152,11 @@ class Blogs extends MY_Controller
 
     }
 
+    /**
+     * Creates a new Blog
+     * 
+     * @return  void
+     */
     public function newblog()
     {
 
@@ -162,6 +190,11 @@ class Blogs extends MY_Controller
 
     }
 
+    /**
+     * View a particular Blog
+     * 
+     * @return  void
+     */
     public function view()
     {
 
@@ -170,7 +203,7 @@ class Blogs extends MY_Controller
         $id = $this->uri->segment(4);
 
         if ($id) {
-            $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', FALSE, FALSE, $id);
+            $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', false, false, $id);
 
             if ($blog) {
 
@@ -207,6 +240,11 @@ class Blogs extends MY_Controller
 
     }
 
+    /**
+     * Edits a particular Blog
+     * 
+     * @return  void
+     */
     public function edit()
     {
 
@@ -215,7 +253,7 @@ class Blogs extends MY_Controller
         $id = $this->uri->segment(4);
 
         if ($id) {
-            $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', FALSE, FALSE, $id);
+            $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', false, false, $id);
 
             if ($blog) {
                 $user = $this->Blogs_model->getUser($blog->user_id);
