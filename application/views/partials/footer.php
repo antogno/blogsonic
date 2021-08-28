@@ -147,7 +147,15 @@
                 let segments = window.location.href.split('/');
                 segments.forEach(function (item, index) {
                     if (item.indexOf('blogsonic') >= 0) {
-                        segments[index + 1] = $('#change_language').val();
+                        if (segments[index + 1] == 'it' || segments[index + 1] == 'en') {
+                            segments[index + 1] = $('#change_language').val();
+                        } else {
+                            for (let i = segments.length; i > index; i--) {
+                                segments[i] = segments[i - 1];
+                            }
+                            segments[index + 1] = $('#change_language').val();
+                        }
+
                     }
                 });
                 window.location = segments.join('/');
