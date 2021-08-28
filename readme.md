@@ -144,12 +144,6 @@ $ unzip chromedriver_linux64.zip
 # mv chromedriver /usr/bin/chromedriver
 ```
 
-Now you can start it with the following command:
-
-```console
-$ chromedriver --url-base=/wd/hub
-```
-
 ## Install the Composer packages
 
 From the `blogsonic/` folder, run the following command:
@@ -158,7 +152,21 @@ From the `blogsonic/` folder, run the following command:
 $ bin/composer install
 ```
 
-## Run the acceptance tests
+## Add your base URL in the `tests/acceptance.suite.yml` file
+
+```yml
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: # Base URL (e.g.: http://localhost/blogsonic)
+```
+
+## Start ChromeDriver and run the acceptance tests
+
+```console
+$ chromedriver --url-base=/wd/hub
+```
 
 ```console
 $ vendor/bin/codecept run

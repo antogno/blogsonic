@@ -8,7 +8,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: http://localhost/blogsonic
+            url: # Base URL (e.g.: http://localhost/blogsonic)
             window_size: false
             port: 9515
             browser: chrome
