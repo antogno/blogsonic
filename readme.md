@@ -89,9 +89,11 @@ Follow the next steps to set up Blogsonic.
     );
     ```
 
-## Add the base URL in the `application/config/config.php` file
+## Add your timezone and base URL in the `application/config/config.php` file
 
 ```php
+date_default_timezone_set(''); // Your timezone (eg.: Europe/London)
+
 $config['base_url'] = ''; // Base URL (e.g.: http://localhost/blogsonic/)
 ```
 
@@ -106,3 +108,60 @@ $config['smtp_pass'] = ''; // Password
 
 $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
 ```
+
+# Running the acceptance tests
+
+If you want to, you can also run the acceptance tests made with [Codeception](https://codeception.com/). To do this, follow the next steps.
+
+## Install Google Chrome and ChromeDriver
+
+```console
+$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+```
+
+```console
+# yum localinstall google-chrome-stable_current_x86_64.rpm
+```
+
+Check the just installed Google Chrome version.
+
+```console
+$ google-chrome --version
+```
+Go to the [ChromeDriver website](https://chromedriver.chromium.org/downloads) and check which ChromeDriver version is the closest to your Google Chrome version.
+
+Then:
+
+```console
+$ wget https://chromedriver.storage.googleapis.com/<version>/chromedriver_linux64.zip
+```
+
+```console
+$ unzip chromedriver_linux64.zip
+```
+
+```console
+# mv chromedriver /usr/bin/chromedriver
+```
+
+Now you can start it with the following command:
+
+```console
+$ chromedriver --url-base=/wd/hub
+```
+
+## Install the Composer packages
+
+From the `blogsonic/` folder, run the following command:
+
+```console
+$ bin/composer install
+```
+
+## Run the acceptance tests
+
+```console
+$ vendor/bin/codecept run
+```
+
+For more information, [click here](https://codeception.com/docs/01-Introduction).

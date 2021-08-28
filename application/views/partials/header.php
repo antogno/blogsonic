@@ -18,7 +18,7 @@
     <script src="<?= base_url('public/assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
 <body>
-    <div class="modal" id="cookiebar">
+    <!-- <div class="modal" id="cookiebar">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -38,7 +38,7 @@
             </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand col-3 col-sm-3 col-md-2 col-lg-1 col-xl-1" href="<?= base_url($this->session->userdata('language')); ?>"><img src="<?= base_url('public/assets/img/blogsonic-logo-min.png'); ?>" class="img-fluid" alt="Blogsonic"></a>

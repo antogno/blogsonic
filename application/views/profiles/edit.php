@@ -10,7 +10,7 @@
         <?php
             if (validation_errors()) {
         ?>
-        <div class="alert alert-dismissible alert-warning">
+        <div class="alert alert-dismissible alert-warning" id="warning_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= validation_errors(); ?>
         </div>
@@ -30,13 +30,13 @@
                         ?>
                         <div class="form-check"> 
                             <label for="gender" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="gender" name="gender" value="m" checked>
+                                <input type="radio" class="form-check-input" id="gender_m" name="gender" value="m" checked>
                                 <?= $this->lang->line('profile_gender_m'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="gender" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="gender" name="gender" value="f">
+                                <input type="radio" class="form-check-input" id="gender_f" name="gender" value="f">
                                 <?= $this->lang->line('profile_gender_f'); ?>
                             </label>
                         </div>
@@ -45,13 +45,13 @@
                         ?>
                         <div class="form-check"> 
                             <label for="gender" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="gender" name="gender" value="m">
+                                <input type="radio" class="form-check-input" id="gender_m" name="gender" value="m">
                                 <?= $this->lang->line('profile_gender_m'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="gender" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="gender" name="gender" value="f" checked>
+                                <input type="radio" class="form-check-input" id="gender_f" name="gender" value="f" checked>
                                 <?= $this->lang->line('profile_gender_f'); ?>
                             </label>
                         </div>
@@ -73,13 +73,13 @@
                         ?>
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language" name="language" value="en" checked>
+                                <input type="radio" class="form-check-input" id="language_en" name="language" value="en" checked>
                                 <?= $this->lang->line('profile_language_en'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language" name="language" value="it">
+                                <input type="radio" class="form-check-input" id="language_it" name="language" value="it">
                                 <?= $this->lang->line('profile_language_it'); ?>
                             </label>
                         </div>
@@ -88,13 +88,13 @@
                         ?>
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language" name="language" value="en">
+                                <input type="radio" class="form-check-input" id="language_en" name="language" value="en">
                                 <?= $this->lang->line('profile_language_en'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language" name="language" value="it" checked>
+                                <input type="radio" class="form-check-input" id="language_it" name="language" value="it" checked>
                                 <?= $this->lang->line('profile_language_it'); ?>
                             </label>
                         </div>
@@ -106,7 +106,7 @@
             <!-- </div> -->
         </div>
         <br>
-        <button onclick="return confirmation()" class="col-sm-2 btn btn-primary"><?= $button; ?></button>
+        <button onclick="return confirmation()" class="col-sm-2 btn btn-primary" id="save_changes"><?= $button; ?></button>
         <a class="btn btn-link" href="<?= base_url($this->session->userdata('language') . 'profiles'); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php

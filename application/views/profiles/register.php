@@ -3,7 +3,7 @@
         <?php
             if ($this->session->userdata('registered')) {
         ?>
-        <div class="alert alert-dismissible alert-success">
+        <div class="alert alert-dismissible alert-success" id="success_popup">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 <?= '<p><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;' . $this->lang->line('registered'); ?>
                 <a href="<?= base_url($this->session->userdata('language') . 'profiles/login'); ?>" class="alert-link"><?= ' ' . $this->lang->line('registered_link') . '</a>.</p>'; ?>
@@ -15,7 +15,7 @@
         <?php
             if (validation_errors()) {
         ?>
-        <div class="alert alert-dismissible alert-warning">
+        <div class="alert alert-dismissible alert-warning" id="warning_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= validation_errors(); ?>
         </div>
@@ -32,13 +32,13 @@
                     <label class="form-label"><strong><?= $form_gender; ?></strong>:
                         <div class="form-check"> 
                             <label for="gender" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="gender" name="gender" value="m">
+                                <input type="radio" class="form-check-input" id="gender_m" name="gender" value="m">
                                 <?= $form_gender_m; ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="gender" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="gender" name="gender" value="f">
+                                <input type="radio" class="form-check-input" id="gender_f" name="gender" value="f">
                                 <?= $form_gender_f; ?>
                             </label>
                         </div>
@@ -56,13 +56,13 @@
                     <label class="form-label"><strong><?= $form_language; ?></strong>:
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language" name="language" value="en">
+                                <input type="radio" class="form-check-input" id="language_en" name="language" value="en">
                                 <?= $form_language_en; ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language" name="language" value="it">
+                                <input type="radio" class="form-check-input" id="language_it" name="language" value="it">
                                 <?= $form_language_it; ?>
                             </label>
                         </div>
@@ -71,7 +71,7 @@
             <!-- </div> -->
         </div>
         <br>
-        <button type="submit" class="col-sm-2 btn btn-primary"><?= $form_button; ?></button>
+        <button type="submit" class="col-sm-2 btn btn-primary" id="register"><?= $form_button; ?></button>
         <button type="reset" class="col-sm-2 btn btn-warning"><?= $form_reset; ?></button>
         <?= form_close(); ?>
     </div>

@@ -40,19 +40,14 @@ class Blogs extends MY_Controller
         );
 
         if ((is_numeric($limit) && $limit > 0 && $limit <= 20) && ($order == 'desc' || $order == 'asc')) {
-            if (isset($date_min) && isset($date_max)) {
+            if (isset($date_min)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
-                $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, $date_max);
-            } elseif (isset($date_min)) {
-                $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, false);
-            } elseif (isset($date_max)) {
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
-                $blogs = $this->Blogs_model->getBlog($limit, $order, false, $date_max);
-            } else {
-                $blogs = $this->Blogs_model->getBlog($limit, $order, false, false);
             }
+            if (isset($date_max)) {
+                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
+            }
+
+            $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, $date_max);
 
             if ($blogs) {
                 $data['blogs'] = true;
@@ -105,19 +100,14 @@ class Blogs extends MY_Controller
         );
 
         if ((is_numeric($limit) && $limit > 0 && $limit <= 20) && ($order == 'desc' || $order == 'asc')) {
-            if (isset($date_min) && isset($date_max)) {
+            if (isset($date_min)) {
                 $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
-                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, $date_max);
-            } elseif (isset($date_min)) {
-                $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, false);
-            } elseif (isset($date_max)) {
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
-                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, false, $date_max);
-            } else {
-                $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, false, false);
             }
+            if (isset($date_max)) {
+                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
+            }
+            
+            $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, $date_max);
 
             if ($blogs) {
                 $data['blogs'] = true;

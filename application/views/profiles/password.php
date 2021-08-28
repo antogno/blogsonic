@@ -7,14 +7,14 @@
             } else {
                 if ($this->session->userdata('password_changed')) {
         ?>
-        <div class="alert alert-dismissible alert-success">
+        <div class="alert alert-dismissible alert-success" id="success_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= '<p><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;' . $this->lang->line('password_changed') . '</p>' ?>
         </div>
         <?php
                 } elseif ($this->session->userdata('password_not_changed')) {
         ?>
-        <div class="alert alert-dismissible alert-danger">
+        <div class="alert alert-dismissible alert-danger" id="danger_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= '<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;' . $this->lang->line('password_not_changed') . '</p>' ?>
         </div>
@@ -25,7 +25,7 @@
         <?php
             if (validation_errors()) {
         ?>
-        <div class="alert alert-dismissible alert-warning">
+        <div class="alert alert-dismissible alert-warning" id="warning_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= validation_errors(); ?>
         </div>
@@ -41,7 +41,7 @@
             <!-- </div> -->
         </div>
         <br>
-        <button onclick="return confirmation()" type="submit"  class="col-sm-2 btn btn-primary"><?= $form_button; ?></button>
+        <button onclick="return confirmation()" type="submit"  class="col-sm-2 btn btn-primary" id="save_changes"><?= $form_button; ?></button>
         <a class="btn btn-link" href="<?= base_url($this->session->userdata('language') . 'profiles'); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php

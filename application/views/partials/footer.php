@@ -155,7 +155,6 @@
                             }
                             segments[index + 1] = $('#change_language').val();
                         }
-
                     }
                 });
                 window.location = segments.join('/');

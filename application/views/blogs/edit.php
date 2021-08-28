@@ -10,7 +10,7 @@
         <?php
             if (validation_errors()) {
         ?>
-        <div class="alert alert-dismissible alert-warning">
+        <div class="alert alert-dismissible alert-warning" id="warning_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= validation_errors(); ?>
         </div>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <br>
-        <button onclick="return confirmation()" type="submit" class="col-sm-2 btn btn-primary"><?= $form_button; ?></button>
+        <button onclick="return confirmation()" type="submit" class="col-sm-2 btn btn-primary" id="post"><?= $form_button; ?></button>
         <button type="reset" class="col-sm-2 btn btn-warning"><?= $form_reset; ?></button>
         <a class="btn btn-link" href="<?= base_url($this->session->userdata('language') . 'blogs/view/' . $id); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>

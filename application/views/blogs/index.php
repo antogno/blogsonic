@@ -10,7 +10,7 @@
         } else {
     ?>
     <p>
-        <div class="card">
+        <div class="card" id="card">
             <div class="card-body">
                 <h4 class="card-title"><?= $blog_title; ?></h4>
                 <h6 class="card-subtitle mb-2 text-muted"><strong><?= $user; ?></strong>:&nbsp;<?= $blog_user; ?></h6>

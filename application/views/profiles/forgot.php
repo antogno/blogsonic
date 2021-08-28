@@ -6,14 +6,14 @@
             } else {
                 if ($this->session->userdata('forgot_password_success')) {
         ?>
-        <div class="alert alert-dismissible alert-success">
+        <div class="alert alert-dismissible alert-success" id="success_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= '<p><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;' . $this->lang->line('forgot_password_success') . '</p>' ?>
         </div>
         <?php
                 } elseif ($this->session->userdata('forgot_password_fail')) {
         ?>
-        <div class="alert alert-dismissible alert-danger">
+        <div class="alert alert-dismissible alert-danger" id="danger_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= '<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;' . $this->lang->line('forgot_password_fail') . '</p>' ?>
         </div>
@@ -24,7 +24,7 @@
         <?php
             if (validation_errors()) {
         ?>
-        <div class="alert alert-dismissible alert-warning">
+        <div class="alert alert-dismissible alert-warning" id="warning_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <?= validation_errors(); ?>
         </div>

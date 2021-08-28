@@ -27,11 +27,11 @@
             <!-- </div> -->
         </div>
         <br>
-        <a class="col-sm-2 btn btn-light" href="<?= base_url($this->session->userdata('language') . 'profiles/edit'); ?>"><?= $this->lang->line('profile_edit_profile'); ?></a>
-        <a class="col-sm-2 btn btn-light" href="<?= base_url($this->session->userdata('language') . 'profiles/password'); ?>"><?= $this->lang->line('profile_change_password'); ?></a>
+        <a class="col-sm-2 btn btn-light" id="edit" href="<?= base_url($this->session->userdata('language') . 'profiles/edit'); ?>"><?= $this->lang->line('profile_edit_profile'); ?></a>
+        <a class="col-sm-2 btn btn-light" id="change_password" href="<?= base_url($this->session->userdata('language') . 'profiles/password'); ?>"><?= $this->lang->line('profile_change_password'); ?></a>
         <?= form_open(); ?>
             <input type="hidden" name="id" value="<?= $id; ?>">
-            <br><button onclick="return confirmationProfile()" type="submit" class="col-sm-4 btn btn-danger"><?= $delete; ?></button>
+            <br><button onclick="return confirmationProfile()" type="submit" class="col-sm-4 btn btn-danger" id="delete"><?= $delete; ?></button>
         <?= form_close(); ?>
         <?php
             }

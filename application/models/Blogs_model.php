@@ -70,14 +70,14 @@ class Blogs_model extends CI_Model
      * @param   int $id the Blog ID.
      * @return  array|object|false
      */
-    public function getBlog(int $limit, string $order, string $date_min, string $date_max, int $id = null)
+    public function getBlog(int $limit, string $order, string $date_min = null, string $date_max = null, int $id = null)
     {
 
-        if ( ! (bool)$date_min) {
+        if ( ! isset($date_min)) {
             $date_min = date('Y-m-d H:i:s', 0);
         }
 
-        if ( ! (bool)$date_max) {
+        if ( ! isset($date_max)) {
             $date_max = date('Y-m-d H:i:s');
         }
 
