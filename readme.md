@@ -115,19 +115,12 @@ If you want to, you can also run the acceptance tests made with [Codeception](ht
 
 ## Install Google Chrome and ChromeDriver
 
-```console
-$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-```
-
-```console
-# yum localinstall google-chrome-stable_current_x86_64.rpm
-```
-
-Check the just installed Google Chrome version.
+Install Google Chrome and check its version.
 
 ```console
 $ google-chrome --version
 ```
+
 Go to the [ChromeDriver website](https://chromedriver.chromium.org/downloads) and check which ChromeDriver version is the closest to your Google Chrome version.
 
 Then:
