@@ -117,6 +117,7 @@ class BlogsCest
 
         $I->acceptPopup();
 
+        $I->waitForElement('#text');
         $I->see('The are no Blogs to show');
 
     }

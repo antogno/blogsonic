@@ -1,7 +1,7 @@
 <div>
     <?php
         if ( ! $blogs) {
-            echo '<div class="mt-4"><p>' . $this->lang->line('no_blogs');
+            echo '<div class="mt-4"><p id="text">' . $this->lang->line('no_blogs');
             if ($this->session->userdata('logged_in')) {
                 echo ' <a href="' . base_url($this->session->userdata('language') . 'blogs/newblog') . '">' . $this->lang->line('no_blogs_link') . '</a></p></div>';
             } else {
