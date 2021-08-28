@@ -164,4 +164,4 @@ $ bin/composer install
 $ vendor/bin/codecept run
 ```
 
-For more information, [click here](https://codeception.com/docs/01-Introduction).
+For more informations, [click here](https://codeception.com/docs/01-Introduction).
