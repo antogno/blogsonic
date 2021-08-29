@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '', // Hostame (e.g.: localhost)
+	'hostname' => '', // Hostname (e.g.: localhost)
 	'username' => '', // Database username (e.g.: root)
 	'password' => '', // Password
 	'database' => '', // Database name (e.g.: blogsonic)

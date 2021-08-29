@@ -36,13 +36,6 @@ class BlogsCest
 
     }
 
-    public function _after(AcceptanceTester $I)
-    {
-
-        $I->deleteProfile($I);
-
-    }
-
     public function newBlog(AcceptanceTester $I)
     {
 

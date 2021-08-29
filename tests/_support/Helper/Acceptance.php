@@ -103,31 +103,6 @@ class Acceptance extends \Codeception\Module
     }
 
     /**
-     * Deletes the Profile with the given credentials. If no credentials are given, it tries to delete the supposedly already logged-in Profile
-     * 
-     * @param   AcceptanceTester $I
-     * @param   array $credentials the user credentials in an array with the fields as keys.
-     * @return  void
-     */
-    public function deleteProfile(AcceptanceTester $I, array $credentials = [])
-    {
-
-        if ( ! empty($credentials)) {
-            $this->login($I, $credentials);
-        }
-
-        $I->amOnPage('/en');
-
-        $I->click('Profile');
-        $I->click('My Profile');
-
-        $I->click('#delete');
-
-        $I->acceptPopup();
-
-    }
-
-    /**
      * Creates a new Blog with the given data
      * 
      * @param   AcceptanceTester $I

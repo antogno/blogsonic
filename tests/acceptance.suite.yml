@@ -17,6 +17,17 @@ modules:
                     args: ["--headless", "--disable-gpu", "--no-sandbox", "--window-size=1920,1080"]
                     prefs:
                         download.default_directory: "..."
+        - Db:
+            dsn: '' # PDO DSN (eg.: mysql:host=localhost)
+            user: '' # Database username (e.g.: root)
+            dbname: '' # Database name (e.g.: blogsonic)
+            password: '' # Password
+            dump: 'tests/_data/dump.sql'
+            populate: true
+            cleanup: true
+            initial_queries:
+                - 'CREATE DATABASE IF NOT EXISTS ;' # Add the database name (e.g.: CREATE DATABASE IF NOT EXISTS blogsonic;)
+                - 'USE ;' # Add the database name (e.g.: USE blogsonic;)
         - \Helper\Acceptance
 step_decorators:
     - \Codeception\Step\TryTo

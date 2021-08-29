@@ -82,7 +82,7 @@ Follow the next steps to set up Blogsonic.
 
     ```php
     $db['default'] = array(
-        'hostname' => '', // Hostame (e.g.: localhost)
+        'hostname' => '', // Hostname (e.g.: localhost)
         'username' => '', // Database username (e.g.: root)
         'password' => '', // Password
         'database' => '' // Database name (e.g.: blogsonic)
@@ -107,11 +107,13 @@ $config['smtp_pass'] = ''; // Password
 $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
 ```
 
-> This step is optional. Obviously, not doing this means not making the "Forgot password" feature work.
+> **Note**: This step is optional. Obviously, not doing this means not making the "Forgot password" feature work.
 
 # Running the acceptance tests
 
 If you want to, you can also run the acceptance tests made with [Codeception](https://codeception.com/). To do this, follow the next steps.
+
+> **Note**: If you decide to run the acceptance tests, you can also skip the previous [database creation](#set-up-database) step.
 
 ## Install Google Chrome and ChromeDriver
 
@@ -145,7 +147,7 @@ From the `blogsonic/` folder, run the following command:
 $ bin/composer install
 ```
 
-## Add your base URL in the `tests/acceptance.suite.yml` file
+## Add your base URL and the database's informations in the `tests/acceptance.suite.yml` file
 
 ```yml
 actor: AcceptanceTester
@@ -153,7 +155,17 @@ modules:
     enabled:
         - WebDriver:
             url: # Base URL (e.g.: http://localhost/blogsonic)
+        - Db:
+            dsn: '' # PDO DSN (eg.: mysql:host=localhost)
+            user: '' # Database username (e.g.: root)
+            dbname: '' # Database name (e.g.: blogsonic)
+            password: '' # Password
+            initial_queries:
+                - 'CREATE DATABASE IF NOT EXISTS ;' # Add the database name (e.g.: CREATE DATABASE IF NOT EXISTS blogsonic;)
+                - 'USE ;' # Add the database name (e.g.: USE blogsonic;)
 ```
+
+> **Note**: This configuration will only work with MySQL. If you need to change it, see the official Codeception documentation, [by clicking here](https://codeception.com/docs/modules/Db).
 
 ## Start ChromeDriver
 
@@ -172,6 +184,8 @@ You can also use the following command if you want to see all the single steps.
 ```console
 $ vendor/bin/codecept run --steps
 ```
+
+> **Note**: Running the acceptance tests will empty all the tables.
 
 All tests are independent of each other. This means that you can run a single test (or a single suite) individually.
 

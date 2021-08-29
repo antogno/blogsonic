@@ -35,9 +35,6 @@ class ProfilesCest
         $I->waitForElement('#success_popup');
         $I->see('Your account has been registered');
 
-        $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
-        $I->deleteProfile($I);
-
     }
 
     public function login(AcceptanceTester $I)
@@ -60,8 +57,6 @@ class ProfilesCest
         $I->see('Login');
         $I->see('You are already logged in');
 
-        $I->deleteProfile($I);
-
     }
 
     public function logout(AcceptanceTester $I)
@@ -83,8 +78,6 @@ class ProfilesCest
         $I->waitForElement('#page_body');
         $I->see('Logout');
         $I->see('You have to login before you can see this page');
-
-        $I->deleteProfile($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
     }
 
@@ -161,8 +154,6 @@ class ProfilesCest
         $I->seeInField('name', $this->new_data['name']);
         $I->seeInField('surname', $this->new_data['surname']);
 
-        $I->deleteProfile($I);
-
     }
 
     public function changePassword(AcceptanceTester $I)
@@ -214,8 +205,6 @@ class ProfilesCest
 
         $I->dontSeeElement('#danger_popup');
         $I->dontSee('The Username or Password is incorrect');
-
-        $I->deleteProfile($I);
 
     }
 
