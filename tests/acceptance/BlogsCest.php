@@ -27,15 +27,22 @@ class BlogsCest
     public function _before(AcceptanceTester $I)
     {
 
+        $I->register($I, $this->data);
+        $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
+        
         $I->amOnPage('/en');
+
+    }
+
+    public function _after(AcceptanceTester $I)
+    {
+
+        $I->deleteProfile($I);
 
     }
 
     public function newBlog(AcceptanceTester $I)
     {
-
-        $I->register($I, $this->data);
-        $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
         $I->click('Blogs');
         $I->click('New Blog');
@@ -53,6 +60,8 @@ class BlogsCest
     public function viewBlog(AcceptanceTester $I)
     {
 
+        $I->createNewBlog($I, $this->blog);
+
         $I->click('Blogs');
         $I->click('All');
 
@@ -65,6 +74,8 @@ class BlogsCest
         $I->see($this->data['username']);
         $I->see($this->blog['body']);
 
+        $I->logout($I);
+
         $I->click('Blogs');
         $I->dontSee('My Blogs');
 
@@ -75,17 +86,17 @@ class BlogsCest
 
         $I->waitForElement('#card');
         $I->see($this->blog['title']);
-        $I->click('View');
-
-        $this->editBlog($I);
-        $this->deleteBlog($I);
-
-        $I->deleteProfile($I, []);
 
     }
 
-    private function editBlog(AcceptanceTester $I)
+    public function editBlog(AcceptanceTester $I)
     {
+
+        $I->createNewBlog($I, $this->blog);
+
+        $I->click('Blogs');
+        $I->click('My Blogs');
+        $I->click('View');
 
         $I->click('#edit');
 
@@ -110,14 +121,20 @@ class BlogsCest
 
     }
 
-    private function deleteBlog(AcceptanceTester $I)
+    public function deleteBlog(AcceptanceTester $I)
     {
+
+        $I->createNewBlog($I, $this->blog);
+
+        $I->click('Blogs');
+        $I->click('My Blogs');
+        $I->click('View');
 
         $I->click('#delete');
 
         $I->acceptPopup();
 
-        $I->waitForElement('#text');
+        $I->waitForElement('#page_body');
         $I->see('The are no Blogs to show');
 
     }

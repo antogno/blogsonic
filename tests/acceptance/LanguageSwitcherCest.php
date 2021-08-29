@@ -3,13 +3,6 @@
 class LanguageSwitcherCest
 {
 
-    // public function _before(AcceptanceTester $I)
-    // {
-
-        
-
-    // }
-
     public function switchLanguage(AcceptanceTester $I)
     {
 
@@ -26,8 +19,10 @@ class LanguageSwitcherCest
 
         $I->amOnPage($page);
 
+        $I->waitForElement('#page_body');
         $I->see($before);
         $I->selectOption('#change_language', $new_language);
+        $I->waitForElement('#page_body');
         $I->see($after);
 
     }

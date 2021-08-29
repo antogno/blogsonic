@@ -35,6 +35,7 @@ class Acceptance extends \Codeception\Module
         $I->click('Profile');
         $I->click('Register');
 
+        $I->waitForElement('#page_body');
         $I->see('Name');
         $I->see('Surname');
         $I->see('Gender');
@@ -72,6 +73,7 @@ class Acceptance extends \Codeception\Module
         $I->click('Profile');
         $I->click('Login');
 
+        $I->waitForElement('#page_body');
         $I->see('Username');
         $I->see('Password');
 
@@ -101,13 +103,13 @@ class Acceptance extends \Codeception\Module
     }
 
     /**
-     * Deletes the Profile with the given credentials. If no credentials are given, it tries to delete the supposedly already logged-in user.
+     * Deletes the Profile with the given credentials. If no credentials are given, it tries to delete the supposedly already logged-in Profile
      * 
      * @param   AcceptanceTester $I
      * @param   array $credentials the user credentials in an array with the fields as keys.
      * @return  void
      */
-    public function deleteProfile(AcceptanceTester $I, array $credentials)
+    public function deleteProfile(AcceptanceTester $I, array $credentials = [])
     {
 
         if ( ! empty($credentials)) {
@@ -122,6 +124,28 @@ class Acceptance extends \Codeception\Module
         $I->click('#delete');
 
         $I->acceptPopup();
+
+    }
+
+    /**
+     * Creates a new Blog with the given data
+     * 
+     * @param   AcceptanceTester $I
+     * @param   array $data the Blog's data (title and body).
+     * @return  void
+     */
+    public function createNewBlog(AcceptanceTester $I, array $data)
+    {
+
+        $I->amOnPage('/en');
+
+        $I->click('Blogs');
+        $I->click('New Blog');
+
+        $I->fillField('title', $data['title']);
+        $I->fillField('body', $data['body']);
+
+        $I->click('#post');
 
     }
 

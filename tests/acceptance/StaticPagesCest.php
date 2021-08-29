@@ -12,10 +12,11 @@ class StaticPagesCest
 
     public function homePage(AcceptanceTester $I)
     {
-
+        $I->waitForElement('#page_body');
         $I->see('Welcome to Blogsonic.org');
 
         $I->click('Home');
+        $I->waitForElement('#page_body');
         $I->see('Welcome to Blogsonic.org');
 
     }
@@ -24,6 +25,7 @@ class StaticPagesCest
     {
 
         $I->click('About');
+        $I->waitForElement('#page_body');
         $I->see('Welcome to the About page of Blogsonic.org');
 
     }
@@ -32,7 +34,8 @@ class StaticPagesCest
     {
 
         $I->click('Privacy policy');
-        $I->see('Personal information we collect');
+        $I->waitForElement('#page_body');
+        $I->see('This Privacy policy describes how your personal information is collected');
 
     }
 

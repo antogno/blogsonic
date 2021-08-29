@@ -39,7 +39,7 @@
             <!-- </div> -->
         </div>
         <br>
-        <button type="submit" class="col-sm-2 btn btn-primary"><?= $form_button; ?></button>
+        <button type="submit" class="col-sm-2 btn btn-primary" id="confirm"><?= $form_button; ?></button>
         <a class="btn btn-link" href="<?= base_url($this->session->userdata('language') . 'profiles/login'); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php

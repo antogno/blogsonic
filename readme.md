@@ -155,14 +155,46 @@ modules:
             url: # Base URL (e.g.: http://localhost/blogsonic)
 ```
 
-## Start ChromeDriver and run the acceptance tests
+## Start ChromeDriver
 
 ```console
 $ chromedriver --url-base=/wd/hub
 ```
 
+## Run the acceptance tests
+
 ```console
 $ vendor/bin/codecept run
+```
+
+You can also use the following command if you want to see all the single steps.
+
+```console
+$ vendor/bin/codecept run --steps
+```
+
+All tests are independent of each other. This means that you can run a single test (or a single suite) individually.
+
+To run a single suite (found in the `tests/acceptance/` folder), use:
+
+```console
+$ vendor/bin/codecept run acceptance <name of the suite>
+```
+
+To run a single test from a suite, use:
+
+```console
+$ vendor/bin/codecept run acceptance <name of the suite>::<name of the test>
+```
+
+For example:
+
+```console
+$ vendor/bin/codecept run acceptance ProfilesCest
+```
+
+```console
+$ vendor/bin/codecept run acceptance ProfilesCest::register
 ```
 
 For more informations, [click here](https://codeception.com/docs/01-Introduction).

@@ -120,4 +120,4 @@
     <div>
         <h1 style="padding: 4.625rem 0 0 1rem"><?= $title; ?></h1>
     </div>
-    <div style="padding: 0 1rem 0 1rem">
+    <div style="padding: 0 1rem 0 1rem" id="page_body">
