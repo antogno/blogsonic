@@ -75,7 +75,7 @@ class MY_Controller extends CI_Controller
     /**
      * Generates a new password
      *
-     * @return  string
+     * @return  string  a random string.
      */
     public function newPassword()
     {
@@ -95,8 +95,8 @@ class MY_Controller extends CI_Controller
     /**
      * Sends the given password to the given email address
      *
-     * @param   string $email the email address to send the new password to.
-     * @param   string $password the new password.
+     * @param   string  $email      the email address to send the new password to.
+     * @param   string  $password   the new password.
      * @return  void
      */
     public function sendNewPassword(string $email, string $password)

@@ -19,8 +19,8 @@ class Profiles_model extends CI_Model
     /**
      * Gets the user data of the user with the given username
      * 
-     * @param   string $username the username.
-     * @return  object|false
+     * @param   string      $username the username.
+     * @return  object|null an object with the user data or null if a user with the given username doesn't exists.
      */
     public function getUser(string $username)
     {
@@ -35,8 +35,8 @@ class Profiles_model extends CI_Model
     /**
      * Gets the user data of the user with the given email address
      * 
-     * @param   string $email the email address.
-     * @return  object|false
+     * @param   string      $email the email address.
+     * @return  object|null an object with the user data or null if a user with the given email address doesn't exists.
      */
     public function getUserByEmail(string $email)
     {
@@ -51,8 +51,8 @@ class Profiles_model extends CI_Model
     /**
      * Updates the password of the user with the given email address
      * 
-     * @param   string $email the email address.
-     * @param   string $password the password.
+     * @param   string  $email      the email address.
+     * @param   string  $password   the password.
      * @return  void
      */
     public function newPassword(string $email, string $password)
@@ -67,8 +67,8 @@ class Profiles_model extends CI_Model
     /**
      * Updates the user with the given username
      * 
-     * @param   string $username the username.
-     * @param   array $data all the user data with the table fields as keys.
+     * @param   string  $username   the username.
+     * @param   array   $data       all the user data with the table fields as keys.
      * @return  void
      */
     public function updateUser(string $username, array $data)
@@ -95,8 +95,8 @@ class Profiles_model extends CI_Model
     /**
      * Checks if the login attempt is successful
      * 
-     * @param   array $data array with the username and the password as elements.
-     * @return  true|false
+     * @param   array       $data   array with the username and the password as elements.
+     * @return  true|false  true if the login attempt is successful, false otherwise.
      */
     public function login(array $data)
     {
@@ -119,7 +119,7 @@ class Profiles_model extends CI_Model
     /**
      * Deletes the user with the given username from the database
      * 
-     * @param   string $username the username.
+     * @param   string  $username   the username.
      * @return  void
      */
     public function deleteUser($username)
@@ -133,8 +133,8 @@ class Profiles_model extends CI_Model
     /**
      * Inserts a new user in the database
      * 
-     * @param   array $data all the user data.
-     * @param   string $password the password.
+     * @param   array   $data       all the user data.
+     * @param   string  $password   the password.
      * @return  void
      */
     public function register(array $data, string $password)

@@ -23,8 +23,8 @@ class Acceptance extends \Codeception\Module
     /**
      * Register a new Profile
      * 
-     * @param   AcceptanceTester $I
-     * @param   array $data the user data in an array with the fields as keys.
+     * @param   AcceptanceTester    $I
+     * @param   array               $data the user data in an array with the fields as keys.
      * @return  void
      */
     public function register(AcceptanceTester $I, array $data)
@@ -61,8 +61,8 @@ class Acceptance extends \Codeception\Module
     /**
      * Login to the Profile with the given credentials
      * 
-     * @param   AcceptanceTester $I
-     * @param   array $credentials the user credentials in an array with the fields as keys.
+     * @param   AcceptanceTester    $I
+     * @param   array               $credentials the user credentials in an array with the fields as keys.
      * @return  void
      */
     public function login(AcceptanceTester $I, array $credentials)
@@ -87,7 +87,7 @@ class Acceptance extends \Codeception\Module
     /**
      * Logs out from the current logged-in Profile
      * 
-     * @param   AcceptanceTester $I
+     * @param   AcceptanceTester    $I
      * @return  void
      */
     public function logout(AcceptanceTester $I)
@@ -105,8 +105,8 @@ class Acceptance extends \Codeception\Module
     /**
      * Creates a new Blog with the given data
      * 
-     * @param   AcceptanceTester $I
-     * @param   array $data the Blog's data (title and body).
+     * @param   AcceptanceTester    $I
+     * @param   array               $data the Blog's data (title and body).
      * @return  void
      */
     public function createNewBlog(AcceptanceTester $I, array $data)
@@ -127,7 +127,7 @@ class Acceptance extends \Codeception\Module
     /**
      * Accepts the cookie popup, if present
      * 
-     * @param   AcceptanceTester $I
+     * @param   AcceptanceTester    $I
      * @return  void
      */
     public function acceptCookiePopup(AcceptanceTester $I)

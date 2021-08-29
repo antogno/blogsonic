@@ -16,11 +16,6 @@ class MY_Exceptions extends CI_Exceptions
 
     }
     
-    /**
-     * 404 Page Handler (override)
-     * 
-     * @author  Antonio Granaldi
-     */
     public function show_404($page = '', $log_error = true)
     {
 

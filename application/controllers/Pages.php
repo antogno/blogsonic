@@ -19,7 +19,7 @@ class Pages extends MY_Controller
     /**
      * View a particular static pages
      * 
-     * @param   string $page the name of the page to view.
+     * @param   string  $page   the name of the page to view.
      * @return  void
      */
     public function view(string $page = 'home')
