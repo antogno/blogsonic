@@ -24,7 +24,7 @@ class ProfilesCest
     public function _before(AcceptanceTester $I)
     {
 
-        $I->acceptCookiePopup($I);
+        $I->tryToAcceptCookiePopup($I);
 
     }
 

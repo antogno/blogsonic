@@ -125,7 +125,7 @@ class Acceptance extends \Codeception\Module
     }
 
     /**
-     * Accepts the cookie popup, if present
+     * Accepts the cookie popup
      * 
      * @param   AcceptanceTester    $I
      * @return  void
@@ -135,9 +135,7 @@ class Acceptance extends \Codeception\Module
 
         $I->amOnPage('/en');
 
-        if ($I->tryToSeeElement('#cookiebar')) {
-            $I->click('#cookiebar_hide');
-        }
+        $I->click('#cookiebar_hide');
 
     }
 

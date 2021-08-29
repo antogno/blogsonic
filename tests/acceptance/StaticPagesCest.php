@@ -6,7 +6,7 @@ class StaticPagesCest
     public function _before(AcceptanceTester $I)
     {
 
-        $I->acceptCookiePopup($I);
+        $I->tryToAcceptCookiePopup($I);
 
         $I->amOnPage('/en');
 
