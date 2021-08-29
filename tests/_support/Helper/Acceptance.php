@@ -149,4 +149,21 @@ class Acceptance extends \Codeception\Module
 
     }
 
+    /**
+     * Accepts the cookie popup, if present
+     * 
+     * @param   AcceptanceTester $I
+     * @return  void
+     */
+    public function acceptCookiePopup(AcceptanceTester $I)
+    {
+
+        $I->amOnPage('/en');
+
+        if ($I->tryToSeeElement('#cookiebar')) {
+            $I->click('#cookiebar_hide');
+        }
+
+    }
+
 }

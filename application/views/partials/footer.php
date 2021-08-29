@@ -16,7 +16,7 @@
             <?php
                 }
             ?>
-            <a href="<?= base_url($this->session->userdata('language').'pages/view/privacy'); ?>"><?= $this->lang->line('privacy_policy_link'); ?></a>
+            <a href="<?= base_url($this->session->userdata('language').'pages/view/privacy'); ?>" id="privacy_policy_link"><?= $this->lang->line('privacy_policy_link'); ?></a>
             &ndash;
             &copy; 2021, Blogsonic.org &ndash; <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>.
         </footer>

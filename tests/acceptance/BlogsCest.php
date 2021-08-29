@@ -27,6 +27,8 @@ class BlogsCest
     public function _before(AcceptanceTester $I)
     {
 
+        $I->acceptCookiePopup($I);
+
         $I->register($I, $this->data);
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
         

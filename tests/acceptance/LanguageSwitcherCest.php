@@ -3,6 +3,13 @@
 class LanguageSwitcherCest
 {
 
+    public function _before(AcceptanceTester $I)
+    {
+
+        $I->acceptCookiePopup($I);
+
+    }
+
     public function switchLanguage(AcceptanceTester $I)
     {
 

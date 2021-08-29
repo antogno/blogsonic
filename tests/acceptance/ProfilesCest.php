@@ -21,6 +21,13 @@ class ProfilesCest
         'gender' => 'f'
     ];
 
+    public function _before(AcceptanceTester $I)
+    {
+
+        $I->acceptCookiePopup($I);
+
+    }
+
     public function register(AcceptanceTester $I)
     {
 

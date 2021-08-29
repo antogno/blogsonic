@@ -6,6 +6,8 @@ class StaticPagesCest
     public function _before(AcceptanceTester $I)
     {
 
+        $I->acceptCookiePopup($I);
+
         $I->amOnPage('/en');
 
     }
@@ -33,7 +35,8 @@ class StaticPagesCest
     public function privacyPolicyPage(AcceptanceTester $I)
     {
 
-        $I->click('Privacy policy');
+        $I->waitForElement('#privacy_policy_link');
+        $I->click('#privacy_policy_link');
         $I->waitForElement('#page_body');
         $I->see('This Privacy policy describes how your personal information is collected');
 
