@@ -89,11 +89,9 @@ Follow the next steps to set up Blogsonic.
     );
     ```
 
-## Add your timezone and base URL in the `application/config/config.php` file
+## Add your base URL in the `application/config/config.php` file
 
 ```php
-date_default_timezone_set(''); // Your timezone (eg.: Europe/London)
-
 $config['base_url'] = ''; // Base URL (e.g.: http://localhost/blogsonic/)
 ```
 
@@ -108,6 +106,8 @@ $config['smtp_pass'] = ''; // Password
 
 $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
 ```
+
+> This step is optional. Obviously, not doing this means not making the "Forgot password" feature work.
 
 # Running the acceptance tests
 

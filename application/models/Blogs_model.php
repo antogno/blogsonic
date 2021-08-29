@@ -78,7 +78,7 @@ class Blogs_model extends CI_Model
         }
 
         if ( ! isset($date_max)) {
-            $date_max = date('Y-m-d H:i:s');
+            $date_max = date('Y-m-d') . ' 23:59:59';
         }
 
         if ( ! $id) {

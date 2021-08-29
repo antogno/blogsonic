@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-date_default_timezone_set(''); // Your timezone (eg.: Europe/London)
-
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
