@@ -113,7 +113,7 @@ $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
 
 If you want to, you can also run the acceptance tests made with [Codeception](https://codeception.com/). To do this, follow the next steps.
 
-> **Note**: If you decide to run the acceptance tests, you can also skip the previous [database creation](#set-up-database) step.
+> **Note**: If you decide to run the acceptance tests before actually using Blogsonic, you can skip the previous [tables creation](#set-up-database) step.
 
 ## Install Google Chrome and ChromeDriver
 
