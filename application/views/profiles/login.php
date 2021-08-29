@@ -34,7 +34,7 @@
         </div>
         <br>
         <button type="submit" class="col-sm-2 btn btn-primary" id="login"><?= $form_button; ?></button>
-        <a href="<?= base_url($this->session->userdata('language') . 'profiles/forgot'); ?>" class="col-sm-2 btn btn-link"><?= $this->lang->line('forgot_password'); ?>?</a>
+        <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot'); ?>" class="col-sm-2 btn btn-link"><?= $this->lang->line('forgot_password'); ?>?</a>
         <?= form_close(); ?>
         <?php
             }

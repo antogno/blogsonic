@@ -3,7 +3,7 @@
         <?php
             if ( ! $this->session->userdata('logged_in')) {
                 echo '<div class="mt-4"><p>' . $this->lang->line('not_logged_in');
-                echo ' <a href="' . base_url($this->session->userdata('language') . 'profiles/login') . '">' . $this->lang->line('login_now') . '</a> ' . $this->lang->line('or') . ' <a href="' . base_url($this->session->userdata('language') . 'profiles/register') . '">' . $this->lang->line('register_now') . '</a>.</p></div>';
+                echo ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login') . '">' . $this->lang->line('login_now') . '</a> ' . $this->lang->line('or') . ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register') . '">' . $this->lang->line('register_now') . '</a>.</p></div>';
             } else {
         ?>
         <?= form_open(); ?>
@@ -31,7 +31,7 @@
         <br>
         <button onclick="return confirmation()" type="submit" class="col-sm-2 btn btn-primary" id="post"><?= $form_button; ?></button>
         <button type="reset" class="col-sm-2 btn btn-warning"><?= $form_reset; ?></button>
-        <a class="btn btn-link" href="<?= base_url($this->session->userdata('language') . 'blogs/view/' . $id); ?>">&laquo; <?= $this->lang->line('back');?></a>
+        <a class="btn btn-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/view/' . $id); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php
             }

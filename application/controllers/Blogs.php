@@ -70,7 +70,7 @@ class Blogs extends MY_Controller
                 $this->load->view('partials/footer');
             }
         } else {
-            redirect($this->session->userdata('language') . 'blogs/all', 'refresh');
+            redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/all', 'refresh');
         }
 
     }
@@ -116,7 +116,7 @@ class Blogs extends MY_Controller
 
                 foreach ($blogs as $key => $blog) {
                     $user = $this->Blogs_model->getUser($blog->user_id);
-                    if ((strtolower($user) == strtolower($this->session->userdata('username'))) && ($limit > 0)) {
+                    if ((strtolower($user) == strtolower($this->encryption->decrypt($this->session->userdata('username')))) && ($limit > 0)) {
                         $data['myblogs'] = true;
                         $data['blog_id'] = $blog->id;
                         $data['blog_title'] = $blog->title;
@@ -137,7 +137,7 @@ class Blogs extends MY_Controller
                 $this->load->view('partials/footer');
             }
         } else {
-            redirect($this->session->userdata('language') . 'blogs/myblogs', 'refresh');
+            redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs', 'refresh');
         }
 
     }
@@ -167,11 +167,11 @@ class Blogs extends MY_Controller
             $data = array(
                 'title' => $this->input->post('title'),
                 'body' => $this->input->post('body'),
-                'user_id' => $this->Blogs_model->getUserId($this->session->userdata('username'))
+                'user_id' => $this->Blogs_model->getUserId($this->encryption->decrypt($this->session->userdata('username')))
             );
             $this->Blogs_model->insertBlog($data);
 
-            redirect($this->session->userdata('language') . 'blogs/myblogs');
+            redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs');
         } else {
             $this->load->view('partials/header', $data);
             $this->load->view('blogs/newblog', $data);
@@ -215,7 +215,7 @@ class Blogs extends MY_Controller
 
                 if ($this->form_validation->run()) {
                     $this->Blogs_model->deleteBlog($data['id']);
-                    redirect($this->session->userdata('language') . 'blogs/all');
+                    redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/all');
                 } else {
                     $this->load->view('partials/header', $data);
                     $this->load->view('blogs/view', $data);
@@ -248,7 +248,7 @@ class Blogs extends MY_Controller
             if ($blog) {
                 $user = $this->Blogs_model->getUser($blog->user_id);
 
-                if ((strtolower($user) == strtolower($this->session->userdata('username')))) {
+                if ((strtolower($user) == strtolower($this->encryption->decrypt($this->session->userdata('username'))))) {
                     
                     $data = array(
                         'title' => $this->lang->line('edit_title'),
@@ -272,7 +272,7 @@ class Blogs extends MY_Controller
                         );
                         $this->Blogs_model->updateBlog($data);
                         
-                        redirect($this->session->userdata('language') . 'blogs/myblogs');
+                        redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs');
                     } else {
                         $this->load->view('partials/header', $data);
                         $this->load->view('blogs/edit', $data);

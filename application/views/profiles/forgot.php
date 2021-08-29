@@ -1,6 +1,6 @@
 <div>
     <div>
-    <?php
+        <?php
             if ($this->session->userdata('logged_in')) {
                 echo '<div class="mt-4"><p>' . $this->lang->line('logged_in') . '</p></div>';
             } else {
@@ -40,7 +40,7 @@
         </div>
         <br>
         <button type="submit" class="col-sm-2 btn btn-primary" id="confirm"><?= $form_button; ?></button>
-        <a class="btn btn-link" href="<?= base_url($this->session->userdata('language') . 'profiles/login'); ?>">&laquo; <?= $this->lang->line('back');?></a>
+        <a class="btn btn-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login'); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php
             }

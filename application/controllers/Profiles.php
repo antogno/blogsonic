@@ -38,7 +38,7 @@ class Profiles extends MY_Controller
         );
 
         if ($this->session->userdata('logged_in')) {
-            $data['username'] = $this->session->userdata('username');
+            $data['username'] = $this->encryption->decrypt($this->session->userdata('username'));
             $profile = $this->Profiles_model->getUser($data['username']);
             $data['username'] = $this->lang->line('profile_username');
             $data['profile_name'] = $profile->name;
@@ -70,7 +70,7 @@ class Profiles extends MY_Controller
                 $this->session->sess_destroy();
                 $this->Profiles_model->deleteUser($profile->username);
 
-                redirect($this->session->userdata('language'));
+                redirect($this->encryption->decrypt($this->session->userdata('language')));
             } else {
                 $this->load->view('partials/header', $data);
                 $this->load->view('profiles/index', $data);
@@ -108,19 +108,19 @@ class Profiles extends MY_Controller
 
         if ($this->form_validation->run()) {
             if ($this->session->userdata('logged_in')) {
-                redirect($this->session->userdata('language') . 'profiles/login', 'refresh');
+                redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login', 'refresh');
             } else {
                 if ($this->Profiles_model->login($this->input->post())) {
 
                     $user_session = array(
                         'logged_in' => true,
                         'logged_in_fail' => false,
-                        'username' => $this->input->post('username'),
-                        'language' => $this->Profiles_model->getUser($this->input->post('username'))->language . '/'
+                        'username' => $this->encryption->encrypt($this->input->post('username')),
+                        'language' => $this->encryption->encrypt($this->Profiles_model->getUser($this->input->post('username'))->language . '/')
                     );
                     $this->session->set_userdata($user_session);
 
-                    redirect($this->session->userdata('language') . 'profiles');
+                    redirect($this->encryption->decrypt($this->encryption->decrypt($this->session->userdata('language'))) . 'profiles');
                 } else {
 
                     $user_session = array(
@@ -129,7 +129,7 @@ class Profiles extends MY_Controller
                     );
                     $this->session->set_userdata($user_session);
 
-                    redirect($this->session->userdata('language') . 'profiles/login', 'refresh');
+                    redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login', 'refresh');
                 }
             }
         } else {
@@ -202,7 +202,7 @@ class Profiles extends MY_Controller
             );
             $this->session->set_userdata($user_session);
 
-            redirect($this->session->userdata('language') . 'profiles/register', 'refresh');
+            redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register', 'refresh');
         } else {
             $this->load->view('partials/header', $data);
             $this->load->view('profiles/register', $data);
@@ -238,10 +238,10 @@ class Profiles extends MY_Controller
             $this->form_validation->set_rules('language', $data['language'], 'required|max_length[2]');
 
             if ($this->form_validation->run()) {
-                $this->Profiles_model->updateUser($this->session->userdata('username'), $this->input->post());
-                redirect($this->session->userdata('language') . 'profiles');
+                $this->Profiles_model->updateUser($this->encryption->decrypt($this->session->userdata('username')), $this->input->post());
+                redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles');
             } else {
-                $data['username'] = $this->session->userdata('username');
+                $data['username'] = $this->encryption->decrypt($this->session->userdata('username'));
                 $profile = $this->Profiles_model->getUser($data['username']);
                 $data['username'] = $this->lang->line('profile_username');
                 $data['profile_name'] = $profile->name;
@@ -300,10 +300,10 @@ class Profiles extends MY_Controller
         $this->form_validation->set_rules('new_password', $data['form_new_password'], 'trim|required|min_length[8]|max_length[50]|differs[old_password]');
 
         if ($this->form_validation->run()) {
-            $user = $this->Profiles_model->getUser($this->session->userdata('username'));
+            $user = $this->Profiles_model->getUser($this->encryption->decrypt($this->session->userdata('username')));
             if (password_verify($this->input->post('old_password'), $user->password)) {
                 $data = array('password' => $this->input->post('new_password'));
-                $this->Profiles_model->updateUser($this->session->userdata('username'), $data);
+                $this->Profiles_model->updateUser($this->encryption->decrypt($this->session->userdata('username')), $data);
 
                 $user_session = array(
                     'password_changed' => true,
@@ -311,7 +311,7 @@ class Profiles extends MY_Controller
                 );
                 $this->session->set_userdata($user_session);
 
-                redirect($this->session->userdata('language') . 'profiles/password', 'refresh');
+                redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/password', 'refresh');
             } else {
 
                 $user_session = array(
@@ -320,7 +320,7 @@ class Profiles extends MY_Controller
                 );
                 $this->session->set_userdata($user_session);
 
-                redirect($this->session->userdata('language') . 'profiles/password', 'refresh');
+                redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/password', 'refresh');
             }
         } else {
             $this->load->view('partials/header', $data);
@@ -363,7 +363,7 @@ class Profiles extends MY_Controller
                 );
                 $this->session->set_userdata($user_session);
 
-                redirect($this->session->userdata('language') . 'profiles/forgot', 'refresh');
+                redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot', 'refresh');
             } else {
 
                 $user_session = array(
@@ -372,7 +372,7 @@ class Profiles extends MY_Controller
                 );
                 $this->session->set_userdata($user_session);
 
-                redirect($this->session->userdata('language') . 'profiles/forgot', 'refresh');
+                redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot', 'refresh');
             }
         } else {
             $this->load->view('partials/header', $data);

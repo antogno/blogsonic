@@ -30,7 +30,7 @@ class MY_Controller extends CI_Controller
 
         if ($this->session->userdata('logged_in')) {
 
-            $profile_language = $this->Profiles_model->getUser($this->session->userdata('username'));
+            $profile_language = $this->Profiles_model->getUser($this->encryption->decrypt($this->session->userdata('username')));
             $profile_language = $profile_language->language;
 
             if ($profile_language == 'it') {
@@ -64,7 +64,7 @@ class MY_Controller extends CI_Controller
         $uri_language = substr($language, 0, 2);
 
         $user_session = array(
-            'language' => $uri_language . '/'
+            'language' => $this->encryption->encrypt($uri_language . '/')
         );
         $this->session->set_userdata($user_session);
         $this->config->set_item('language', $language);

@@ -89,11 +89,15 @@ Follow the next steps to set up Blogsonic.
     );
     ```
 
-## Add your base URL in the `application/config/config.php` file
+## Add your base URL and an encryption key in the `application/config/config.php` file
 
 ```php
 $config['base_url'] = ''; // Base URL (e.g.: http://localhost/blogsonic/)
+
+$config['encryption_key'] = ''; // Encryption key (e.g.: F7z4zM0L3ua6e9rdZgy0StgIYA8xIFai)
 ```
+
+To generate an encryption key, you can go to [RandomKeygen](https://randomkeygen.com/) and scroll down to "CodeIgniter Encryption Keys".
 
 ## Add your email informations in the `application/core/MY_Controller.php` file
 
@@ -165,7 +169,7 @@ modules:
                 - 'USE ;' # Add the database name (e.g.: USE blogsonic;)
 ```
 
-> **Note**: This configuration will only work with MySQL. If you need to change it, see the official Codeception documentation, [by clicking here](https://codeception.com/docs/modules/Db).
+> **Note**: This configuration will only work with MySQL. If you need to change it, see the official [Codeception documentation](https://codeception.com/docs/modules/Db).
 
 ## Start ChromeDriver
 
@@ -211,4 +215,4 @@ $ vendor/bin/codecept run acceptance ProfilesCest
 $ vendor/bin/codecept run acceptance ProfilesCest::register
 ```
 
-For more informations, [click here](https://codeception.com/docs/01-Introduction).
+For more informations, see the official [Codeception documentation](https://codeception.com/docs/01-Introduction).

@@ -29,7 +29,7 @@
             </div>
             <div class="modal-body">
                 <p><?= $this->lang->line('cookiebar_body'); ?>
-                <a href="<?= base_url($this->session->userdata('language') . 'pages/view/privacy'); ?>"><?= $this->lang->line('privacy_policy_link'); ?></a>.
+                <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/privacy'); ?>"><?= $this->lang->line('privacy_policy_link'); ?></a>.
                 </p>
             </div>
             <div class="modal-footer">
@@ -41,19 +41,19 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand col-3 col-sm-3 col-md-2 col-lg-1 col-xl-1" href="<?= base_url($this->session->userdata('language')); ?>"><img src="<?= base_url('public/assets/img/blogsonic-logo-min.png'); ?>" class="img-fluid" alt="Blogsonic"></a>
+            <a class="navbar-brand col-3 col-sm-3 col-md-2 col-lg-1 col-xl-1" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language'))); ?>"><img src="<?= base_url('public/assets/img/blogsonic-logo-min.png'); ?>" class="img-fluid" alt="Blogsonic"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url($this->session->userdata('language') . 'pages/view/home'); ?>"><?= $this->lang->line('home_nav'); ?>
+                        <a class="nav-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/home'); ?>"><?= $this->lang->line('home_nav'); ?>
                             <span class="visually-hidden"></span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url($this->session->userdata('language') . 'pages/view/about'); ?>"><?= $this->lang->line('about_nav'); ?></a>
+                        <a class="nav-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/about'); ?>"><?= $this->lang->line('about_nav'); ?></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->lang->line('profiles_nav'); ?></a>
@@ -61,7 +61,7 @@
                             <?php
                                 if($this->session->userdata('logged_in')) {
                             ?>
-                            <a class="dropdown-item" href="<?= base_url($this->session->userdata('language') . 'profiles'); ?>"><?= $this->lang->line('myprofile_nav'); ?></a>
+                            <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles'); ?>"><?= $this->lang->line('myprofile_nav'); ?></a>
                             <div class="dropdown-divider"></div>
                             <?php
                                 }
@@ -69,27 +69,27 @@
                             <?php
                                 if(!$this->session->userdata('logged_in')) {
                             ?>
-                            <a class="dropdown-item" href="<?= base_url($this->session->userdata('language') . 'profiles/login'); ?>"><?= $this->lang->line('login_nav'); ?></a>
+                            <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login'); ?>"><?= $this->lang->line('login_nav'); ?></a>
                             <?php
                                 } else {
                             ?>
-                            <a onclick="return confirmation()" class="dropdown-item" href="<?= base_url($this->session->userdata('language') . 'profiles/logout'); ?>"><?= $this->lang->line('logout_nav'); ?></a>
+                            <a onclick="return confirmation()" class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/logout'); ?>"><?= $this->lang->line('logout_nav'); ?></a>
                             <?php
                                 }
                             ?>
-                            <a class="dropdown-item" href="<?= base_url($this->session->userdata('language') . 'profiles/register'); ?>"><?= $this->lang->line('register_nav'); ?></a>
+                            <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register'); ?>"><?= $this->lang->line('register_nav'); ?></a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->lang->line('blogs_nav'); ?></a>
                         <div class="dropdown-menu toggle">
-                            <a class="dropdown-item" href="<?= base_url($this->session->userdata('language') . 'blogs/all'); ?>"><?= $this->lang->line('allblogs_nav'); ?></a>
+                            <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/all'); ?>"><?= $this->lang->line('allblogs_nav'); ?></a>
                             <?php
                                 if($this->session->userdata('logged_in')) {
                             ?>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<?= base_url($this->session->userdata('language') . 'blogs/myblogs'); ?>"><?= $this->lang->line('myblogs_nav'); ?></a>
-                            <a class="dropdown-item" href="<?= base_url($this->session->userdata('language') . 'blogs/newblog'); ?>"><?= $this->lang->line('newblog_nav'); ?></a>
+                            <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs'); ?>"><?= $this->lang->line('myblogs_nav'); ?></a>
+                            <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/newblog'); ?>"><?= $this->lang->line('newblog_nav'); ?></a>
                             <?php
                                 }
                             ?>

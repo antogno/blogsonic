@@ -6,7 +6,7 @@
         <div class="alert alert-dismissible alert-success" id="success_popup">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 <?= '<p><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;' . $this->lang->line('registered'); ?>
-                <a href="<?= base_url($this->session->userdata('language') . 'profiles/login'); ?>" class="alert-link"><?= ' ' . $this->lang->line('registered_link') . '</a>.</p>'; ?>
+                <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login'); ?>" class="alert-link"><?= ' ' . $this->lang->line('registered_link') . '</a>.</p>'; ?>
         </div>
         <?php
             }
