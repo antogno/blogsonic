@@ -192,7 +192,7 @@ class Blogs extends MY_Controller
 
         $id = $this->uri->segment(4);
 
-        if ($id) {
+        if (is_numeric($id)) {
             $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', false, false, $id);
 
             if ($blog) {
@@ -242,7 +242,7 @@ class Blogs extends MY_Controller
 
         $id = $this->uri->segment(4);
 
-        if ($id) {
+        if (is_numeric($id)) {
             $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', false, false, $id);
 
             if ($blog) {
