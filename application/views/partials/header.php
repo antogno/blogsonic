@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('public/assets/icon/favicon-32x32.png'); ?>">
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/assets/icon/favicon-16x16.png'); ?>">
     <link rel="manifest" href="<?= base_url('public/assets/icon/site.webmanifest'); ?>">
-    <link rel="mask-icon" href="<?= base_url('public/assets/icon/safari-pinned-tab.svg'); ?>" color="#5bbad5">
+    <!-- <link rel="mask-icon" href="<?= base_url('public/assets/icon/safari-pinned-tab.svg'); ?>" color="#5bbad5"> -->
     <link rel="shortcut icon" href="<?= base_url('public/assets/icon/favicon.ico'); ?>">
     <meta name="msapplication-TileColor" content="#426e9c">
     <meta name="msapplication-config" content="<?= base_url('public/assets/icon/browserconfig.xml'); ?>">
