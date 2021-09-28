@@ -1,10 +1,10 @@
-# What is [Blogsonic.org](https://www.blogsonic.org/)?
+# What is [Blogsonic](https://www.blogsonic.org/)?
 
-[Blogsonic.org](https://www.blogsonic.org/) is an open source project. More specifically, is a CRUD Web Application. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.
+[Blogsonic](https://www.blogsonic.org/) is an open source project. More specifically, is a CRUD Web Application. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.
 
-## How was [Blogsonic.org](https://www.blogsonic.org/) created?
+## How was [Blogsonic](https://www.blogsonic.org/) created?
 
-Blogsonic.org was created using the following tools and technologies:
+Blogsonic was created using the following tools and technologies:
 
 * Front-end:
     * HTML;
@@ -15,15 +15,15 @@ Blogsonic.org was created using the following tools and technologies:
     * PHP (framework: CodeIgniter 3.1.11);
     * MySQL.
 
-## Who created [Blogsonic.org](https://www.blogsonic.org/)?
+## Who created [Blogsonic](https://www.blogsonic.org/)?
 
-The designer and creator of [Blogsonic.org](https://www.blogsonic.org/) it's me, that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here](https://www.linkedin.com/in/antonio-granaldi/).
+The designer and creator of [Blogsonic](https://www.blogsonic.org/) it's me, that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here](https://www.linkedin.com/in/antonio-granaldi/).
 
 ## How can I contact you?
 
 You can contact me on my LinkedIn profile above, or by sending an email to [tonio.granaldi@gmail.com](mailto:tonio.granaldi@gmail.com).
 
-## Can I use the [Blogsonic.org](https://www.blogsonic.org/) source code?
+## Can I use the [Blogsonic](https://www.blogsonic.org/) source code?
 
 Of course! You can find everything you need on [GitHub](https://github.com/antogno/blogsonic).
 
