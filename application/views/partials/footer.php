@@ -25,7 +25,7 @@
         let confirmation_text = "<?= $this->lang->line('confirmation'); ?>";
         let confirmationProfile_text = "<?= $this->lang->line('confirmationProfile'); ?>";
     </script>
-    <script src="<?= base_url('public/assets/js/script.js'); ?>"></script>
+    <script src="<?= base_url('public/js/script.js'); ?>"></script>
     <script>
         $(document).ready(function() {
             if ( ! localStorage.getItem('cookie')) {

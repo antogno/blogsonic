@@ -2,20 +2,19 @@
 <html>
 <head>
     <title><?= $title; ?> | Blogsonic</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('public/assets/icon/apple-touch-icon.png'); ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('public/assets/icon/favicon-32x32.png'); ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/assets/icon/favicon-16x16.png'); ?>">
-    <link rel="manifest" href="<?= base_url('public/assets/icon/site.webmanifest'); ?>">
-    <!-- <link rel="mask-icon" href="<?= base_url('public/assets/icon/safari-pinned-tab.svg'); ?>" color="#5bbad5"> -->
-    <link rel="shortcut icon" href="<?= base_url('public/assets/icon/favicon.ico'); ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('public/icon/apple-touch-icon.png'); ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('public/icon/favicon-32x32.png'); ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/icon/favicon-16x16.png'); ?>">
+    <link rel="manifest" href="<?= base_url('public/icon/site.webmanifest'); ?>">
+    <!-- <link rel="mask-icon" href="<?= base_url('public/icon/safari-pinned-tab.svg'); ?>" color="#5bbad5"> -->
+    <link rel="shortcut icon" href="<?= base_url('public/icon/favicon.ico'); ?>">
     <meta name="msapplication-TileColor" content="#426e9c">
-    <meta name="msapplication-config" content="<?= base_url('public/assets/icon/browserconfig.xml'); ?>">
+    <meta name="msapplication-config" content="<?= base_url('public/icon/browserconfig.xml'); ?>">
     <meta name="theme-color" content="#ffffff">
-    <script src="<?= base_url('public/assets/jquery/jquery.min.js'); ?>"></script>
-    <link rel="stylesheet" href="<?= base_url('public/assets/css/bootstrap.min.css'); ?>"/>
-    <link rel="stylesheet" href="<?= base_url('public/assets/css/style.css'); ?>"/>
-    <link rel="stylesheet" href="<?= base_url('public/assets/font-awesome-4.7.0/css/font-awesome.min.css'); ?>"/>
-    <script src="<?= base_url('public/assets/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?= base_url('public/jquery/jquery.min.js'); ?>"></script>
+    <link rel="stylesheet" href="<?= base_url('public/css/bootstrap.min.css'); ?>"/>
+    <link rel="stylesheet" href="<?= base_url('public/font-awesome-4.7.0/css/font-awesome.min.css'); ?>"/>
+    <script src="<?= base_url('public/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
 <body>
     <div class="modal" id="cookiebar">
@@ -41,7 +40,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand col-3 col-sm-3 col-md-2 col-lg-1 col-xl-1" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language'))); ?>"><img src="<?= base_url('public/assets/img/blogsonic-logo-min.png'); ?>" class="img-fluid" alt="Blogsonic"></a>
+            <a class="navbar-brand col-3 col-sm-3 col-md-2 col-lg-1 col-xl-1" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language'))); ?>"><img src="<?= base_url('public/img/blogsonic-logo-min.png'); ?>" class="img-fluid" alt="Blogsonic"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,7 +58,7 @@
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->lang->line('profiles_nav'); ?></a>
                         <div class="dropdown-menu toggle">
                             <?php
-                                if($this->session->userdata('logged_in')) {
+                                if ($this->session->userdata('logged_in')) {
                             ?>
                             <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles'); ?>"><?= $this->lang->line('myprofile_nav'); ?></a>
                             <div class="dropdown-divider"></div>
@@ -67,7 +66,7 @@
                                 }
                             ?>
                             <?php
-                                if(!$this->session->userdata('logged_in')) {
+                                if ( ! $this->session->userdata('logged_in')) {
                             ?>
                             <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login'); ?>"><?= $this->lang->line('login_nav'); ?></a>
                             <?php
@@ -85,7 +84,7 @@
                         <div class="dropdown-menu toggle">
                             <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/all'); ?>"><?= $this->lang->line('allblogs_nav'); ?></a>
                             <?php
-                                if($this->session->userdata('logged_in')) {
+                                if ($this->session->userdata('logged_in')) {
                             ?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs'); ?>"><?= $this->lang->line('myblogs_nav'); ?></a>

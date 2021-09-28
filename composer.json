@@ -1,15 +1,8 @@
 {
-    "description": "The CodeIgniter framework",
-    "name": "codeigniter/framework",
+    "description": "CRUD Web Application",
+    "name": "antogno/blogsonic",
     "type": "project",
-    "homepage": "https://codeigniter.com",
-    "license": "MIT",
-    "support": {
-        "forum": "http://forum.codeigniter.com/",
-        "wiki": "https://github.com/bcit-ci/CodeIgniter/wiki",
-        "slack": "https://codeigniterchat.slack.com",
-        "source": "https://github.com/bcit-ci/CodeIgniter"
-    },
+    "homepage": "https://blogsonic.org",
     "require": {
         "php": ">=5.3.7"
     },
