@@ -60,6 +60,7 @@ $lang['newblog_nav'] = 'New Blog';
 $lang['language_select_footer'] = 'Language';
 $lang['language_en_footer'] = 'English';
 $lang['language_it_footer'] = 'Italian';
+$lang['license'] = 'License';
 $lang['designed_and_created_by'] = 'Designed and created by';
 
 $lang['logged_in'] = 'You are already logged in.';
