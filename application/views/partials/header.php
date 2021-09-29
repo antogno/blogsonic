@@ -9,6 +9,7 @@
     <?php
         }
     ?>
+    <link rel="alternate" hreflang="it" href="<?= base_url('it'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="<?= base_url('public/img/blogsonic-social-preview.png'); ?>">
     <meta property="og:image:type" content="image/png">
