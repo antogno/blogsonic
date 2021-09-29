@@ -43,16 +43,13 @@ class MY_Controller extends CI_Controller
                 $language = 'italian';
             } elseif ($this->uri->segment(1) == 'en') {
                 $language = 'english';
-            } else {
-                
+            } elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
                 $browser_language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
                 $accept = ['en', 'it'];
                 $browser_language = in_array($browser_language, $accept) ? $browser_language : 'en';
-
                 if ($browser_language == 'it') {
                     $language = 'italian';
                 }
-
             }
 
         }

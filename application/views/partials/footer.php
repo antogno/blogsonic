@@ -1,28 +1,31 @@
     </div>
     <hr>
-    <div class="form-group">
-        <footer style="padding: 0 1rem 1rem 1rem">
-            <?php
-                if ( ! $this->session->userdata('logged_in')) {
-            ?>
-                <label class="form-label">
-                    <select class="form-select" id="change_language">
-                        <option value="" selected disabled hidden><?= $this->lang->line('language_select_footer'); ?></option>
-                        <option value="en"><?= $this->lang->line('language_en_footer'); ?></option>
-                        <option value="it"><?= $this->lang->line('language_it_footer'); ?></option>
-                    </select>
-                </label>
-                &mdash;
-            <?php
-                }
-            ?>
-            <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/privacy'); ?>" id="privacy_policy_link"><?= $this->lang->line('privacy_policy_link'); ?></a>
-            &ndash;
-            <a target="_blank" href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><?= $this->lang->line('license'); ?></a>
-            &ndash;
-            <i class="fa fa-creative-commons" aria-hidden="true"></i> 2021, Blogsonic.org &ndash; <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>.
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="form-group">
+            <span style="padding: 0 1rem 1rem 1rem">
+                <?php
+                    if ( ! $this->session->userdata('logged_in')) {
+                ?>
+                    <label class="form-label">
+                        <select class="form-select" id="change_language">
+                            <option value="" selected disabled hidden><?= $this->lang->line('language_select_footer'); ?></option>
+                            <option value="en"><?= $this->lang->line('language_en_footer'); ?></option>
+                            <option value="it"><?= $this->lang->line('language_it_footer'); ?></option>
+                        </select>
+                    </label>
+                    &mdash;
+                <?php
+                    }
+                ?>
+                <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/privacy'); ?>" id="privacy_policy_link"><?= $this->lang->line('privacy_policy_link'); ?></a>
+                &ndash;
+                <a target="_blank" href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><?= $this->lang->line('license'); ?></a>
+                &ndash;
+                <i class="fa fa-creative-commons" aria-hidden="true"></i> 2021, Blogsonic.org &ndash; <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>.
+            </span>
+        </div>
+    </footer>
     <script>
         let confirmation_text = "<?= $this->lang->line('confirmation'); ?>";
         let confirmationProfile_text = "<?= $this->lang->line('confirmationProfile'); ?>";

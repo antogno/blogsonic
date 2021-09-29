@@ -21,6 +21,7 @@ class MY_Exceptions extends CI_Exceptions
 
         $CI =& get_instance();
         $output = '';
+
         $data['title'] = '404';
 
         $output .= $CI->load->view('partials/header', $data, true);
