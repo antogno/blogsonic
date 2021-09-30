@@ -1,8 +1,15 @@
 {
-    "description": "CRUD Web Application",
     "name": "antogno/blogsonic",
+    "description": "A simple CRUD Web Application",
     "type": "project",
-    "homepage": "https://blogsonic.org",
+    "license": "CC0-1.0",
+    "authors": [
+        {
+            "name": "Antonio Granaldi",
+            "email": "tonio.granaldi@gmail.com"
+        }
+    ],
+    "homepage": "https://www.blogsonic.org",
     "require": {
         "php": ">=5.3.7"
     },
