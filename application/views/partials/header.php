@@ -9,7 +9,7 @@
     <?php
         }
     ?>
-    <link rel="alternate" hreflang="it" href="<?= base_url('it'); ?>" />
+    <link rel="alternate" hreflang="it" href="<?= base_url('it'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="<?= base_url('public/img/blogsonic-social-preview.png'); ?>">
     <meta property="og:image:type" content="image/png">
@@ -20,7 +20,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('public/icon/favicon-16x16.png'); ?>">
     <link rel="manifest" href="<?= base_url('public/icon/site.webmanifest'); ?>">
     <!-- <link rel="mask-icon" href="<?= base_url('public/icon/safari-pinned-tab.svg'); ?>" color="#5bbad5"> -->
-    <link rel="shortcut icon" href="<?= base_url('public/icon/favicon.ico'); ?>">
+    <link rel="shortcut icon" href="<?= base_url('favicon.ico'); ?>">
     <meta name="msapplication-TileColor" content="#426e9c">
     <meta name="msapplication-config" content="<?= base_url('public/icon/browserconfig.xml'); ?>">
     <meta name="theme-color" content="#ffffff">
@@ -55,22 +55,22 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand col-3 col-sm-3 col-md-2 col-lg-1 col-xl-1" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language'))); ?>"><img src="<?= base_url('public/img/blogsonic-logo-min.png'); ?>" class="img-fluid" alt="Blogsonic"></a>
+                <a class="navbar-brand col-4 col-sm-3 col-md-2 col-lg-1 col-xl-1" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language'))); ?>"><img src="<?= base_url('public/img/blogsonic-logo-min.png'); ?>" class="img-fluid" alt="Blogsonic"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/home'); ?>"><?= $this->lang->line('home_nav'); ?>
+                            <a class="nav-link <?php if (strpos(current_url(), 'pages/view/home')) { echo 'active'; } ?>" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/home'); ?>"><?= $this->lang->line('home_nav'); ?>
                                 <span class="visually-hidden"></span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/about'); ?>"><?= $this->lang->line('about_nav'); ?></a>
+                            <a class="nav-link <?php if (strpos(current_url(), 'pages/view/about')) { echo 'active'; } ?>" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/about'); ?>"><?= $this->lang->line('about_nav'); ?></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->lang->line('profiles_nav'); ?></a>
+                            <a class="nav-link dropdown-toggle <?php if ($this->router->fetch_class() == 'profiles') { echo 'active'; } ?>" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->lang->line('profiles_nav'); ?></a>
                             <div class="dropdown-menu toggle">
                                 <?php
                                     if ($this->session->userdata('logged_in')) {
@@ -95,7 +95,7 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->lang->line('blogs_nav'); ?></a>
+                            <a class="nav-link dropdown-toggle <?php if ($this->router->fetch_class() == 'blogs') { echo 'active'; } ?>" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->lang->line('blogs_nav'); ?></a>
                             <div class="dropdown-menu toggle">
                                 <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/all'); ?>"><?= $this->lang->line('allblogs_nav'); ?></a>
                                 <?php

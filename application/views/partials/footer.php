@@ -3,7 +3,7 @@
     <!-- Footer -->
     <footer>
         <div class="form-group">
-            <span style="padding: 0 1rem 1rem 1rem">
+            <p style="padding: 0 1rem 1rem 1rem">
                 <?php
                     if ( ! $this->session->userdata('logged_in')) {
                 ?>
@@ -23,7 +23,7 @@
                 <a target="_blank" href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><?= $this->lang->line('license'); ?></a>
                 &ndash;
                 <i class="fa fa-creative-commons" aria-hidden="true"></i> 2021, Blogsonic.org &ndash; <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>.
-            </span>
+            </p>
         </div>
     </footer>
     <script>
