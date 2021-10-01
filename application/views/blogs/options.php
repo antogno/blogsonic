@@ -21,4 +21,5 @@
     <label for="date_max" class="form-label">
     <input type="date" class="form-control" id="date_max"></label>
     <button type="submit" class="btn btn-secondary" id="change_options"><?= $this->lang->line('apply'); ?></button>
+    <button type="reset" class="btn btn-warning" id="reset"><?= $this->lang->line('reset'); ?></button>
 </div>

@@ -159,9 +159,10 @@ $lang['10_blogs'] = '10 Blog';
 $lang['20_blogs'] = '20 Blog';
 $lang['desc'] = 'Dal più recente';
 $lang['asc'] = 'Dal meno recente';
-$lang['between'] = 'Tra il';
+$lang['between'] = 'tra il';
 $lang['between_and'] = 'e il';
 $lang['apply'] = 'Applica';
+$lang['reset'] = 'Ripristina';
 
 $lang['myblogs_title'] = 'I miei Blog';
 
