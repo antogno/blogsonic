@@ -48,7 +48,7 @@ class Blogs extends MY_Controller
                 $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
             }
 
-            $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, $date_max);
+            $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, $date_max, null, $this->input->get('search'));
 
             if ($blogs) {
                 $data['blogs'] = true;

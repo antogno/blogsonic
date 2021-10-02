@@ -43,6 +43,17 @@
     </script>
     <script src="<?= base_url('public/js/script.js'); ?>"></script>
     <script>
+        function getBlogsonicPosition(url) {
+            let blogsonic_segment = []
+            url = url.split('/');
+            url.forEach(function (item, index) {
+                if (item.indexOf('blogsonic') >= 0) {
+                    blogsonic_segment.push(index + 1)
+                }
+            });
+            return blogsonic_segment[0];
+        }
+
         $(document).ready(function() {
             if ( ! localStorage.getItem('cookie')) {
                 $('#cookiebar').modal('show');
@@ -53,33 +64,43 @@
                 $('#cookiebar').modal('hide');
             });
 
+            blogsonic_segment = getBlogsonicPosition(window.location.href);
             let segments = window.location.href.split('/');
-            if ($("#change_limit option[value='" + segments[7] + "']").length > 0) {
-                $("#change_limit").val(segments[7]);
+
+            if ($("#change_limit option[value='" + segments[blogsonic_segment + 3] + "']").length > 0) {
+                $("#change_limit").val(segments[blogsonic_segment + 3]);
             }
-            if ($("#change_order option[value='" + segments[8] + "']").length > 0) {
-                $("#change_order").val(segments[8]);
+
+            if ($("#change_order option[value='" + segments[blogsonic_segment + 4] + "']").length > 0) {
+                $("#change_order").val(segments[blogsonic_segment + 4]);
             }
-            $("#date_min").val(segments[9]);
-            $("#date_max").val(segments[10]);
+
+            $("#date_min").val(segments[blogsonic_segment + 5]);
+
+            if (typeof segments[blogsonic_segment + 6] != 'undefined') {
+                segments[blogsonic_segment + 6] = segments[blogsonic_segment + 6].substring(0, 10);
+            }
+            $("#date_max").val(segments[blogsonic_segment + 6]);
 
             $('#reset').click(function() {
                 $("#change_limit").val("");
                 $("#change_order").val("");
                 $("#date_min").val("");
                 $("#date_max").val("");
+                let last_segment = segments[segments.length - 1].split('?');
+                segments[segments.length - 1] = last_segment[0];
+                segments.splice(blogsonic_segment + 3);
+                window.location = segments.join('/');
             });
 
             $('#change_options').click(function() {
-                let blogsonic_segment = [];
+                blogsonic_segment = getBlogsonicPosition(window.location.href);
                 let segments = window.location.href.split('/');
-                segments.forEach(function (item, index) {
-                    if (item.indexOf('blogsonic') >= 0) {
-                        blogsonic_segment.push(index + 1);
-                    }
-                });
+                let search_term = segments[segments.length - 1].split('?');
+                segments[segments.length - 1] = search_term[0];
+                search_term = typeof search_term[1] != 'undefined' ? '?' + search_term[1] : '';
 
-                if (segments.length == blogsonic_segment[0] + 3) {
+                if (segments.length == blogsonic_segment + 3) {
                     if ($('#change_limit').val()) {
                         segments.push($('#change_limit').val());
                     } else {
@@ -101,10 +122,10 @@
                         let today = new Date().toISOString().slice(0, 10);
                         segments.push(today);
                     }
-                    window.location = segments.join('/');
-                } else if (segments.length == blogsonic_segment[0] + 4) {
+                    window.location = segments.join('/') + search_term;
+                } else if (segments.length == blogsonic_segment + 4) {
                     if ($('#change_limit').val()) {
-                        segments[blogsonic_segment[0] + 3] = $('#change_limit').val();
+                        segments[blogsonic_segment + 3] = $('#change_limit').val();
                     }
                     if ($('#change_order').val()) {
                         segments.push($('#change_order').val());
@@ -122,13 +143,13 @@
                         let today = new Date().toISOString().slice(0, 10);
                         segments.push(today);
                     }
-                    window.location = segments.join('/');
-                } else if (segments.length == blogsonic_segment[0] + 5) {
+                    window.location = segments.join('/') + search_term;
+                } else if (segments.length == blogsonic_segment + 5) {
                     if ($('#change_limit').val()) {
-                        segments[blogsonic_segment[0] + 3] = $('#change_limit').val();
+                        segments[blogsonic_segment + 3] = $('#change_limit').val();
                     }
                     if ($('#change_order').val()) {
-                        segments[blogsonic_segment[0] + 4] = $('#change_order').val();
+                        segments[blogsonic_segment + 4] = $('#change_order').val();
                     }
                     if ($('#date_min').val()) {
                         segments.push($('#date_min').val());
@@ -141,16 +162,16 @@
                         let today = new Date().toISOString().slice(0, 10);
                         segments.push(today);
                     }
-                    window.location = segments.join('/');
-                } else if (segments.length == blogsonic_segment[0] + 6) {
+                    window.location = segments.join('/') + search_term;
+                } else if (segments.length == blogsonic_segment + 6) {
                     if ($('#change_limit').val()) {
-                        segments[blogsonic_segment[0] + 3] = $('#change_limit').val();
+                        segments[blogsonic_segment + 3] = $('#change_limit').val();
                     }
                     if ($('#change_order').val()) {
-                        segments[blogsonic_segment[0] + 4] = $('#change_order').val();
+                        segments[blogsonic_segment + 4] = $('#change_order').val();
                     }
                     if ($('#date_min').val()) {
-                        segments[blogsonic_segment[0] + 5] = $('#date_min').val();
+                        segments[blogsonic_segment + 5] = $('#date_min').val();
                     }
                     if ($('#date_max').val()) {
                         segments.push($('#date_max').val());
@@ -158,21 +179,21 @@
                         let today = new Date().toISOString().slice(0, 10);
                         segments.push(today);
                     }
-                    window.location = segments.join('/');
-                } else if (segments.length == blogsonic_segment[0] + 7) {
+                    window.location = segments.join('/') + search_term;
+                } else if (segments.length == blogsonic_segment + 7) {
                     if ($('#change_limit').val()) {
-                        segments[blogsonic_segment[0] + 3] = $('#change_limit').val();
+                        segments[blogsonic_segment + 3] = $('#change_limit').val();
                     }
                     if ($('#change_order').val()) {
-                        segments[blogsonic_segment[0] + 4] = $('#change_order').val();
+                        segments[blogsonic_segment + 4] = $('#change_order').val();
                     }
                     if ($('#date_min').val()) {
-                        segments[blogsonic_segment[0] + 5] = $('#date_min').val();
+                        segments[blogsonic_segment + 5] = $('#date_min').val();
                     }
                     if ($('#date_max').val()) {
-                        segments[blogsonic_segment[0] + 6] = $('#date_max').val();
+                        segments[blogsonic_segment + 6] = $('#date_max').val();
                     }
-                    window.location = segments.join('/');
+                    window.location = segments.join('/') + search_term;
                 }
             });
 

@@ -38,7 +38,10 @@ $lang['confirmationProfile'] = 'Are you sure? By deleting your Profile all your 
 
 $lang['motto'] = 'The purpose of our lives is to be happy.';
 $lang['back'] = 'Back';
+
+$lang['search_placeholder'] = 'Search through Blogs';
 $lang['search'] = 'Search';
+$lang['search_result'] = 'Results for: ';
 
 $lang['cookiebar_title'] = 'This website uses cookies';
 $lang['cookiebar_body'] = 'This website uses technical cookies. By continuing to browse, you accept the use of cookies.';

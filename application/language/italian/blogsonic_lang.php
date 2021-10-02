@@ -38,7 +38,10 @@ $lang['confirmationProfile'] = 'Sei sicuro? Eliminando il tuo Profilo tutti i tu
 
 $lang['motto'] = 'Lo scopo della nostra vita è essere felici.';
 $lang['back'] = 'Indietro';
+
+$lang['search_placeholder'] = 'Cerca tra i Blog';
 $lang['search'] = 'Cerca';
+$lang['search_result'] = 'Risultati per: ';
 
 $lang['cookiebar_title'] = 'Questo sito usa i cookie';
 $lang['cookiebar_body'] = 'Questo sito utilizza cookie tecnici. Proseguendo nella navigazione accetti l’utilizzo dei cookie.';

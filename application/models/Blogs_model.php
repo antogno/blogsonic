@@ -68,9 +68,10 @@ class Blogs_model extends CI_Model
      * @param   string  $date_min   the minimum date in which to start showing Blogs.
      * @param   string  $date_max   the maximum date of showed Blogs.
      * @param   int     $id         the Blog ID.
+     * @param   string  $search     the term to search in the Blog title or body.
      * @return  array|object|false  if an ID isn't passed, it returns an array containing the fetched rows. If an ID is given, it returns the row of the requested Blog. If a Blog with the given ID doesn't exists, it returns false.
      */
-    public function getBlog(int $limit, string $order, string $date_min = null, string $date_max = null, int $id = null)
+    public function getBlog(int $limit, string $order, string $date_min = null, string $date_max = null, int $id = null, string $search = null)
     {
 
         if ( ! isset($date_min)) {
@@ -78,7 +79,7 @@ class Blogs_model extends CI_Model
         }
 
         if ( ! isset($date_max)) {
-            $date_max = date('Y-m-d') . ' 23:59:59';
+            $date_max = date('Y-m-d', strtotime('tomorrow')) . ' 23:59:59';
         }
 
         if ( ! $id) {
@@ -87,6 +88,11 @@ class Blogs_model extends CI_Model
             $this->db->limit($limit);
             $this->db->where('created_at >=', $date_min);
             $this->db->where('created_at <=', $date_max);
+            
+            if ($search) {
+                $this->db->like('body', $search);
+                $this->db->or_like('title', $search);
+            }
             
             $query = $this->db->get('blogs');
 
