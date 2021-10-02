@@ -22,7 +22,7 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:url" content="<?= base_url(); ?>">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= $title; ?> | Blogsonic">
+    <meta property="og:title" content="<?php if (isset($meta_title)) { ?><?= $meta_title; ?><?php } else { ?><?= $title; ?><?php } ?>">
     <?php if (isset($meta_description)) { ?> <meta property="og:description" content="<?= $meta_description; ?>"> <?php } ?>
     <meta property="og:image" content="<?= base_url('public/img/blogsonic-social-preview.png'); ?>">
     <meta property="og:image:type" content="image/png">
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="blogsonic.org">
     <meta property="twitter:url" content="<?= base_url(); ?>">
-    <meta name="twitter:title" content="<?= $title; ?> | Blogsonic">
+    <meta name="twitter:title" content="<?php if (isset($meta_title)) { ?><?= $meta_title; ?><?php } else { ?><?= $title; ?><?php } ?>">
     <?php if (isset($meta_description)) { ?> <meta name="twitter:description" content="<?= $meta_description; ?>"> <?php } ?>
     <meta name="twitter:image" content="<?= base_url('public/img/blogsonic-social-preview.png'); ?>">
 
