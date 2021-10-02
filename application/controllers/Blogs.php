@@ -213,14 +213,14 @@ class Blogs extends MY_Controller
                 $data = array(
                     'title' => $this->lang->line('view_title'),
                     'meta_description' => $this->lang->line('view_meta_description'),
-                    'view_title' => $blog->title,
+                    'view_title' => html_escape($blog->title),
                     'user' => $this->lang->line('blogs_user'),
                     'created_at' => $this->lang->line('blogs_created_at'),
                     'body' => $this->lang->line('blogs_body'),
                     'id' => $blog->id,
                     'view_user' => $this->Blogs_model->getUser($blog->user_id),
                     'view_created_at' => date('d-m-Y H:i', strtotime($blog->created_at)),
-                    'view_body' => $blog->body,
+                    'view_body' => html_escape($blog->body),
                     'delete' => $this->lang->line('view_delete'),
                     'edit' => $this->lang->line('view_edit')
                 );
