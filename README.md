@@ -132,12 +132,21 @@ $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
 User-agent: *
 Disallow: /tests/
 
-Sitemap: http://localhost/blogsonic/sitemap.xml # URL to the sitemap.xml
+# URL to the sitemap.xml
+Sitemap: http://localhost/blogsonic/sitemap.xml
 ```
 
 > **Note**: This step is optional. These files are only used for the purpose of improving SEO Positioning.
 
 For more information, see the [Sitemap protocol website](https://www.sitemaps.org/) and the official [Google documentation](https://developers.google.com/search/docs/advanced/robots/create-robots-txt).
+
+## Set the current environment in the `.htacesss` file
+
+```htaccess
+SetEnv CI_ENV development
+```
+
+The available options are: `development`, `testing` and `production`. Setting the constant to a value of `development` will cause all PHP errors to be rendered to the browser when they occur. Conversely, setting the constant to `production` will disable all error output.
 
 # Running the acceptance tests
 
