@@ -72,6 +72,11 @@ class Blogs extends MY_Controller
             } else {
                 $this->load->view('partials/header', $data);
                 $this->load->view('blogs/options');
+
+                if ($this->input->get('search')) {
+                    $this->load->view('blogs/search');
+                }
+
                 $this->load->view('blogs/index', $data);
                 $this->load->view('partials/footer');
             }
