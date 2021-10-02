@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<?= substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1); ?>">
 <head>
     <!-- Title and description -->
     <title><?php if (isset($meta_title)) { ?><?= $meta_title; ?><?php } else { ?><?= $title; ?><?php } ?></title>
@@ -9,8 +9,9 @@
     <meta name="theme-color" content="#446e9b">
     
     <!-- Alternate links -->
-    <link rel="alternate" hreflang="it" href="<?= base_url('it'); ?>">
+    <link rel="alternate" hreflang="<?= substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1); ?>" href="<?= base_url(); ?>">
     <link rel="alternate" hreflang="en" href="<?= base_url('en'); ?>">
+    <link rel="alternate" hreflang="it" href="<?= base_url('it'); ?>">
 
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
