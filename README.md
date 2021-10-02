@@ -113,24 +113,26 @@ $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
 
 > **Note**: This step is optional. Obviously, not doing this means not making the "Forgot password" feature work.
 
-## Edit the URLs in the `robots.txt` and `sitemap.xml` files according to your URLs
+## Edit the `robots.txt` and `sitemap.xml` files according to your data
 
-For example:
+`sitemap.xml`:
 
 ```xml
 <url>
-    <loc>http://localhost/blogsonic/</loc>
-    <lastmod>2021-10-02</lastmod>
+    <loc>http://localhost/blogsonic/</loc> <!-- Page URL -->
+    <lastmod>2021-10-02</lastmod> <!-- Last update -->
     <changefreq>always</changefreq>
     <priority>1.0</priority>
 </url>
 ```
 
+`robots.txt`:
+
 ```txt
 User-agent: *
 Disallow: /tests/
 
-Sitemap: http://localhost/blogsonic/sitemap.xml
+Sitemap: http://localhost/blogsonic/sitemap.xml # URL to the sitemap.xml
 ```
 
 > **Note**: This step is optional. These files are only used for the purpose of improving SEO Positioning.
