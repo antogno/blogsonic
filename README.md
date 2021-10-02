@@ -78,7 +78,7 @@ Follow the next steps to set up Blogsonic.
     );
     ~~~~
 
-2. Add the database's informations in the `application/config/database.php` file.
+2. Add the database's information in the `application/config/database.php` file.
 
     ```php
     $db['default'] = array(
@@ -99,7 +99,7 @@ $config['encryption_key'] = ''; // Encryption key (e.g.: F7z4zM0L3ua6e9rdZgy0Stg
 
 To generate an encryption key, you can go to [RandomKeygen](https://randomkeygen.com/) and scroll down to "CodeIgniter Encryption Keys".
 
-## Add your email informations in the `application/core/MY_Controller.php` file
+## Add your email information in the `application/core/MY_Controller.php` file
 
 This email will be used to send a new password to a user who has forgotten it. If you use Gmail, Google may block the automatic sending of the email. To turn this off, login to your Google account and enable the option "Allow less secure apps", [by clicking here](https://myaccount.google.com/lesssecureapps).
 
@@ -112,6 +112,30 @@ $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
 ```
 
 > **Note**: This step is optional. Obviously, not doing this means not making the "Forgot password" feature work.
+
+## Edit the URLs in the `robots.txt` and `sitemap.xml` files according to your URLs
+
+For example:
+
+```xml
+<url>
+    <loc>http://localhost/blogsonic/</loc>
+    <lastmod>2021-10-02</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+</url>
+```
+
+```txt
+User-agent: *
+Disallow: /tests/
+
+Sitemap: http://localhost/blogsonic/sitemap.xml
+```
+
+> **Note**: This step is optional. These files are only used for the purpose of improving SEO Positioning.
+
+For more information, see the [Sitemap protocol website](https://www.sitemaps.org/) and the official [Google documentation](https://developers.google.com/search/docs/advanced/robots/create-robots-txt).
 
 # Running the acceptance tests
 
@@ -151,7 +175,7 @@ From the `blogsonic/` folder, run the following command:
 $ bin/composer install
 ```
 
-## Add your base URL and the database's informations in the `tests/acceptance.suite.yml` file
+## Add your base URL and the database's information in the `tests/acceptance.suite.yml` file
 
 ```yml
 actor: AcceptanceTester
@@ -215,4 +239,4 @@ $ vendor/bin/codecept run acceptance ProfilesCest
 $ vendor/bin/codecept run acceptance ProfilesCest::register
 ```
 
-For more informations, see the official [Codeception documentation](https://codeception.com/docs/01-Introduction).
+For more information, see the official [Codeception documentation](https://codeception.com/docs/01-Introduction).
