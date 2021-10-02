@@ -1,12 +1,5 @@
 <div>
     <?php
-        if ($this->input->get('search')) {
-    ?>
-            <div class="alert alert-dismissible alert-secondary" style="margin-top: 16px">
-                <?= $this->lang->line('search_result'); ?><strong><?= $this->input->get('search'); ?></strong>
-            </div>
-    <?php
-        }
         if ( ! $blogs) {
             echo '<div class="mt-4"><p>' . $this->lang->line('no_blogs');
             if ($this->session->userdata('logged_in')) {

@@ -52,8 +52,13 @@ class Blogs extends MY_Controller
 
             if ($blogs) {
                 $data['blogs'] = true;
+                
                 $this->load->view('partials/header', $data);
                 $this->load->view('blogs/options');
+
+                if ($this->input->get('search')) {
+                    $this->load->view('blogs/search');
+                }
 
                 foreach ($blogs as $blog) {
                     $data['blog_id'] = $blog->id;
