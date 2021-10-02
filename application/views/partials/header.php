@@ -24,9 +24,9 @@
     <meta name="msapplication-TileColor" content="#426e9c">
     <meta name="msapplication-config" content="<?= base_url('public/icon/browserconfig.xml'); ?>">
     <meta name="theme-color" content="#ffffff">
-    <script src="<?= base_url('public/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('public/lib/jquery/jquery.min.js'); ?>"></script>
     <link rel="stylesheet" href="<?= base_url('public/css/bootstrap.min.css'); ?>"/>
-    <link rel="stylesheet" href="<?= base_url('public/font-awesome-4.7.0/css/font-awesome.min.css'); ?>"/>
+    <link rel="stylesheet" href="<?= base_url('public/lib/font-awesome-4.7.0/css/font-awesome.min.css'); ?>"/>
     <script src="<?= base_url('public/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
 <body>
