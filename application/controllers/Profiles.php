@@ -63,6 +63,7 @@ class Profiles extends MY_Controller
             $data['profile_created_at'] = date("d-m-Y H:i", strtotime($profile->created_at));
             $data['id'] = $profile->id;
             $data['title'] = $this->lang->line('profile_title');
+            $data['meta_title'] = $this->lang->line('profile_meta_title');
             $data['meta_description'] = $this->lang->line('profile_meta_description');
 
             $this->form_validation->set_rules('id', '', 'required');
@@ -99,6 +100,7 @@ class Profiles extends MY_Controller
 
         $data = array(
             'title' => $this->lang->line('login_title'),
+            'meta_title' => $this->lang->line('login_meta_title'),
             'meta_description' => $this->lang->line('login_meta_description'),
             'form_username' => $this->lang->line('login_form_username'),
             'form_password' => $this->lang->line('login_form_password'),
@@ -151,6 +153,7 @@ class Profiles extends MY_Controller
     {
 
         $data['title'] = $this->lang->line('logout_title');
+        $data['meta_title'] = $this->lang->line('logout_meta_title');
         $data['meta_description'] = $this->lang->line('logout_meta_description');
 
         $this->load->view('partials/header', $data);
@@ -171,6 +174,7 @@ class Profiles extends MY_Controller
 
         $data = array(
             'title' => $this->lang->line('register_title'),
+            'meta_title' => $this->lang->line('register_meta_title'),
             'meta_description' => $this->lang->line('register_meta_description'),
             'form_name' => $this->lang->line('register_form_name'),
             'form_surname' => $this->lang->line('register_form_surname'),
@@ -268,6 +272,7 @@ class Profiles extends MY_Controller
                 }
 
                 $data['title'] = $this->lang->line('edit_profile_title');
+                $data['meta_title'] = $this->lang->line('edit_profile_meta_title');
                 $data['meta_description'] = $this->lang->line('edit_profile_meta_description');
 
                 $this->load->view('partials/header', $data);
@@ -296,6 +301,7 @@ class Profiles extends MY_Controller
 
         $data = array(
             'title' => $this->lang->line('password_title'),
+            'meta_title' => $this->lang->line('password_meta_title'),
             'meta_description' => $this->lang->line('password_meta_description'),
             'form_old_password' => $this->lang->line('password_form_old_password'),
             'form_new_password' => $this->lang->line('password_form_new_password'),
@@ -348,6 +354,7 @@ class Profiles extends MY_Controller
 
         $data = array(
             'title' => $this->lang->line('forgot_password'),
+            'meta_title' => $this->lang->line('forgot_meta_title'),
             'meta_description' => $this->lang->line('forgot_meta_description'),
             'form_email' => $this->lang->line('forgot_password_email'),
             'form_button' => $this->lang->line('forgot_password_confirm'),

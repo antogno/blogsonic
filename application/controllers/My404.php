@@ -27,6 +27,7 @@ class My404 extends MY_Controller
         $this->output->set_status_header('404');
         
         $data['title'] = '404';
+        $data['meta_title'] = $this->lang->line('404_meta_title');
         $data['meta_description'] = $this->lang->line('404_meta_description');
         
         $this->load->view('partials/header', $data);

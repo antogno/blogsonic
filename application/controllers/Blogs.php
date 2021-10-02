@@ -33,6 +33,7 @@ class Blogs extends MY_Controller
         $data = array(
             'blogs' => false,
             'title' => $this->lang->line('blogs_title'),
+            'meta_title' => $this->lang->line('blogs_meta_title'),
             'meta_description' => $this->lang->line('blogs_meta_description'),
             'blogs_title' => $this->lang->line('blogs_actual_title'),
             'user' => $this->lang->line('blogs_user'),
@@ -104,6 +105,7 @@ class Blogs extends MY_Controller
             'blogs' => false,
             'myblogs' => false,
             'title' => $this->lang->line('myblogs_title'),
+            'meta_title' => $this->lang->line('myblogs_meta_title'),
             'meta_description' => $this->lang->line('myblogs_meta_description'),
             'blogs_title' => $this->lang->line('blogs_actual_title'),
             'user' => $this->lang->line('blogs_user'),
@@ -166,6 +168,7 @@ class Blogs extends MY_Controller
 
         $data = array(
             'title' => $this->lang->line('newblog_title'),
+            'meta_title' => $this->lang->line('newblog_meta_title'),
             'meta_description' => $this->lang->line('newblog_meta_description'),
             'form_title' => $this->lang->line('newblog_actual_title'),
             'form_body' => $this->lang->line('newblog_body'),
@@ -212,6 +215,7 @@ class Blogs extends MY_Controller
 
                 $data = array(
                     'title' => $this->lang->line('view_title'),
+                    'meta_title' => $this->lang->line('view_meta_title'),
                     'meta_description' => $this->lang->line('view_meta_description'),
                     'view_title' => html_escape($blog->title),
                     'user' => $this->lang->line('blogs_user'),
@@ -266,6 +270,7 @@ class Blogs extends MY_Controller
                     
                     $data = array(
                         'title' => $this->lang->line('edit_title'),
+                        'meta_title' => $this->lang->line('edit_meta_title'),
                         'meta_description' => $this->lang->line('edit_meta_description'),
                         'form_title' => $this->lang->line('newblog_actual_title'),
                         'form_body' => $this->lang->line('newblog_body'),

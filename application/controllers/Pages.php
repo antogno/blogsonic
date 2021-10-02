@@ -27,6 +27,7 @@ class Pages extends MY_Controller
 
         if (file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
             $data['title'] = $this->lang->line($page . '_static_page_title');
+            $data['meta_title'] = $this->lang->line($page . '_static_page_meta_title');
             $data['meta_description'] = $this->lang->line($page . '_static_page_meta_description');
             
             $this->load->view('partials/header', $data);
