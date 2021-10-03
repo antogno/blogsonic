@@ -31,6 +31,7 @@
             <p style="padding: 0 1rem 1rem 1rem; float: right">
                 <a target="_blank" href="https://www.facebook.com/antonio.granaldi"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
                 <a target="_blank" href="https://twitter.com/AGranaldi"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a target="_blank" href="https://www.instagram.com/agranaldi/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a target="_blank" href="https://www.reddit.com/user/antogno"><i class="fa fa-reddit" aria-hidden="true"></i></a>
                 <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
                 <a target="_blank" href="https://stackoverflow.com/users/16877786/antogno"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>

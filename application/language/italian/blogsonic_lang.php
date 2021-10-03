@@ -31,6 +31,11 @@ $lang['about_19'] = 'Puoi contattarmi sul mio profilo LinkedIn qui sopra, o invi
 $lang['about_20'] = 'Posso usare il codice sorgente di Blogsonic.org?';
 $lang['about_21'] = 'Certo! Puoi trovare tutto ciò che ti serve su';
 $lang['about_22'] = 'GitHub';
+$lang['about_23'] = 'Blogsonic.org esiste anche grazie a';
+$lang['about_24'] = 'le icone di Font Awesome 4.7.0';
+$lang['about_25'] = 'il tema Spacelab di Bootswatch';
+$lang['about_26'] = 'Codeception';
+$lang['about_27'] = 'realfavicongenerator.net';
 $lang['privacy_static_page_title'] = 'Informativa sulla privacy';
 
 $lang['confirmation'] = 'Sei sicuro?';

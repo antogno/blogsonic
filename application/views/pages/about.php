@@ -21,6 +21,14 @@
         </li>
     </ul>
     </p>
+    <p><?= $this->lang->line('about_23'); ?>:
+    <ul>
+        <li><a target="_blank" href="https://fontawesome.com/"><?= $this->lang->line('about_24'); ?></a>;</li>
+        <li><a target="_blank" href="https://bootswatch.com/spacelab/"><?= $this->lang->line('about_25'); ?></a>;</li>
+        <li><a target="_blank" href="https://codeception.com/"><?= $this->lang->line('about_26'); ?></a>;</li>
+        <li><a target="_blank" href="https://realfavicongenerator.net/"><?= $this->lang->line('about_27'); ?></a>.</li>
+    </ul>
+    </p>
     <p><strong><?= $this->lang->line('about_14'); ?></strong></p>
     <p><?= $this->lang->line('about_15'); ?>&nbsp;<i class="fa fa-smile-o" aria-hidden="true"></i><?= $this->lang->line('about_16'); ?>
     <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/"><?= $this->lang->line('about_17'); ?></a>.</p>
