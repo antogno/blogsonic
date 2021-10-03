@@ -24,7 +24,7 @@
                 &ndash;
                 <a target="_blank" href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><?= $this->lang->line('license'); ?></a>
                 &ndash;
-                Blogsonic.org &ndash; <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>.
+                Blogsonic.org <?= $_SERVER['BS_VERSION']; ?> &ndash; <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>.
             </p>
         </div>
         <div style="width: 30%; float: right">

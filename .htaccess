@@ -1,4 +1,5 @@
 SetEnv CI_ENV development
+SetEnv BS_VERSION v1.0
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
