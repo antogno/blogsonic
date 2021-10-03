@@ -310,6 +310,8 @@ $ vendor/bin/codecept run acceptance ProfilesCest::register
 
 For more information, see the official [Codeception documentation][10].
 
+---
+
 ## License
 
 [Blogsonic][1] is licensed under the terms of the [Creative Commons Zero v1.0 Universal license][11].
