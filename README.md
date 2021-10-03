@@ -7,9 +7,13 @@
 <p align="center">
     <a href="https://www.php.net/"><img src="https://img.shields.io/badge/made%20with-PHP-787cb5?&logo=php" alt="Made with PHP"></a>
     <a href="https://codeigniter.com/"><img src="https://img.shields.io/badge/made%20with-CodeIgniter%203.1.11-dd4814?&logo=codeigniter" alt="Made with CodeIgniter 3.1.11"></a>
-    <a href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-CC--0-05b5da.svg" alt="License"></a>
-    <a href="https://www.blogsonic.org/"><img src="https://img.shields.io/website-up-down-green-red/http/blogsonic.org.svg" alt="Website"></a>
-    <a href="https://github.com/antogno/blogsonic"><img src="https://img.shields.io/badge/maintained-yes-green.svg" alt="Maintenance"></a>
+    <a href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><img src="https://img.shields.io/github/license/antogno/blogsonic" alt="License"></a>
+    <a href="https://www.blogsonic.org/"><img src="https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fwww.blogsonic.org" alt="Blogsonic.org"></a>
+</p>
+
+<p align="center">
+    <a href="https://github.com/antogno/blogsonic/commits"><img src="https://img.shields.io/github/last-commit/antogno/blogsonic" alt="Last commit"></a>
+    <a href="https://github.com/antogno/blogsonic/releases/latest"><img src="https://img.shields.io/github/v/tag/antogno/blogsonic?label=last%20release" alt="Last release"></a>
 </p>
 
 ---
