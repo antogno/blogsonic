@@ -2,18 +2,17 @@
     <p align="center">
         <b><a href="https://www.blogsonic.org/">Blogsonic</a> - Simple CRUD Web Application in PHP</b>
     </p>
-    <p align="center">
-        <a href="https://www.php.net/"><img src="https://img.shields.io/badge/made%20with-PHP-787cb5?&amp;logo=php" alt="Made with PHP"></a>
-        <a href="https://codeigniter.com/"><img src="https://img.shields.io/badge/made%20with-CodeIgniter%203.1.11-dd4814?&amp;logo=codeigniter" alt="Made with CodeIgniter 3.1.11"></a>
-        <a href="https://www.blogsonic.org/LICENSE"><img src="https://img.shields.io/badge/license-CC--0-05b5da.svg" alt="License"></a>
-        <a href="https://www.blogsonic.org/"><img src="https://img.shields.io/website-up-down-green-red/http/blogsonic.org.svg" alt="Blogsonic.org"></a>
-        <a href="https://github.com/antogno/blogsonic"><img src="https://img.shields.io/badge/maintained-yes-green.svg" alt="Maintenance"></a>
-    </p>
 </h1>
 
-<p>
-    <img align="center" src="https://www.blogsonic.org/public/img/blogsonic-screenshot.png" alt="Blogsonic">
+<p align="center">
+    <a href="https://www.php.net/"><img src="https://img.shields.io/badge/made%20with-PHP-787cb5?&amp;logo=php" alt="Made with PHP"></a>
+    <a href="https://codeigniter.com/"><img src="https://img.shields.io/badge/made%20with-CodeIgniter%203.1.11-dd4814?&amp;logo=codeigniter" alt="Made with CodeIgniter 3.1.11"></a>
+    <a href="https://www.blogsonic.org/LICENSE"><img src="https://img.shields.io/badge/license-CC--0-05b5da.svg" alt="License"></a>
+    <a href="https://www.blogsonic.org/"><img src="https://img.shields.io/website-up-down-green-red/http/blogsonic.org.svg" alt="Blogsonic.org"></a>
+    <a href="https://github.com/antogno/blogsonic"><img src="https://img.shields.io/badge/maintained-yes-green.svg" alt="Maintenance"></a>
 </p>
+
+---
 
 ## Table of content
 
