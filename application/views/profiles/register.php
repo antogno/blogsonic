@@ -22,11 +22,14 @@
         <?php
             }
         ?>
+        <div class="alert alert-dismissible alert-secondary" style="margin-top: 16px">
+            <?= $this->lang->line('mandatory_fields'); ?>
+        </div>
         <div class="form-group">
             <!-- <div class="col-md-3"> -->
-                <label for="name" class="col-sm-4 col-form-label"><strong><?= $form_name; ?></strong>:
+                <label for="name" class="col-sm-4 col-form-label"><strong><?= $form_name; ?></strong>*:
                 <input type="text" class="form-control" id="name" name="name" placeholder="<?= $this->lang->line('register_placeholder_name'); ?>" value="<?php if (isset($name)) { echo $name; } ?>"></label>
-                <label for="surname" class="col-sm-4 col-form-label"><strong><?= $form_surname; ?></strong>:
+                <label for="surname" class="col-sm-4 col-form-label"><strong><?= $form_surname; ?></strong>*:
                 <input type="text" class="form-control" id="surname" name="surname" placeholder="<?= $this->lang->line('register_placeholder_surname'); ?>" value="<?php if (isset($surname)) { echo $surname; } ?>"></label><br>
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $form_gender; ?></strong>:
@@ -42,27 +45,34 @@
                                 <?= $form_gender_f; ?>
                             </label>
                         </div>
+                        <div class="form-check"> 
+                            <label for="gender" class="form-check-label">
+                                <input type="radio" class="form-check-input" id="no_gender" name="gender" value="" <?php if (( ! isset($gender)) || (isset($gender) && $gender == '')) { echo 'checked'; }?>>
+                                <i><?= $form_no_gender; ?></i>
+                            </label>
+                        </div>
                     </label>
                 </fieldset>
-                <label for="username" class="col-sm-4 col-form-label"><strong><?= $form_username; ?></strong>:
+                <label for="username" class="col-sm-4 col-form-label"><strong><?= $form_username; ?></strong>*:
                 <input type="text" class="form-control" id="username" name="username" placeholder="<?= $this->lang->line('register_placeholder_username'); ?>" value="<?php if (isset($username)) { echo $username; } ?>"></label>
-                <label for="password" class="col-sm-4 col-form-label"><strong><?= $form_password; ?></strong>:
+                <label for="password" class="col-sm-4 col-form-label"><strong><?= $form_password; ?></strong>*:
                 <input type="password" class="form-control" id="password" name="password" placeholder="<?= $this->lang->line('register_placeholder_password'); ?>"></label><br>
-                <label for="email" class="col-sm-4 col-form-label"><strong><?= $form_email; ?></strong>:
+                <label for="email" class="col-sm-4 col-form-label"><strong><?= $form_email; ?></strong>*:
                 <input type="text" class="form-control" id="email" name="email" placeholder="<?= $this->lang->line('register_placeholder_email'); ?>" value="<?php if (isset($email)) { echo $email; } ?>"></label>
                 <label for="phone" class="col-sm-4 col-form-label"><strong><?= $form_phone; ?></strong>:
                 <input type="text" class="form-control" id="phone" name="phone" placeholder="<?= $this->lang->line('register_placeholder_phone'); ?>" value="<?php if (isset($phone)) { echo $phone; } ?>"></label><br>
                 <fieldset class="form-group">
-                    <label class="form-label"><strong><?= $form_language; ?></strong>:
+                    <label class="form-label"><strong><?= $form_language; ?></strong>*:
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language_en" name="language" value="en" <?php if ((isset($language) && $language == 'en')) { echo 'checked'; }?>>
+                                <?php if ( ! isset($language)) { $language = substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1); } ?>
+                                <input type="radio" class="form-check-input" id="language_en" name="language" value="en" <?php if ($language == 'en') { echo 'checked'; }?>>
                                 <?= $form_language_en; ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language_it" name="language" value="it" <?php if (isset($language) && $language == 'it') { echo 'checked'; }?>>
+                                <input type="radio" class="form-check-input" id="language_it" name="language" value="it" <?php if ($language == 'it') { echo 'checked'; }?>>
                                 <?= $form_language_it; ?>
                             </label>
                         </div>

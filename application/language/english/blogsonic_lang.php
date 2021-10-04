@@ -132,6 +132,7 @@ $lang['register_form_surname'] = 'Surname';
 $lang['register_form_gender'] = 'Gender';
 $lang['register_form_gender_m'] = 'M';
 $lang['register_form_gender_f'] = 'F';
+$lang['register_form_no_gender'] = 'Prefer not to say';
 $lang['register_form_username'] = 'Username';
 $lang['register_form_password'] = 'Password';
 $lang['register_form_email'] = 'Email';
@@ -141,6 +142,8 @@ $lang['register_form_language_en'] = 'English';
 $lang['register_form_language_it'] = 'Italian';
 $lang['register_form_button'] = 'Register';
 $lang['register_form_reset'] = 'Reset';
+
+$lang['mandatory_fields'] = 'Fields with an asterisk are mandatory.';
 
 $lang['register_placeholder_name'] = 'John';
 $lang['register_placeholder_surname'] = 'Doe';

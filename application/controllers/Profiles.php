@@ -181,6 +181,7 @@ class Profiles extends MY_Controller
             'form_gender' => $this->lang->line('register_form_gender'),
             'form_gender_m' => $this->lang->line('register_form_gender_m'),
             'form_gender_f' => $this->lang->line('register_form_gender_f'),
+            'form_no_gender' => $this->lang->line('register_form_no_gender'),
             'form_username' => $this->lang->line('register_form_username'),
             'form_password' => $this->lang->line('register_form_password'),
             'form_email' => $this->lang->line('register_form_email'),
@@ -194,11 +195,11 @@ class Profiles extends MY_Controller
 
         $this->form_validation->set_rules('name', $data['form_name'], 'ltrim|required|max_length[50]');
         $this->form_validation->set_rules('surname', $data['form_surname'], 'ltrim|required|max_length[50]');
-        $this->form_validation->set_rules('gender', $data['form_gender'], 'required|max_length[1]');
+        $this->form_validation->set_rules('gender', $data['form_gender'], 'max_length[1]');
         $this->form_validation->set_rules('username', $data['form_username'], 'required|min_length[6]|max_length[50]|alpha_dash|is_unique[users.username]');
         $this->form_validation->set_rules('password', $data['form_password'], 'trim|required|min_length[8]|max_length[50]');
         $this->form_validation->set_rules('email', $data['form_email'], 'required|max_length[50]|is_unique[users.email]|valid_email');
-        $this->form_validation->set_rules('phone', $data['form_phone'], 'required|exact_length[10]|integer|is_unique[users.phone]');
+        $this->form_validation->set_rules('phone', $data['form_phone'], 'exact_length[10]|integer|is_unique[users.phone]');
         $this->form_validation->set_rules('language', $data['form_language'], 'required|max_length[2]');
 
         if ($this->form_validation->run()) {
