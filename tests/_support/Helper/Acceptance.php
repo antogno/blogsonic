@@ -55,6 +55,7 @@ class Acceptance extends \Codeception\Module
         $I->click('#language_en');
 
         $I->scrollTo('#register');
+        $I->waitForElementVisible('#register');
         $I->waitForElementClickable('#register');
         $I->click('#register');
 
