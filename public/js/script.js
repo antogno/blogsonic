@@ -188,8 +188,9 @@ function manageBlogsOptions() {
             if ($('#date_max').val()) {
                 segments.push($('#date_max').val());
             } else {
-                let today = new Date().toISOString().slice(0, 10);
-                segments.push(today);
+                let today = new Date();
+                let tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000)).toISOString().slice(0, 10);
+                segments.push(tomorrow);
             }
             window.location = segments.join('/') + search_term;
         } else if (segments.length == blogsonic_segment + 4) {
@@ -209,8 +210,9 @@ function manageBlogsOptions() {
             if ($('#date_max').val()) {
                 segments.push($('#date_max').val());
             } else {
-                let today = new Date().toISOString().slice(0, 10);
-                segments.push(today);
+                let today = new Date();
+                let tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000)).toISOString().slice(0, 10);
+                segments.push(tomorrow);
             }
             window.location = segments.join('/') + search_term;
         } else if (segments.length == blogsonic_segment + 5) {
@@ -228,8 +230,9 @@ function manageBlogsOptions() {
             if ($('#date_max').val()) {
                 segments.push($('#date_max').val());
             } else {
-                let today = new Date().toISOString().slice(0, 10);
-                segments.push(today);
+                let today = new Date();
+                let tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000)).toISOString().slice(0, 10);
+                segments.push(tomorrow);
             }
             window.location = segments.join('/') + search_term;
         } else if (segments.length == blogsonic_segment + 6) {
@@ -245,8 +248,9 @@ function manageBlogsOptions() {
             if ($('#date_max').val()) {
                 segments.push($('#date_max').val());
             } else {
-                let today = new Date().toISOString().slice(0, 10);
-                segments.push(today);
+                let today = new Date();
+                let tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000)).toISOString().slice(0, 10);
+                segments.push(tomorrow);
             }
             window.location = segments.join('/') + search_term;
         } else if (segments.length == blogsonic_segment + 7) {

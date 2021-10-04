@@ -194,7 +194,7 @@ class BlogsCest
         $I->see('You haven\'t posted any Blogs yet');
 
         $I->executeJS("$('#date_min').val('" . date('Y-m-d', strtotime('yesterday')) . "');");
-        $I->executeJS("$('#date_max').val('" . date('Y-m-d', time()) . "');");
+        $I->executeJS("$('#date_max').val('" . date('Y-m-d', strtotime('tomorrow')) . "');");
         $I->click('#change_options');
         $I->waitForElement('#page_body');
         $I->see('Title 01');
