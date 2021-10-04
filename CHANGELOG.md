@@ -16,6 +16,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Version 1.0][v1.0] - 2021-10-03
 ### Initial release
 
-[Unreleased]: https://github.com/antogno/blogsonic/compare/v1.0...HEAD
+[Unreleased]: https://github.com/antogno/blogsonic/compare/v1.0.1...HEAD
 [v1.0.1]: https://github.com/antogno/blogsonic/compare/v1.0...v1.0.1
 [v1.0]: https://github.com/antogno/blogsonic/releases/tag/v1.0
