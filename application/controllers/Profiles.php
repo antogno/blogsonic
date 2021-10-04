@@ -198,7 +198,7 @@ class Profiles extends MY_Controller
         $this->form_validation->set_rules('username', $data['form_username'], 'required|min_length[6]|max_length[50]|alpha_dash|is_unique[users.username]');
         $this->form_validation->set_rules('password', $data['form_password'], 'trim|required|min_length[8]|max_length[50]');
         $this->form_validation->set_rules('email', $data['form_email'], 'required|max_length[50]|is_unique[users.email]|valid_email');
-        $this->form_validation->set_rules('phone', $data['form_phone'], 'required|min_length[10]|max_length[13]|integer|is_unique[users.phone]');
+        $this->form_validation->set_rules('phone', $data['form_phone'], 'required|exact_length[10]|integer|is_unique[users.phone]');
         $this->form_validation->set_rules('language', $data['form_language'], 'required|max_length[2]');
 
         if ($this->form_validation->run()) {
@@ -213,7 +213,7 @@ class Profiles extends MY_Controller
             redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register', 'refresh');
         } else {
             $this->load->view('partials/header', $data);
-            $this->load->view('profiles/register', $data);
+            $this->load->view('profiles/register', array_merge($data, $this->input->post()));
             $this->load->view('partials/footer');
         }
 
@@ -392,6 +392,84 @@ class Profiles extends MY_Controller
             $this->load->view('partials/header', $data);
             $this->load->view('profiles/forgot', $data);
             $this->load->view('partials/footer');
+        }
+
+    }
+
+    /**
+     * Checks if a username is valid or not. It's used for in AJAX request in the Register form
+     *
+     * @return  void
+     */
+    public function checkUsername()
+    {
+
+        $this->load->model('Profiles_model');
+
+        $username = $this->input->post('value');
+
+        if ($username) {
+            if (( ! $this->Profiles_model->checkUsersByField('username', $username)) &&
+                (strlen($username) >= 6 && strlen($username) <= 50) &&
+                (preg_match('/^[a-z0-9_-]+$/i', $username))) {
+                echo 'true';
+            } else {
+                echo 'false';
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * Checks if an email is valid or not. It's used for in AJAX request in the Register form
+     *
+     * @return  void
+     */
+    public function checkEmail()
+    {
+
+        $this->load->model('Profiles_model');
+
+        $email = $this->input->post('value');
+
+        if ($email) {
+            if (( ! $this->Profiles_model->checkUsersByField('email', $email)) &&
+                (strlen($email) <= 50) &&
+                ((bool)filter_var($email, FILTER_VALIDATE_EMAIL))) {
+                echo 'true';
+            } else {
+                echo 'false';
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * Checks if a phone number is valid or not. It's used for in AJAX request in the Register form
+     *
+     * @return  void
+     */
+    public function checkPhone()
+    {
+
+        $this->load->model('Profiles_model');
+
+        $phone = $this->input->post('value');
+
+        if ($phone) {
+            if (( ! $this->Profiles_model->checkUsersByField('phone', $phone)) &&
+                (strlen($phone) == 10) &&
+                (ctype_digit($phone))) {
+                echo 'true';
+            } else {
+                echo 'false';
+            }
+        } else {
+            return false;
         }
 
     }

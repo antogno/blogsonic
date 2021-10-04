@@ -36,6 +36,7 @@ $lang['about_24'] = 'Font Awesome 4.7.0 icons';
 $lang['about_25'] = 'Bootswatch Spacelab theme';
 $lang['about_26'] = 'Codeception';
 $lang['about_27'] = 'realfavicongenerator.net';
+$lang['about_28'] = 'AJAX';
 $lang['privacy_static_page_title'] = 'Privacy policy';
 
 $lang['confirmation'] = 'Are you sure?';

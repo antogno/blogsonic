@@ -49,13 +49,14 @@
 
 ### How was [Blogsonic][1] created?
 
-Blogsonic was created using the following tools and technologies:
+[Blogsonic][1] was created using the following tools and technologies:
 
 * Front-end:
     * HTML;
     * CSS (framework: Bootstrap);
     * JavaScript;
-    * jQuery.
+    * jQuery;
+    * AJAX.
 * Back-end:
     * PHP (framework: CodeIgniter 3.1.11);
     * MySQL.

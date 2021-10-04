@@ -10,7 +10,8 @@
                 <li><?= $this->lang->line('about_7'); ?>;</li>
                 <li><?= $this->lang->line('about_8'); ?>;</li>
                 <li><?= $this->lang->line('about_9'); ?>;</li>
-                <li><?= $this->lang->line('about_10'); ?>.</li>
+                <li><?= $this->lang->line('about_10'); ?>;</li>
+                <li><?= $this->lang->line('about_28'); ?>.</li>
             </ul>
         </li>
         <li><?= $this->lang->line('about_11'); ?>:

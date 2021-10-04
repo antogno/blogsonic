@@ -33,6 +33,31 @@ class Profiles_model extends CI_Model
     }
 
     /**
+     * Gets the user data of the user with the given field value
+     * 
+     * @param   string      $field  the field in which to search the value.
+     * @param   string      $value  the field value to search for.
+     * @return  true|false  if a user with the given value in the given field exists, it return true, otherwise it returns false.
+     */
+    public function checkUsersByField(string $field, string $value)
+    {
+
+        $this->db->where($field, $value);
+        $query = $this->db->get('users');
+
+        if ($query->num_rows() > 0) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+
+    /**
      * Gets the user data of the user with the given email address
      * 
      * @param   string      $email the email address.

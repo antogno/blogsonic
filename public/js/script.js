@@ -51,6 +51,84 @@ function manageLanguageSwitcher() {
     });
 }
 
+function resetRegistrationForm() {
+    $('#reset').click(function() {
+        $("#name").val("");
+        $("#surname").val("");
+        $("#gender_m").val("");
+        $("#gender_f").val("");
+        $("#username").val("");
+        $("#password").val("");
+        $("#email").val("");
+        $("#phone").val("");
+        $("#language_en").val("");
+        $("#language_it").val("");
+        let segments = window.location.href.split('/');
+        window.location = segments.join('/');
+    });
+}
+
+function validData(url) {
+    function checkUniqueField(id, method) {
+        $.ajax({
+            url: url + method,
+            type: 'POST',
+            data: {value: $("#" + id).val()},
+            success: function(data) {
+                if (data == 'true') {
+                    $("#" + id).attr("class", "form-control is-valid");
+                } else if (data == 'false') {
+                    $("#" + id).attr("class", "form-control is-invalid");
+                }
+                checkFieldStatus();
+            }
+        });
+    }
+    function checkFieldStatus() {
+        if ($("#username").hasClass("is-invalid") || $("#email").hasClass("is-invalid") || $("#phone").hasClass("is-invalid")) {
+            $("#register").attr("disabled", true);
+        } else {
+            $("#register").attr("disabled", false);
+        }
+    }
+
+    if ($("#username").val()) {
+        checkUniqueField('username', 'checkUsername');
+    }
+    if ($("#email").val()) {
+        checkUniqueField('email', 'checkEmail');
+    }
+    if ($("#phone").val()) {
+        checkUniqueField('phone', 'checkPhone');
+    }
+
+    $("#username").keyup(function() {
+        checkUniqueField('username', 'checkUsername');
+    });
+    $("#email").keyup(function() {
+        checkUniqueField('email', 'checkEmail');
+    });
+    $("#phone").keyup(function() {
+        checkUniqueField('phone', 'checkPhone');
+    });
+
+    $("#username").blur(function() {
+        if ( ! $("#username").val()) {
+            $("#username").attr("class", "form-control");
+        }
+    });
+    $("#email").blur(function() {
+        if ( ! $("#email").val()) {
+            $("#email").attr("class", "form-control");
+        }
+    });
+    $("#phone").blur(function() {
+        if ( ! $("#phone").val()) {
+            $("#phone").attr("class", "form-control");
+        }
+    });
+}
+
 function manageBlogsOptions() {
     blogsonic_segment = getBlogsonicPosition(window.location.href);
     let segments = window.location.href.split('/');

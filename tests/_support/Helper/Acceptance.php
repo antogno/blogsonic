@@ -54,6 +54,8 @@ class Acceptance extends \Codeception\Module
         $I->fillField('phone', $data['phone']);
         $I->click('#language_en');
 
+        $I->scrollTo('#register');
+        $I->waitForElementClickable('#register');
         $I->click('#register');
 
     }
