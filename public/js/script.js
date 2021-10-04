@@ -115,16 +115,19 @@ function validData(url) {
     $("#username").blur(function() {
         if ( ! $("#username").val()) {
             $("#username").attr("class", "form-control");
+            checkFieldStatus();
         }
     });
     $("#email").blur(function() {
         if ( ! $("#email").val()) {
             $("#email").attr("class", "form-control");
+            checkFieldStatus();
         }
     });
     $("#phone").blur(function() {
         if ( ! $("#phone").val()) {
             $("#phone").attr("class", "form-control");
+            checkFieldStatus();
         }
     });
 }
