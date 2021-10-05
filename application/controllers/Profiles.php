@@ -256,6 +256,15 @@ class Profiles extends MY_Controller
 
             if ($this->form_validation->run()) {
                 $this->Profiles_model->updateUser($this->encryption->decrypt($this->session->userdata('username')), $this->input->post());
+
+                $user_session = [
+                    'username' => $this->encryption->encrypt($this->input->post('username')),
+                    'email' => $this->encryption->encrypt($this->input->post('email')),
+                    'phone' => $this->encryption->encrypt($this->input->post('phone'))
+                ];
+
+                $this->session->set_userdata($user_session);
+
                 redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles');
             } else {
                 $data['username'] = $this->encryption->decrypt($this->session->userdata('username'));
