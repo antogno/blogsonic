@@ -430,7 +430,7 @@ class Profiles extends MY_Controller
         $username_field = $this->Profiles_model->checkUsersByField('username', $username);
 
         if ($username) {
-            if ((( ! $username_field) || ($username_field == $this->encryption->decrypt($this->session->userdata('username')) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
+            if ((( ! $username_field) || (strtolower($username_field) == strtolower($this->encryption->decrypt($this->session->userdata('username'))) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
                 (strlen($username) >= 6 && strlen($username) <= 50) &&
                 (preg_match('/^[a-z0-9_-]+$/i', $username))) {
                 echo 'true';
@@ -457,7 +457,7 @@ class Profiles extends MY_Controller
         $email_field = $this->Profiles_model->checkUsersByField('email', $email);
 
         if ($email) {
-            if ((( ! $email_field) || ($email_field == $this->encryption->decrypt($this->session->userdata('email')) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
+            if ((( ! $email_field) || (strtolower($email_field) == strtolower($this->encryption->decrypt($this->session->userdata('email'))) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
                 (strlen($email) <= 50) &&
                 ((bool)filter_var($email, FILTER_VALIDATE_EMAIL))) {
                 echo 'true';
