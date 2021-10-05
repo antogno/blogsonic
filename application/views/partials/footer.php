@@ -12,8 +12,8 @@
                     <label class="form-label">
                         <select class="form-select" id="change_language">
                             <option value="" selected disabled hidden><?= $this->lang->line('language_select_footer'); ?></option>
-                            <option value="en"><?= $this->lang->line('language_en_footer'); ?></option>
-                            <option value="it"><?= $this->lang->line('language_it_footer'); ?></option>
+                            <option value="en" <?php if (substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1) == 'en') { echo 'selected'; } ?>><?= $this->lang->line('language_en_footer'); ?></option>
+                            <option value="it" <?php if (substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1) == 'it') { echo 'selected'; } ?>><?= $this->lang->line('language_it_footer'); ?></option>
                         </select>
                     </label>
                     &mdash;

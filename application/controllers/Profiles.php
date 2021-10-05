@@ -398,7 +398,7 @@ class Profiles extends MY_Controller
     }
 
     /**
-     * Checks if a username is valid or not. It's used for in AJAX request in the Register form
+     * Checks if a username is valid or not. It's used for the AJAX request in the registration form
      *
      * @return  void
      */
@@ -424,7 +424,7 @@ class Profiles extends MY_Controller
     }
 
     /**
-     * Checks if an email is valid or not. It's used for in AJAX request in the Register form
+     * Checks if an email is valid or not. It's used for the AJAX request in the registration form
      *
      * @return  void
      */
@@ -450,7 +450,7 @@ class Profiles extends MY_Controller
     }
 
     /**
-     * Checks if a phone number is valid or not. It's used for in AJAX request in the Register form
+     * Checks if a phone number is valid or not. It's used for the AJAX request in the registration form
      *
      * @return  void
      */
