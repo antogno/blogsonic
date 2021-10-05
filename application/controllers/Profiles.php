@@ -47,12 +47,14 @@ class Profiles extends MY_Controller
 
             if ($profile->gender === 'm') {
                 $data['profile_gender'] = $this->lang->line('profile_gender_m');
-            } else {
+            } elseif ($profile->gender === 'f') {
                 $data['profile_gender'] = $this->lang->line('profile_gender_f');
+            } else {
+                $data['profile_gender'] = false;
             }
 
             $data['profile_email'] = $profile->email;
-            $data['profile_phone'] = $profile->phone;
+            $data['profile_phone'] = isset($profile->phone) ? $profile->phone : false;
 
             if ($profile->language === 'en') {
                 $data['profile_language'] = $this->lang->line('profile_language_en');
@@ -120,6 +122,8 @@ class Profiles extends MY_Controller
                         'logged_in' => true,
                         'logged_in_fail' => false,
                         'username' => $this->encryption->encrypt($this->input->post('username')),
+                        'email' => $this->encryption->encrypt($this->Profiles_model->getUser($this->input->post('username'))->email),
+                        'phone' => $this->encryption->encrypt($this->Profiles_model->getUser($this->input->post('username'))->phone),
                         'language' => $this->encryption->encrypt($this->Profiles_model->getUser($this->input->post('username'))->language . '/')
                     );
                     $this->session->set_userdata($user_session);
@@ -234,6 +238,7 @@ class Profiles extends MY_Controller
             'name' => $this->lang->line('profile_name'),
             'surname' => $this->lang->line('profile_surname'),
             'gender' => $this->lang->line('profile_gender'),
+            'username' => $this->lang->line('profile_username'),
             'email' => $this->lang->line('profile_email'),
             'phone' => $this->lang->line('profile_phone'),
             'language' => $this->lang->line('profile_language'),
@@ -243,7 +248,10 @@ class Profiles extends MY_Controller
         if ($this->session->userdata('logged_in')) {
             $this->form_validation->set_rules('name', $data['name'], 'ltrim|required|max_length[50]');
             $this->form_validation->set_rules('surname', $data['surname'], 'ltrim|required|max_length[50]');
-            $this->form_validation->set_rules('gender', $data['gender'], 'required|max_length[1]');
+            $this->form_validation->set_rules('gender', $data['gender'], 'max_length[1]');
+            $this->form_validation->set_rules('username', $data['username'], 'required|min_length[6]|max_length[50]|alpha_dash');
+            $this->form_validation->set_rules('email', $data['email'], 'required|max_length[50]|valid_email');
+            $this->form_validation->set_rules('phone', $data['phone'], 'exact_length[10]|integer');
             $this->form_validation->set_rules('language', $data['language'], 'required|max_length[2]');
 
             if ($this->form_validation->run()) {
@@ -259,8 +267,10 @@ class Profiles extends MY_Controller
 
                 if ($profile->gender === 'm') {
                     $data['profile_gender'] = $this->lang->line('profile_gender_m');
-                } else {
+                } elseif ($profile->gender === 'f') {
                     $data['profile_gender'] = $this->lang->line('profile_gender_f');
+                } else {
+                    $data['profile_gender'] = false;
                 }
 
                 $data['profile_email'] = $profile->email;
@@ -408,9 +418,10 @@ class Profiles extends MY_Controller
         $this->load->model('Profiles_model');
 
         $username = $this->input->post('value');
+        $username_field = $this->Profiles_model->checkUsersByField('username', $username);
 
         if ($username) {
-            if (( ! $this->Profiles_model->checkUsersByField('username', $username)) &&
+            if ((( ! $username_field) || ($username_field == $this->encryption->decrypt($this->session->userdata('username')) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
                 (strlen($username) >= 6 && strlen($username) <= 50) &&
                 (preg_match('/^[a-z0-9_-]+$/i', $username))) {
                 echo 'true';
@@ -434,9 +445,10 @@ class Profiles extends MY_Controller
         $this->load->model('Profiles_model');
 
         $email = $this->input->post('value');
+        $email_field = $this->Profiles_model->checkUsersByField('email', $email);
 
         if ($email) {
-            if (( ! $this->Profiles_model->checkUsersByField('email', $email)) &&
+            if ((( ! $email_field) || ($email_field == $this->encryption->decrypt($this->session->userdata('email')) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
                 (strlen($email) <= 50) &&
                 ((bool)filter_var($email, FILTER_VALIDATE_EMAIL))) {
                 echo 'true';
@@ -460,9 +472,10 @@ class Profiles extends MY_Controller
         $this->load->model('Profiles_model');
 
         $phone = $this->input->post('value');
+        $phone_field = $this->Profiles_model->checkUsersByField('phone', $phone);
 
         if ($phone) {
-            if (( ! $this->Profiles_model->checkUsersByField('phone', $phone)) &&
+            if ((( ! $phone_field) || ($phone_field == $this->encryption->decrypt($this->session->userdata('phone')) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
                 (strlen($phone) == 10) &&
                 (ctype_digit($phone))) {
                 echo 'true';

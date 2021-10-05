@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://www.blogsonic.org/</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>1.0</priority>
         <xhtml:link
@@ -16,7 +16,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>1.0</priority>
         <xhtml:link
@@ -30,7 +30,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>1.0</priority>
         <xhtml:link
@@ -44,7 +44,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/pages/view/home</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -58,7 +58,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/pages/view/home</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -72,7 +72,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/pages/view/home</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -86,7 +86,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/pages/view/about</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -99,7 +99,7 @@
             href="https://www.blogsonic.org/it/pages/view/about"/>
     </url><url>
         <loc>https://www.blogsonic.org/en/pages/view/about</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -112,7 +112,7 @@
             href="https://www.blogsonic.org/it/pages/view/about"/>
     </url><url>
         <loc>https://www.blogsonic.org/it/pages/view/about</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -126,7 +126,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/pages/view/privacy</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -140,7 +140,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/pages/view/privacy</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -154,7 +154,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/pages/view/privacy</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>hourly</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -168,7 +168,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/profiles</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -182,7 +182,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/profiles</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -196,7 +196,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/profiles</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -210,7 +210,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/profiles/login</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -224,7 +224,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/profiles/login</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -238,7 +238,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/profiles/login</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -252,7 +252,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/profiles/register</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -266,7 +266,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/profiles/register</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -280,7 +280,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/profiles/register</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -294,7 +294,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/blogs/all</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -308,7 +308,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/blogs/all</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -322,7 +322,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/blogs/all</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.8</priority>
         <xhtml:link
@@ -336,7 +336,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/profiles/forgot</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -350,7 +350,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/profiles/forgot</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -364,7 +364,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/profiles/forgot</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -378,7 +378,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/profiles/logout</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -392,7 +392,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/profiles/logout</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -406,7 +406,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/profiles/logout</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -420,7 +420,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/blogs/myblogs</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -434,7 +434,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/blogs/myblogs</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -448,7 +448,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/blogs/myblogs</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -462,7 +462,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/blogs/newblog</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -476,7 +476,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/en/blogs/newblog</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link
@@ -490,7 +490,7 @@
     </url>
     <url>
         <loc>https://www.blogsonic.org/it/blogs/newblog</loc>
-        <lastmod>2021-10-04</lastmod>
+        <lastmod>2021-10-05</lastmod>
         <changefreq>always</changefreq>
         <priority>0.6</priority>
         <xhtml:link

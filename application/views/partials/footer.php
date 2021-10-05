@@ -50,7 +50,7 @@ $(document).ready(function() {
     manageLanguageSwitcher();
     <?php if ($this->router->fetch_class() == 'blogs') { echo 'manageBlogsOptions();'; } ?>
     <?php if ($this->router->fetch_class() == 'profiles' && $this->router->fetch_method() == 'register') { echo 'resetRegistrationForm();'; } ?>
-    <?php if ($this->router->fetch_class() == 'profiles' && $this->router->fetch_method() == 'register') { echo 'validData("' . base_url('profiles/') . '");'; } ?>
+    <?php if ($this->router->fetch_class() == 'profiles' && ($this->router->fetch_method() == 'register' || $this->router->fetch_method() == 'edit')) { echo 'validData("' . base_url('profiles/') . '", "' . $this->router->fetch_method() .'");'; } ?>
 });
 </script>
 </body>

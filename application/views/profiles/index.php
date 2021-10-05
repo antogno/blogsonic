@@ -12,14 +12,18 @@
                 <input type="text" class="form-control" id="name" name="name" value="<?= $profile_name; ?>" readonly></label>
                 <label for="surname" class="col-sm-4 col-form-label"><strong><?= $surname; ?></strong>:
                 <input type="text" class="form-control" id="surname" name="surname" value="<?= $profile_surname; ?>" readonly></label><br>
-                <label for="gender" class="col-sm-4 col-form-label"><strong><?= $gender; ?></strong>:
-                <input type="text" class="form-control" id="gender" name="gender" value="<?= $profile_gender; ?>" readonly></label><br>
+                <?php if ($profile_gender) { ?>
+                    <label for="gender" class="col-sm-4 col-form-label"><strong><?= $gender; ?></strong>:
+                    <input type="text" class="form-control" id="gender" name="gender" value="<?= $profile_gender; ?>" readonly></label><br>
+                <?php } ?>
                 <label for="username" class="col-sm-4 col-form-label"><strong><?= $username; ?></strong>:
                 <input type="text" class="form-control" id="username" name="username" value="<?= $profile_username; ?>" readonly></label>
                 <label for="email" class="col-sm-4 col-form-label"><strong><?= $email; ?></strong>:
                 <input type="text" class="form-control" id="email" name="email" value="<?= $profile_email; ?>" readonly></label><br>
-                <label for="phone" class="col-sm-4 col-form-label"><strong><?= $phone; ?></strong>:
-                <input type="text" class="form-control" id="phone" name="phone" value="<?= $profile_phone; ?>" readonly></label>
+                <?php if ($profile_phone) { ?>
+                    <label for="phone" class="col-sm-4 col-form-label"><strong><?= $phone; ?></strong>:
+                    <input type="text" class="form-control" id="phone" name="phone" value="<?= $profile_phone; ?>" readonly></label>
+                <?php } ?>
                 <label for="language" class="col-sm-4 col-form-label"><strong><?= $language; ?></strong>:
                 <input type="text" class="form-control" id="language" name="language" value="<?= $profile_language; ?>" readonly></label><br>
                 <label for="created_at" class="col-sm-4 col-form-label"><strong><?= $created_at; ?></strong>:

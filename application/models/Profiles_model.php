@@ -47,7 +47,7 @@ class Profiles_model extends CI_Model
 
         if ($query->num_rows() > 0) {
 
-            return true;
+            return $query->row()->$field;
 
         } else {
 
@@ -105,15 +105,10 @@ class Profiles_model extends CI_Model
 
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-            $this->db->set($data);
-            $this->db->update('users');
-
-        } else {
-
-            $this->db->set($data);
-            $this->db->update('users');
-            
         }
+
+        $this->db->set($data);
+        $this->db->update('users');
         
     }
 

@@ -68,12 +68,12 @@ function resetRegistrationForm() {
     });
 }
 
-function validData(url) {
+function validData(url, current_method) {
     function checkUniqueField(id, method) {
         $.ajax({
             url: url + method,
             type: 'POST',
-            data: {value: $("#" + id).val()},
+            data: {value: $("#" + id).val(), method: current_method},
             success: function(data) {
                 if (data == 'true') {
                     $("#" + id).attr("class", "form-control is-valid");
@@ -87,8 +87,10 @@ function validData(url) {
     function checkFieldStatus() {
         if ($("#username").hasClass("is-invalid") || $("#email").hasClass("is-invalid") || $("#phone").hasClass("is-invalid")) {
             $("#register").attr("disabled", true);
+            $("#save_changes").attr("disabled", true);
         } else {
             $("#register").attr("disabled", false);
+            $("#save_changes").attr("disabled", false);
         }
     }
 

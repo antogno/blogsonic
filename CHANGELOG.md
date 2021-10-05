@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Version 1.0.2][v1.0.2] - 2021-10-05
+### Changed
+- Gender and phone fields are no longer mandatory when registering.
+- When editing your Profile you can also edit your username, email and phone.
+- The language switcher now shows the current language.
+
+### Fixed
+- Blogs search filters didn't work correctly in certain timezones.
+- In the registration form, when the value of the username, email or phone fields were invalid and then quickly cleared, the register button didn't update.
+
 ## [Version 1.0.1][v1.0.1] - 2021-10-04
 ### Added
 - When registering you can see right away if the username, email and phone you entered are valid or not.
@@ -16,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Version 1.0][v1.0] - 2021-10-03
 ### Initial release
 
-[Unreleased]: https://github.com/antogno/blogsonic/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/antogno/blogsonic/compare/v1.0.2...HEAD
+[v1.0.2]: https://github.com/antogno/blogsonic/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/antogno/blogsonic/compare/v1.0...v1.0.1
 [v1.0]: https://github.com/antogno/blogsonic/releases/tag/v1.0
