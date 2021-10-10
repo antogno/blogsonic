@@ -63,7 +63,7 @@ class Blogs extends MY_Controller
 
                 foreach ($blogs as $blog) {
                     $data['blog_id'] = $blog->id;
-                    $data['blog_title'] = $blog->title;
+                    $data['blog_title'] = html_escape($blog->title);
                     $data['blog_user'] = $this->Blogs_model->getUser($blog->user_id);
                     $data['blog_created_at'] = date('d-m-Y H:i', strtotime($blog->created_at));
                     $this->load->view('blogs/index', $data);
