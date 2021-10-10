@@ -133,7 +133,7 @@ class Blogs extends MY_Controller
                     if ((strtolower($user) == strtolower($this->encryption->decrypt($this->session->userdata('username')))) && ($limit > 0)) {
                         $data['myblogs'] = true;
                         $data['blog_id'] = $blog->id;
-                        $data['blog_title'] = $blog->title;
+                        $data['blog_title'] = html_escape($blog->title);
                         $data['blog_user'] = $user;
                         $data['blog_created_at'] = date('d-m-Y H:i', strtotime($blog->created_at));
                         $this->load->view('blogs/myblogs', $data);
