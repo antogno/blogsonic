@@ -1,47 +1,23 @@
-<h1>
-    <p align="center">
-        <b><a href="https://www.blogsonic.org/">Blogsonic</a> - Simple CRUD Web Application in PHP</b>
-    </p>
+<h1 align="center">
+    <a href="https://www.blogsonic.org/">Blogsonic</a> - Simple CRUD Web Application in PHP
 </h1>
 
 <p align="center">
-    <a href="https://www.php.net/"><img src="https://img.shields.io/badge/made%20with-PHP-787cb5?&logo=php" alt="Made with PHP"></a>
-    <a href="https://codeigniter.com/"><img src="https://img.shields.io/badge/made%20with-CodeIgniter%203.1.11-dd4814?&logo=codeigniter" alt="Made with CodeIgniter 3.1.11"></a>
     <a href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><img src="https://img.shields.io/github/license/antogno/blogsonic" alt="License"></a>
     <a href="https://www.blogsonic.org/"><img src="https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fwww.blogsonic.org" alt="Blogsonic.org"></a>
-</p>
-
-<p align="center">
     <a href="https://github.com/antogno/blogsonic/commits"><img src="https://img.shields.io/github/last-commit/antogno/blogsonic" alt="Last commit"></a>
     <a href="https://github.com/antogno/blogsonic/releases/latest"><img src="https://img.shields.io/github/v/tag/antogno/blogsonic?label=last%20release" alt="Last release"></a>
 </p>
 
 ---
 
-## Table of content
+## Table of Contents
 
-- **[What is Blogsonic?](#what-is-blogsonic)**
-    - [How was Blogsonic created?](#how-was-blogsonic-created)
-    - [Who created Blogsonic?](#who-created-blogsonic)
-    - [How can I contact you?](#how-can-i-contact-you)
-    - [Can I use the Blogsonic source code?](#can-i-use-the-blogsonic-source-code)
-- **[Installation](#installation)**
-    - [Set up database](#set-up-database)
-    - [Add your base URL and an encryption key in the application/config/config.php file](#add-your-base-url-and-an-encryption-key-in-the-applicationconfigconfigphp-file)
-    - [Add your email information in the application/core/MY_Controller.php file](#add-your-email-information-in-the-applicationcoremy_controllerphp-file)
-    - [Edit the robots.txt and sitemap.xml files according to your data](#edit-the-robotstxt-and-sitemapxml-files-according-to-your-data)
-    - [Set your domain in the Twitter meta tag in the application/views/partials/header.php file](#set-your-domain-in-the-twitter-meta-tag-in-the-applicationviewspartialsheaderphp-file)
-    - [Set the current environment in the .htaccess file](#set-the-current-environment-in-the-htaccess-file)
-- **[Running the acceptance tests](#running-the-acceptance-tests)**
-    - [Install Google Chrome and ChromeDriver](#install-google-chrome-and-chromedriver)
-    - [Install the Composer packages](#install-the-composer-packages)
-    - [Add your base URL and the database's information in the tests/acceptance.suite.yml file](#add-your-base-url-and-the-databases-information-in-the-testsacceptancesuiteyml-file)
-    - [Start ChromeDriver](#start-chromedriver)
-    - [Run the acceptance tests](#run-the-acceptance-tests)
-- **[License](#license)**
-- **[Links](#links)**
-
----
+- [What is Blogsonic?](#what-is-blogsonic)
+- [Installation](#installation)
+- [Running the acceptance tests](#running-the-acceptance-tests)
+- [License](#license)
+- [Links](#links)
 
 ## What is [Blogsonic][1]?
 
@@ -79,8 +55,6 @@ You can contact me on my LinkedIn profile above, or by sending an email to [toni
 ### Can I use the [Blogsonic][1] source code?
 
 Of course! You can find everything you need on [GitHub][3].
-
----
 
 ## Installation
 
@@ -209,8 +183,6 @@ SetEnv CI_ENV development
 
 The available options are: `development`, `testing` and `production`. Setting the constant to a value of `development` will cause all PHP errors to be rendered to the browser when they occur. Conversely, setting the constant to `production` will disable all error output.
 
----
-
 ## Running the acceptance tests
 
 If you want to, you can also run the acceptance tests made with [Codeception][8]. To do this, follow the next steps.
@@ -315,19 +287,15 @@ $ vendor/bin/codecept run acceptance ProfilesCest::register
 
 For more information, see the official [Codeception documentation][10].
 
----
-
 ## License
 
 [Blogsonic][1] is licensed under the terms of the [Creative Commons Zero v1.0 Universal license][11].
 
 For more information, see the [Creative Commons website][12].
 
----
-
 ## Links
 
-* **[Blogsonic.org][1]**
+* [Blogsonic.org][1]
 * [GitHub][3]
 * [LinkedIn][2]
 * [Facebook][13]
