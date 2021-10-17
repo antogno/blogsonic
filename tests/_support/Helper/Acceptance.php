@@ -120,8 +120,8 @@ class Acceptance extends \Codeception\Module
         $I->click('Blogs');
         $I->click('New Blog');
 
-        $I->fillField('title', $data['title']);
-        $I->fillField('body', $data['body']);
+        $I->fillField('blog_title', $data['title']);
+        $I->fillField('blog_body', $data['body']);
 
         $I->click('#post');
 

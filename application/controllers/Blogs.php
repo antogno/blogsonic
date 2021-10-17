@@ -180,13 +180,13 @@ class Blogs extends MY_Controller
             'form_reset' => $this->lang->line('newblog_reset')
         );
 
-        $this->form_validation->set_rules('title', $data['form_title'], 'ltrim|required|max_length[20]');
-        $this->form_validation->set_rules('body', $data['form_body'], 'required');
+        $this->form_validation->set_rules('blog_title', $data['form_title'], 'ltrim|required|max_length[20]');
+        $this->form_validation->set_rules('blog_body', $data['form_body'], 'required');
 
         if ($this->form_validation->run()) {
             $data = array(
-                'title' => $this->input->post('title'),
-                'body' => $this->input->post('body'),
+                'title' => $this->input->post('blog_title'),
+                'body' => $this->input->post('blog_body'),
                 'user_id' => $this->Blogs_model->getUserId($this->encryption->decrypt($this->session->userdata('username')))
             );
             $this->Blogs_model->insertBlog($data);
@@ -194,7 +194,7 @@ class Blogs extends MY_Controller
             redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs');
         } else {
             $this->load->view('partials/header', $data);
-            $this->load->view('blogs/newblog', $data);
+            $this->load->view('blogs/newblog', array_merge($data, $this->input->post()));
             $this->load->view('partials/footer');
         }
 
@@ -285,21 +285,21 @@ class Blogs extends MY_Controller
                         'id' => $blog->id
                     );
 
-                    $this->form_validation->set_rules('title', $data['form_title'], 'ltrim|required|max_length[20]');
-                    $this->form_validation->set_rules('body', $data['form_body'], 'required');
+                    $this->form_validation->set_rules('blog_title', $data['form_title'], 'ltrim|required|max_length[20]');
+                    $this->form_validation->set_rules('blog_body', $data['form_body'], 'required');
 
                     if ($this->form_validation->run()) {
                         $data = array(
                             'id' => $id,
-                            'title' => $this->input->post('title'),
-                            'body' => $this->input->post('body')
+                            'title' => $this->input->post('blog_title'),
+                            'body' => $this->input->post('blog_body')
                         );
                         $this->Blogs_model->updateBlog($data);
                         
                         redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs');
                     } else {
                         $this->load->view('partials/header', $data);
-                        $this->load->view('blogs/edit', $data);
+                        $this->load->view('blogs/edit', array_merge($data, $this->input->post()));
                         $this->load->view('partials/footer');
                     }
                 } else {

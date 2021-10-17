@@ -42,8 +42,8 @@ class BlogsCest
         $I->click('Blogs');
         $I->click('New Blog');
 
-        $I->fillField('title', $this->blog['title']);
-        $I->fillField('body', $this->blog['body']);
+        $I->fillField('blog_title', $this->blog['title']);
+        $I->fillField('blog_body', $this->blog['body']);
 
         $I->click('#post');
 
@@ -95,11 +95,11 @@ class BlogsCest
 
         $I->click('#edit');
 
-        $I->seeInField('title', $this->blog['title']);
-        $I->seeInField('body', $this->blog['body']);
+        $I->seeInField('blog_title', $this->blog['title']);
+        $I->seeInField('blog_body', $this->blog['body']);
 
-        $I->fillField('title', $this->new_blog['title']);
-        $I->fillField('body', $this->new_blog['body']);
+        $I->fillField('blog_title', $this->new_blog['title']);
+        $I->fillField('blog_body', $this->new_blog['body']);
 
         $I->click('#post');
 

@@ -21,10 +21,10 @@
             <div class="card">
             <h3 class="card-header">
                 <label for="title" class="col-sm-4 col-form-label form-label">
-                <input type="text" class="form-control" id="title" name="title" placeholder="<?= $form_title; ?>"></label></h3>
+                <input type="text" class="form-control" id="blog_title" name="blog_title" placeholder="<?= $form_title; ?>" value="<?php if (isset($blog_title)) { echo $blog_title; } ?>"></label></h3>
                 <div class="card-body">
                     <label for="body" class="col-sm-12 col-form-label form-label">
-                    <textarea class="form-control" id="body" name="body" rows="10" cols="40" placeholder="<?= $form_body; ?>" style="resize: none;"></textarea></label>
+                    <textarea class="form-control" id="blog_body" name="blog_body" rows="10" cols="40" placeholder="<?= $form_body; ?>" style="resize: none;"><?php if (isset($blog_body)) { echo $blog_body; } ?></textarea></label>
                 </div>
             </div>
         </div>
