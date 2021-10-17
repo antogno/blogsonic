@@ -54,13 +54,24 @@
                     </label>
                 </fieldset>
                 <label for="username" class="col-sm-4 col-form-label"><strong><?= $form_username; ?></strong>*:
-                <input type="text" class="form-control" id="username" name="username" placeholder="<?= $this->lang->line('register_placeholder_username'); ?>" value="<?php if (isset($username)) { echo $username; } ?>"></label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="<?= $this->lang->line('register_placeholder_username'); ?>" value="<?php if (isset($username)) { echo $username; } ?>">
+                </label>
                 <label for="password" class="col-sm-4 col-form-label"><strong><?= $form_password; ?></strong>*:
-                <input type="password" class="form-control" id="password" name="password" placeholder="<?= $this->lang->line('register_placeholder_password'); ?>"></label><br>
+                    <span class="input-group mb-3">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="<?= $this->lang->line('register_placeholder_password'); ?>">
+                        <button class="btn btn-primary" type="button" id="password_button">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </label>
+                <br>
                 <label for="email" class="col-sm-4 col-form-label"><strong><?= $form_email; ?></strong>*:
-                <input type="text" class="form-control" id="email" name="email" placeholder="<?= $this->lang->line('register_placeholder_email'); ?>" value="<?php if (isset($email)) { echo $email; } ?>"></label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="<?= $this->lang->line('register_placeholder_email'); ?>" value="<?php if (isset($email)) { echo $email; } ?>">
+                </label>
                 <label for="phone" class="col-sm-4 col-form-label"><strong><?= $form_phone; ?></strong>:
-                <input type="text" class="form-control" id="phone" name="phone" placeholder="<?= $this->lang->line('register_placeholder_phone'); ?>" value="<?php if (isset($phone)) { echo $phone; } ?>"></label><br>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="<?= $this->lang->line('register_placeholder_phone'); ?>" value="<?php if (isset($phone)) { echo $phone; } ?>">
+                </label>
+                <br>
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $form_language; ?></strong>*:
                         <div class="form-check"> 

@@ -35,9 +35,22 @@
         <div class="form-group">
             <!-- <div class="col-md-3"> -->
                 <label for="old_password" class="col-sm-4 col-form-label"><strong><?= $form_old_password; ?></strong>:
-                <input type="password" class="form-control" id="old_password" name="old_password"></label><br>
+                    <span class="input-group mb-3">
+                        <input type="password" class="form-control" id="old_password" name="old_password">
+                        <button class="btn btn-primary" type="button" id="old_password_button">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </label>
+                <br>
                 <label for="new_password" class="col-sm-4 col-form-label"><strong><?= $form_new_password; ?></strong>:
-                <input type="password" class="form-control" id="new_password" name="new_password"></label>
+                    <span class="input-group mb-3">
+                        <input type="password" class="form-control" id="new_password" name="new_password">
+                        <button class="btn btn-primary" type="button" id="new_password_button">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </label>
             <!-- </div> -->
         </div>
         <br>

@@ -27,9 +27,17 @@
         <div class="form-group">
             <!-- <div class="col-md-3"> -->
                 <label for="username" class="col-sm-4 col-form-label"><strong><?= $form_username; ?></strong>:
-                <input type="text" class="form-control" id="username" name="username"></label><br>
+                    <input type="text" class="form-control" id="username" name="username">
+                </label>
+                <br>
                 <label for="password" class="col-sm-4 col-form-label"><strong><?= $form_password; ?></strong>:
-                <input type="password" class="form-control" id="password" name="password"></label>
+                    <span class="input-group mb-3">
+                        <input type="password" class="form-control" id="password" name="password">
+                        <button class="btn btn-primary" type="button" id="password_button">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </label>
             <!-- </div> -->
         </div>
         <br>

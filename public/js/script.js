@@ -33,6 +33,19 @@ function getBlogsonicPosition(url) {
     return blogsonic_segment[0];
 }
 
+function managePasswordField(password_id, toggle_id) {
+    $('#' + toggle_id).click(function () {
+        let type = $('#' + password_id).attr("type"); 
+        if (type === 'password'){
+            $('#' + password_id).attr("type", "text");
+            $('#' + toggle_id).html('<i class="fa fa-eye-slash" aria-hidden="true"></i>');
+        } else {
+            $('#' + password_id).attr("type", "password");
+            $('#' + toggle_id).html('<i class="fa fa-eye" aria-hidden="true"></i>');
+        }
+    });
+}
+
 function manageCookiebar() {
     if ( ! localStorage.getItem('cookie')) {
         $('#cookiebar').modal('show');

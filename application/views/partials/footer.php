@@ -24,7 +24,9 @@
                 &ndash;
                 <a target="_blank" href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><?= $this->lang->line('license'); ?></a>
                 &ndash;
-                Blogsonic.org <?= $_SERVER['BS_VERSION']; ?> &ndash; <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>.
+                <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>
+                &vert;
+                <a target="_blank" href="https://github.com/antogno/blogsonic/releases/tag/v1.0.2"><span class="badge bg-primary"><?= $_SERVER['BS_VERSION']; ?></span></a>
             </p>
         </div>
         <div style="width: 30%; float: right">
@@ -50,6 +52,8 @@ $(document).ready(function() {
     manageLanguageSwitcher();
     trimText('search');
     <?php if ($this->router->fetch_class() == 'blogs') { echo 'manageBlogsOptions();'; } ?>
+    <?php if ($this->router->fetch_class() == 'profiles' && ($this->router->fetch_method() == 'login' || $this->router->fetch_method() == 'register')) { echo 'managePasswordField("password", "password_button");'; } ?>
+    <?php if ($this->router->fetch_class() == 'profiles' && $this->router->fetch_method() == 'password') { echo 'managePasswordField("new_password", "new_password_button"); managePasswordField("old_password", "old_password_button");'; } ?>
     <?php if ($this->router->fetch_class() == 'profiles' && $this->router->fetch_method() == 'register') { echo 'resetRegistrationForm();'; } ?>
     <?php if ($this->router->fetch_class() == 'profiles' && ($this->router->fetch_method() == 'register' || $this->router->fetch_method() == 'edit')) { echo 'validData("' . base_url('profiles/') . '", "' . $this->router->fetch_method() .'");'; } ?>
 });
