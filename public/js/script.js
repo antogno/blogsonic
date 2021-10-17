@@ -10,6 +10,18 @@ function confirmationProfile() {
     }
 }
 
+function trimText(id) {
+    $('#' + id).blur(function () {
+        $('#' + id).val($.trim(this.value));
+    });
+
+    $('#' + id).on('keypress', function(key) {
+        if (key.which == 13) {
+            $('#' + id).val($.trim(this.value));
+        }
+    });
+}
+
 function getBlogsonicPosition(url) {
     let blogsonic_segment = []
     url = url.split('/');

@@ -155,7 +155,7 @@
                     </li>
                 </ul>
                 <form class="d-flex" action="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/all'); ?>" method="get">
-                    <input class="form-control me-sm-2" type="text" placeholder="<?= $this->lang->line('search_placeholder'); ?>" name="search">
+                    <input class="form-control me-sm-2" type="text" placeholder="<?= $this->lang->line('search_placeholder'); ?>" id="search" name="search">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit"><?= $this->lang->line('search'); ?></button>
                 </form>
             </div>

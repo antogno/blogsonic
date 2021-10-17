@@ -48,6 +48,7 @@ let confirmationProfile_text = "<?= $this->lang->line('confirmationProfile'); ?>
 $(document).ready(function() {
     manageCookiebar();
     manageLanguageSwitcher();
+    trimText('search');
     <?php if ($this->router->fetch_class() == 'blogs') { echo 'manageBlogsOptions();'; } ?>
     <?php if ($this->router->fetch_class() == 'profiles' && $this->router->fetch_method() == 'register') { echo 'resetRegistrationForm();'; } ?>
     <?php if ($this->router->fetch_class() == 'profiles' && ($this->router->fetch_method() == 'register' || $this->router->fetch_method() == 'edit')) { echo 'validData("' . base_url('profiles/') . '", "' . $this->router->fetch_method() .'");'; } ?>
