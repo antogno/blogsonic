@@ -57,7 +57,7 @@
                     <input type="text" class="form-control" id="username" name="username" placeholder="<?= $this->lang->line('register_placeholder_username'); ?>" value="<?php if (isset($username)) { echo $username; } ?>">
                 </label>
                 <label for="password" class="col-sm-4 col-form-label"><strong><?= $form_password; ?></strong>*:
-                    <span class="input-group mb-3">
+                    <span class="input-group">
                         <input type="password" class="form-control" id="password" name="password" placeholder="<?= $this->lang->line('register_placeholder_password'); ?>">
                         <button class="btn btn-primary" type="button" id="password_button">
                             <i class="fa fa-eye" aria-hidden="true"></i>
