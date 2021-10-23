@@ -7,26 +7,26 @@
     <ul>
         <li><?= $this->lang->line('about_6'); ?>:
             <ul>
-                <li><?= $this->lang->line('about_7'); ?>;</li>
+                <li><?= $this->lang->line('html'); ?>;</li>
                 <li><?= $this->lang->line('about_8'); ?>;</li>
-                <li><?= $this->lang->line('about_9'); ?>;</li>
-                <li><?= $this->lang->line('about_10'); ?>;</li>
-                <li><?= $this->lang->line('about_28'); ?>.</li>
+                <li><?= $this->lang->line('javascript'); ?>;</li>
+                <li><?= $this->lang->line('jquery'); ?>;</li>
+                <li><?= $this->lang->line('ajax'); ?>.</li>
             </ul>
         </li>
         <li><?= $this->lang->line('about_11'); ?>:
             <ul>
                 <li><?= $this->lang->line('about_12'); ?>;</li>
-                <li><?= $this->lang->line('about_13'); ?>.</li>
+                <li><?= $this->lang->line('mysql'); ?>.</li>
             </ul>
         </li>
     </ul>
     </p>
     <p><?= $this->lang->line('about_23'); ?>:
     <ul>
-        <li><a target="_blank" href="https://fontawesome.com/"><?= $this->lang->line('about_24'); ?></a>;</li>
+        <li><a target="_blank" href="https://fontawesome.com/v4.7/"><?= $this->lang->line('about_24'); ?></a>;</li>
         <li><a target="_blank" href="https://bootswatch.com/spacelab/"><?= $this->lang->line('about_25'); ?></a>;</li>
-        <li><a target="_blank" href="https://codeception.com/"><?= $this->lang->line('about_26'); ?></a>;</li>
+        <li><a target="_blank" href="https://codeception.com/"><?= $this->lang->line('codeception'); ?></a>;</li>
         <li><a target="_blank" href="https://realfavicongenerator.net/"><?= $this->lang->line('about_27'); ?></a>.</li>
     </ul>
     </p>
@@ -37,5 +37,5 @@
     <p><?= $this->lang->line('about_19'); ?> <a href="mailto:tonio.granaldi@gmail.com">tonio.granaldi@gmail.com</a>.</p>
     <p><strong><?= $this->lang->line('about_20'); ?></strong></p>
     <p><?= $this->lang->line('about_21'); ?>
-    <a target="_blank" href="https://github.com/antogno/blogsonic"><?= $this->lang->line('about_22'); ?></a>.</p>
+    <a target="_blank" href="https://github.com/antogno/blogsonic"><?= $this->lang->line('github'); ?></a>.</p>
 </div>

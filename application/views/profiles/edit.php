@@ -3,7 +3,7 @@
         <?php
             if ( ! $this->session->userdata('logged_in')) {
                 echo '<div class="mt-4"><p>' . $this->lang->line('not_logged_in');
-                echo ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login') . '">' . $this->lang->line('login_now') . '</a> ' . $this->lang->line('or') . ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register') . '">' . $this->lang->line('register_now') . '</a>.</p></div>';
+                echo ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login') . '">' . $this->lang->line('login_now') . '</a> ' . $this->lang->line('or') . ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register') . '">' . $this->lang->line('register') . '</a>.</p></div>';
             } else {
         ?>
         <?= form_open(); ?>
@@ -30,14 +30,14 @@
                     <label class="form-label"><strong><?= $gender; ?></strong>:
                         <div class="form-check"> 
                             <label for="gender" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="gender_m" name="gender" value="m" <?php if ($profile_gender == $this->lang->line('profile_gender_m')) { echo 'checked'; } ?>>
-                                <?= $this->lang->line('profile_gender_m'); ?>
+                                <input type="radio" class="form-check-input" id="gender_m" name="gender" value="m" <?php if ($profile_gender == $this->lang->line('gender_m')) { echo 'checked'; } ?>>
+                                <?= $this->lang->line('gender_m'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="gender" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="gender_f" name="gender" value="f" <?php if ($profile_gender == $this->lang->line('profile_gender_f')) { echo 'checked'; } ?>>
-                                <?= $this->lang->line('profile_gender_f'); ?>
+                                <input type="radio" class="form-check-input" id="gender_f" name="gender" value="f" <?php if ($profile_gender == $this->lang->line('gender_f')) { echo 'checked'; } ?>>
+                                <?= $this->lang->line('gender_f'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
@@ -65,7 +65,7 @@
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="language_it" name="language" value="it">
-                                <?= $this->lang->line('profile_language_it'); ?>
+                                <?= $this->lang->line('italian'); ?>
                             </label>
                         </div>
                     </label>

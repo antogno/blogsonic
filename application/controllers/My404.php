@@ -8,14 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class My404 extends MY_Controller
 {
-
-    public function __construct()
-    {
-
-        parent::__construct();
-
-    }
-
     /**
      * Shows a custom created page in case of a 404 error
      * 
@@ -23,7 +15,6 @@ class My404 extends MY_Controller
      */
     public function index()
     {
-
         $this->output->set_status_header('404');
         
         $data['title'] = '404';
@@ -33,7 +24,5 @@ class My404 extends MY_Controller
         $this->load->view('partials/header', $data);
         $this->load->view('my404');
         $this->load->view('partials/footer');
-
     }
-
 }

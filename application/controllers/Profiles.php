@@ -7,13 +7,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author  Antonio Granaldi
  */
 class Profiles extends MY_Controller
-{
-
+{   
     public function __construct()
     {
-
         parent::__construct();
 
+        $this->load->model('Profiles_model');
     }
     
     /**
@@ -23,32 +22,29 @@ class Profiles extends MY_Controller
      */
     public function index()
     {
-
-        $this->load->model('Profiles_model');
-
-        $data = array(
-            'name' => $this->lang->line('profile_name'),
-            'surname' => $this->lang->line('profile_surname'),
-            'gender' => $this->lang->line('profile_gender'),
-            'email' => $this->lang->line('profile_email'),
-            'phone' => $this->lang->line('profile_phone'),
-            'language' => $this->lang->line('profile_language'),
-            'created_at' => $this->lang->line('profile_created_at'),
-            'delete' => $this->lang->line('profile_delete')
-        );
+        $data = [
+            'name' => $this->lang->line('name'),
+            'surname' => $this->lang->line('surname'),
+            'gender' => $this->lang->line('gender'),
+            'email' => $this->lang->line('email'),
+            'phone' => $this->lang->line('phone'),
+            'language' => $this->lang->line('language'),
+            'created_at' => $this->lang->line('created_at'),
+            'delete' => $this->lang->line('delete_profile')
+        ];
 
         if ($this->session->userdata('logged_in')) {
             $data['username'] = $this->encryption->decrypt($this->session->userdata('username'));
             $profile = $this->Profiles_model->getUser($data['username']);
-            $data['username'] = $this->lang->line('profile_username');
+            $data['username'] = $this->lang->line('username');
             $data['profile_name'] = $profile->name;
             $data['profile_surname'] = $profile->surname;
             $data['profile_username'] = $profile->username;
 
             if ($profile->gender === 'm') {
-                $data['profile_gender'] = $this->lang->line('profile_gender_m');
+                $data['profile_gender'] = $this->lang->line('gender_m');
             } elseif ($profile->gender === 'f') {
-                $data['profile_gender'] = $this->lang->line('profile_gender_f');
+                $data['profile_gender'] = $this->lang->line('gender_f');
             } else {
                 $data['profile_gender'] = false;
             }
@@ -57,14 +53,14 @@ class Profiles extends MY_Controller
             $data['profile_phone'] = isset($profile->phone) ? $profile->phone : false;
 
             if ($profile->language === 'en') {
-                $data['profile_language'] = $this->lang->line('profile_language_en');
+                $data['profile_language'] = $this->lang->line('english');
             } else {
-                $data['profile_language'] = $this->lang->line('profile_language_it');
+                $data['profile_language'] = $this->lang->line('italian');
             }
 
             $data['profile_created_at'] = date("d-m-Y H:i", strtotime($profile->created_at));
             $data['id'] = $profile->id;
-            $data['title'] = $this->lang->line('profile_title');
+            $data['title'] = $this->lang->line('profile');
             $data['meta_title'] = $this->lang->line('profile_meta_title');
             $data['meta_description'] = $this->lang->line('profile_meta_description');
 
@@ -78,16 +74,15 @@ class Profiles extends MY_Controller
             } else {
                 $this->load->view('partials/header', $data);
                 $this->load->view('profiles/index', $data);
-                $this->load->view('partials/footer');
             }
         } else {
-            $data['title'] = $this->lang->line('profile_title');
+            $data['title'] = $this->lang->line('profile');
 
             $this->load->view('partials/header', $data);
             $this->load->view('profiles/index', $data);
-            $this->load->view('partials/footer');
         }
 
+        $this->load->view('partials/footer');
     }
     
     /**
@@ -97,17 +92,14 @@ class Profiles extends MY_Controller
      */
     public function login()
     {
-
-        $this->load->model('Profiles_model');
-
-        $data = array(
-            'title' => $this->lang->line('login_title'),
+        $data = [
+            'title' => $this->lang->line('login'),
             'meta_title' => $this->lang->line('login_meta_title'),
             'meta_description' => $this->lang->line('login_meta_description'),
-            'form_username' => $this->lang->line('login_form_username'),
-            'form_password' => $this->lang->line('login_form_password'),
-            'form_button' => $this->lang->line('login_form_button')
-        );
+            'form_username' => $this->lang->line('username'),
+            'form_password' => $this->lang->line('password'),
+            'form_button' => $this->lang->line('login')
+        ];
 
         $this->form_validation->set_rules('username', $data['form_username'], 'required|min_length[6]|max_length[50]|alpha_dash');
         $this->form_validation->set_rules('password', $data['form_password'], 'required|min_length[8]|max_length[50]');
@@ -117,24 +109,22 @@ class Profiles extends MY_Controller
                 redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login', 'refresh');
             } else {
                 if ($this->Profiles_model->login($this->input->post())) {
-
-                    $user_session = array(
+                    $user_session = [
                         'logged_in' => true,
                         'logged_in_fail' => false,
                         'username' => $this->encryption->encrypt($this->input->post('username')),
                         'email' => $this->encryption->encrypt($this->Profiles_model->getUser($this->input->post('username'))->email),
                         'phone' => $this->encryption->encrypt($this->Profiles_model->getUser($this->input->post('username'))->phone),
                         'language' => $this->encryption->encrypt($this->Profiles_model->getUser($this->input->post('username'))->language . '/')
-                    );
+                    ];
                     $this->session->set_userdata($user_session);
 
                     redirect($this->encryption->decrypt($this->encryption->decrypt($this->session->userdata('language'))) . 'profiles');
                 } else {
-
-                    $user_session = array(
+                    $user_session = [
                         'logged_in' => false,
                         'logged_in_fail' => true
-                    );
+                    ];
                     $this->session->set_userdata($user_session);
 
                     redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login', 'refresh');
@@ -145,7 +135,6 @@ class Profiles extends MY_Controller
             $this->load->view('profiles/login', $data);
             $this->load->view('partials/footer');
         }
-
     }
     
     /**
@@ -155,15 +144,13 @@ class Profiles extends MY_Controller
      */
     public function logout()
     {
-
-        $data['title'] = $this->lang->line('logout_title');
+        $data['title'] = $this->lang->line('logout');
         $data['meta_title'] = $this->lang->line('logout_meta_title');
         $data['meta_description'] = $this->lang->line('logout_meta_description');
 
         $this->load->view('partials/header', $data);
         $this->load->view('profiles/logout');
         $this->load->view('partials/footer');
-
     }
     
     /**
@@ -173,29 +160,26 @@ class Profiles extends MY_Controller
      */
     public function register()
     {
-
-        $this->load->model('Profiles_model');
-
-        $data = array(
-            'title' => $this->lang->line('register_title'),
+        $data = [
+            'title' => $this->lang->line('register'),
             'meta_title' => $this->lang->line('register_meta_title'),
             'meta_description' => $this->lang->line('register_meta_description'),
-            'form_name' => $this->lang->line('register_form_name'),
-            'form_surname' => $this->lang->line('register_form_surname'),
-            'form_gender' => $this->lang->line('register_form_gender'),
-            'form_gender_m' => $this->lang->line('register_form_gender_m'),
-            'form_gender_f' => $this->lang->line('register_form_gender_f'),
+            'form_name' => $this->lang->line('name'),
+            'form_surname' => $this->lang->line('surname'),
+            'form_gender' => $this->lang->line('gender'),
+            'form_gender_m' => $this->lang->line('gender_m'),
+            'form_gender_f' => $this->lang->line('gender_f'),
             'form_no_gender' => $this->lang->line('register_form_no_gender'),
-            'form_username' => $this->lang->line('register_form_username'),
-            'form_password' => $this->lang->line('register_form_password'),
-            'form_email' => $this->lang->line('register_form_email'),
-            'form_phone' => $this->lang->line('register_form_phone'),
-            'form_language' => $this->lang->line('register_form_language'),
-            'form_language_en' => $this->lang->line('register_form_language_en'),
-            'form_language_it' => $this->lang->line('register_form_language_it'),
-            'form_button' => $this->lang->line('register_form_button'),
-            'form_reset' => $this->lang->line('register_form_reset')
-        );
+            'form_username' => $this->lang->line('username'),
+            'form_password' => $this->lang->line('password'),
+            'form_email' => $this->lang->line('email'),
+            'form_phone' => $this->lang->line('phone'),
+            'form_language' => $this->lang->line('language'),
+            'form_language_en' => $this->lang->line('english'),
+            'form_language_it' => $this->lang->line('italian'),
+            'form_button' => $this->lang->line('register'),
+            'form_reset' => $this->lang->line('reset')
+        ];
 
         $this->form_validation->set_rules('name', $data['form_name'], 'ltrim|required|max_length[50]');
         $this->form_validation->set_rules('surname', $data['form_surname'], 'ltrim|required|max_length[50]');
@@ -210,9 +194,9 @@ class Profiles extends MY_Controller
             $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
             $this->Profiles_model->register($this->input->post(), $password);
 
-            $user_session = array(
+            $user_session = [
                 'registered' => true
-            );
+            ];
             $this->session->set_userdata($user_session);
 
             redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register', 'refresh');
@@ -221,7 +205,6 @@ class Profiles extends MY_Controller
             $this->load->view('profiles/register', array_merge($data, $this->input->post()));
             $this->load->view('partials/footer');
         }
-
     }
     
     /**
@@ -231,19 +214,16 @@ class Profiles extends MY_Controller
      */
     public function edit()
     {
-
-        $this->load->model('Profiles_model');
-
-        $data = array(
-            'name' => $this->lang->line('profile_name'),
-            'surname' => $this->lang->line('profile_surname'),
-            'gender' => $this->lang->line('profile_gender'),
-            'username' => $this->lang->line('profile_username'),
-            'email' => $this->lang->line('profile_email'),
-            'phone' => $this->lang->line('profile_phone'),
-            'language' => $this->lang->line('profile_language'),
-            'button' => $this->lang->line('edit_profile_button')
-        );
+        $data = [
+            'name' => $this->lang->line('name'),
+            'surname' => $this->lang->line('surname'),
+            'gender' => $this->lang->line('gender'),
+            'username' => $this->lang->line('username'),
+            'email' => $this->lang->line('email'),
+            'phone' => $this->lang->line('phone'),
+            'language' => $this->lang->line('language'),
+            'button' => $this->lang->line('save_changes')
+        ];
 
         if ($this->session->userdata('logged_in')) {
             $this->form_validation->set_rules('name', $data['name'], 'ltrim|required|max_length[50]');
@@ -269,15 +249,15 @@ class Profiles extends MY_Controller
             } else {
                 $data['username'] = $this->encryption->decrypt($this->session->userdata('username'));
                 $profile = $this->Profiles_model->getUser($data['username']);
-                $data['username'] = $this->lang->line('profile_username');
+                $data['username'] = $this->lang->line('username');
                 $data['profile_name'] = $profile->name;
                 $data['profile_surname'] = $profile->surname;
                 $data['profile_username'] = $profile->username;
 
                 if ($profile->gender === 'm') {
-                    $data['profile_gender'] = $this->lang->line('profile_gender_m');
+                    $data['profile_gender'] = $this->lang->line('gender_m');
                 } elseif ($profile->gender === 'f') {
-                    $data['profile_gender'] = $this->lang->line('profile_gender_f');
+                    $data['profile_gender'] = $this->lang->line('gender_f');
                 } else {
                     $data['profile_gender'] = false;
                 }
@@ -286,12 +266,12 @@ class Profiles extends MY_Controller
                 $data['profile_phone'] = $profile->phone;
 
                 if ($profile->language === 'en') {
-                    $data['profile_language'] = $this->lang->line('profile_language_en');
+                    $data['profile_language'] = $this->lang->line('english');
                 } else {
-                    $data['profile_language'] = $this->lang->line('profile_language_it');
+                    $data['profile_language'] = $this->lang->line('italian');
                 }
 
-                $data['title'] = $this->lang->line('edit_profile_title');
+                $data['title'] = $this->lang->line('edit_profile');
                 $data['meta_title'] = $this->lang->line('edit_profile_meta_title');
                 $data['meta_description'] = $this->lang->line('edit_profile_meta_description');
 
@@ -300,13 +280,12 @@ class Profiles extends MY_Controller
                 $this->load->view('partials/footer');
             }
         } else {
-            $data['title'] = $this->lang->line('edit_profile_title');
+            $data['title'] = $this->lang->line('edit_profile');
             
             $this->load->view('partials/header', $data);
             $this->load->view('profiles/edit', $data);
             $this->load->view('partials/footer');
         }
-
     }
     
     /**
@@ -316,17 +295,14 @@ class Profiles extends MY_Controller
      */
     public function password()
     {
-
-        $this->load->model('Profiles_model');
-
-        $data = array(
-            'title' => $this->lang->line('password_title'),
+        $data = [
+            'title' => $this->lang->line('change_password'),
             'meta_title' => $this->lang->line('password_meta_title'),
             'meta_description' => $this->lang->line('password_meta_description'),
-            'form_old_password' => $this->lang->line('password_form_old_password'),
-            'form_new_password' => $this->lang->line('password_form_new_password'),
-            'form_button' => $this->lang->line('password_form_button')
-        );
+            'form_old_password' => $this->lang->line('old_password'),
+            'form_new_password' => $this->lang->line('new_password'),
+            'form_button' => $this->lang->line('save_changes')
+        ];
 
         $this->form_validation->set_rules('old_password', $data['form_old_password'], 'required');
         $this->form_validation->set_rules('new_password', $data['form_new_password'], 'trim|required|min_length[8]|max_length[50]|differs[old_password]');
@@ -334,22 +310,21 @@ class Profiles extends MY_Controller
         if ($this->form_validation->run()) {
             $user = $this->Profiles_model->getUser($this->encryption->decrypt($this->session->userdata('username')));
             if (password_verify($this->input->post('old_password'), $user->password)) {
-                $data = array('password' => $this->input->post('new_password'));
+                $data = ['password' => $this->input->post('new_password')];
                 $this->Profiles_model->updateUser($this->encryption->decrypt($this->session->userdata('username')), $data);
 
-                $user_session = array(
+                $user_session = [
                     'password_changed' => true,
                     'password_not_changed' => false
-                );
+                ];
                 $this->session->set_userdata($user_session);
 
                 redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/password', 'refresh');
             } else {
-
-                $user_session = array(
+                $user_session = [
                     'password_changed' => false,
                     'password_not_changed' => true
-                );
+                ];
                 $this->session->set_userdata($user_session);
 
                 redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/password', 'refresh');
@@ -359,7 +334,6 @@ class Profiles extends MY_Controller
             $this->load->view('profiles/password', $data);
             $this->load->view('partials/footer');
         }
-
     }
     
     /**
@@ -369,17 +343,14 @@ class Profiles extends MY_Controller
      */
     public function forgot()
     {
-
-        $this->load->model('Profiles_model');
-
-        $data = array(
+        $data = [
             'title' => $this->lang->line('forgot_password'),
             'meta_title' => $this->lang->line('forgot_meta_title'),
             'meta_description' => $this->lang->line('forgot_meta_description'),
-            'form_email' => $this->lang->line('forgot_password_email'),
-            'form_button' => $this->lang->line('forgot_password_confirm'),
+            'form_email' => $this->lang->line('email'),
+            'form_button' => $this->lang->line('confirm'),
             'form_text' => $this->lang->line('forgot_password_text')
-        );
+        ];
 
         $this->form_validation->set_rules('email', $data['form_email'], 'required|max_length[50]|valid_email');
 
@@ -391,19 +362,18 @@ class Profiles extends MY_Controller
                 $this->Profiles_model->newPassword($email, $password);
                 $this->sendNewPassword($email, $password);
 
-                $user_session = array(
+                $user_session = [
                     'forgot_password_success' => true,
                     'forgot_password_fail' => false
-                );
+                ];
                 $this->session->set_userdata($user_session);
 
                 redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot', 'refresh');
             } else {
-
-                $user_session = array(
+                $user_session = [
                     'forgot_password_success' => false,
                     'forgot_password_fail' => true
-                );
+                ];
                 $this->session->set_userdata($user_session);
 
                 redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot', 'refresh');
@@ -423,9 +393,6 @@ class Profiles extends MY_Controller
      */
     public function checkUsername()
     {
-
-        $this->load->model('Profiles_model');
-
         $username = $this->input->post('value');
         $username_field = $this->Profiles_model->checkUsersByField('username', $username);
 
@@ -440,7 +407,6 @@ class Profiles extends MY_Controller
         } else {
             return false;
         }
-
     }
 
     /**
@@ -450,9 +416,6 @@ class Profiles extends MY_Controller
      */
     public function checkEmail()
     {
-
-        $this->load->model('Profiles_model');
-
         $email = $this->input->post('value');
         $email_field = $this->Profiles_model->checkUsersByField('email', $email);
 
@@ -467,7 +430,6 @@ class Profiles extends MY_Controller
         } else {
             return false;
         }
-
     }
 
     /**
@@ -477,9 +439,6 @@ class Profiles extends MY_Controller
      */
     public function checkPhone()
     {
-
-        $this->load->model('Profiles_model');
-
         $phone = $this->input->post('value');
         $phone_field = $this->Profiles_model->checkUsersByField('phone', $phone);
 
@@ -494,7 +453,5 @@ class Profiles extends MY_Controller
         } else {
             return false;
         }
-
     }
-
 }

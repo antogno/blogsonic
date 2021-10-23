@@ -1,27 +1,91 @@
 <?php
 $lang['error_404_text'] = 'La pagina richiesta non è stata trovata.';
 
-$lang['home_static_page_title'] = 'Home';
+$lang['home'] = 'Home';
+$lang['home_static_page_title'] = $lang['home'];
+
+$lang['privacy_policy'] = 'Informativa sulla privacy';
+$lang['privacy_static_page_title'] = $lang['privacy_policy'];
+
+$lang['about'] = 'Informazioni';
+$lang['about_static_page_title'] = $lang['about'];
+
+$lang['close'] = 'Chiudi';
+$lang['profile'] = 'Profilo';
+$lang['login'] = 'Accedi';
+$lang['logout'] = 'Esci';
+$lang['register'] = 'Registrati';
+$lang['blogs'] = 'Blog';
+$lang['my_blogs'] = 'I miei Blog';
+$lang['edit_profile'] = 'Modifica Profilo';
+$lang['new_blog'] = 'Nuovo Blog';
+$lang['language'] = 'Lingua';
+$lang['name'] = 'Nome';
+$lang['english'] = 'Inglese';
+$lang['italian'] = 'Italiano';
+$lang['surname'] = 'Cognome';
+$lang['gender'] = 'Sesso';
+$lang['gender_m'] = 'M';
+$lang['gender_f'] = 'F';
+$lang['username'] = 'Nome Utente';
+$lang['email'] = 'Email';
+$lang['phone'] = 'Telefono';
+$lang['created_at'] = 'Creato il';
+$lang['change_password'] = 'Cambia Password';
+$lang['delete_profile'] = 'Elimina Profilo';
+$lang['save_changes'] = 'Salva modifiche';
+$lang['password'] = 'Password';
+$lang['title'] = 'Titolo';
+$lang['confirmation'] = 'Sei sicuro?';
+$lang['back'] = 'Indietro';
+$lang['search'] = 'Cerca';
+$lang['accept'] = 'Accetta';
+$lang['my_profile'] = 'Il mio Profilo';
+$lang['all_blogs'] = 'Tutti i Blog';
+$lang['github'] = 'GitHub';
+$lang['html'] = 'HTML';
+$lang['javascript'] = 'JavaScript';
+$lang['php'] = 'PHP';
+$lang['css'] = 'CSS';
+$lang['ajax'] = 'AJAX';
+$lang['jquery'] = 'jQuery';
+$lang['mysql'] = 'MySQL';
+$lang['confirm'] = 'Conferma';
+$lang['apply'] = 'Applica';
+$lang['body'] = 'Corpo';
+$lang['reset'] = 'Ripristina';
+$lang['linkedin'] = 'LinkedIn';
+$lang['delete'] = 'Elimina';
+$lang['edit_blog'] = 'Modifica Blog';
+$lang['old_password'] = 'Vecchia Password';
+$lang['new_password'] = 'Nuova Password';
+$lang['user'] = 'Utente';
+$lang['view'] = 'Vedi';
+$lang['post'] = 'Pubblica';
+$lang['view_blog'] = 'Vedi Blog';
+$lang['show'] = 'Mostra';
+$lang['order_by'] = 'Ordina';
+$lang['latest'] = 'Dal più recente';
+$lang['oldest'] = 'Dal meno recente';
+$lang['codeception'] = 'Codeception';
+$lang['license'] = 'Licenza';
+
 $lang['home_1'] = 'Benvenuto su Blogsonic.org!';
 $lang['home_2'] = 'Cos\'è Blogsonic.org?';
 $lang['home_3'] = 'Blogsonic.org è un progetto open source. Lo si potrebbe definire come un mini Social Network che permette di pubblicare dei contenuti di testo (chiamati Blog) visibili a tutti.';
 $lang['home_4'] = 'Perchè?';
 $lang['home_5'] = 'L\'esistenza di Blogsonic.org ha il solo scopo di mostrare un esempio di una Web Application CRUD. Per maggiori informazioni,';
 $lang['home_6'] = 'clicca qui';
-$lang['about_static_page_title'] = 'Informazioni';
+
 $lang['about_1'] = 'Benvenuto nella pagina Informazioni di Blogsonic.org!';
 $lang['about_2'] = 'Cos\'è Blogsonic.org?';
 $lang['about_3'] = 'Blogsonic.org è un progetto open source. Più specificatamente, è una Web Application CRUD.';
 $lang['about_4'] = 'Com\'è stato realizzato Blogsonic.org?';
 $lang['about_5'] = 'Blogsonic.org è stato realizzato usando i seguenti strumenti e tecnologie';
 $lang['about_6'] = 'Front-end';
-$lang['about_7'] = 'HTML';
-$lang['about_8'] = 'CSS (framework: Bootstrap)';
-$lang['about_9'] = 'JavaScript';
-$lang['about_10'] = 'jQuery';
+$lang['about_8'] = $lang['css'] . ' (framework: Bootstrap)';
 $lang['about_11'] = 'Back-end';
-$lang['about_12'] = 'PHP (framework: CodeIgniter 3.1.11)';
-$lang['about_13'] = 'MySQL';
+$lang['about_12'] = $lang['php'] . ' (framework: CodeIgniter 3.1.11)';
 $lang['about_14'] = 'Chi ha realizzato Blogsonic.org?';
 $lang['about_15'] = 'L\'ideatore e il realizzatore di Blogsonic.org sono io';
 $lang['about_16'] = ', ovvero Antonio Granaldi. Puoi vedere il mio profilo LinkedIn';
@@ -30,53 +94,25 @@ $lang['about_18'] = 'Come posso contattarti?';
 $lang['about_19'] = 'Puoi contattarmi sul mio profilo LinkedIn qui sopra, o inviandomi un\'email a';
 $lang['about_20'] = 'Posso usare il codice sorgente di Blogsonic.org?';
 $lang['about_21'] = 'Certo! Puoi trovare tutto ciò che ti serve su';
-$lang['about_22'] = 'GitHub';
 $lang['about_23'] = 'Blogsonic.org esiste anche grazie a';
 $lang['about_24'] = 'le icone di Font Awesome 4.7.0';
 $lang['about_25'] = 'il tema Spacelab di Bootswatch';
-$lang['about_26'] = 'Codeception';
 $lang['about_27'] = 'realfavicongenerator.net';
-$lang['about_28'] = 'AJAX';
-$lang['privacy_static_page_title'] = 'Informativa sulla privacy';
 
-$lang['confirmation'] = 'Sei sicuro?';
-$lang['confirmationProfile'] = 'Sei sicuro? Eliminando il tuo Profilo tutti i tuoi Blog e i tuoi dati saranno eliminati. Questa azione è irreversibile.';
-
-$lang['motto'] = 'Lo scopo della nostra vita è essere felici.';
-$lang['back'] = 'Indietro';
+$lang['confirmation_profile'] = 'Sei sicuro? Eliminando il tuo Profilo tutti i tuoi Blog e i tuoi dati saranno eliminati. Questa azione è irreversibile.';
 
 $lang['search_placeholder'] = 'Cerca tra i Blog';
-$lang['search'] = 'Cerca';
 $lang['search_result'] = 'Risultati per: ';
 
 $lang['cookiebar_title'] = 'Questo sito usa i cookie';
 $lang['cookiebar_body'] = 'Questo sito utilizza cookie tecnici. Proseguendo nella navigazione accetti l’utilizzo dei cookie.';
-$lang['cookiebar_accept'] = 'Accetta';
-$lang['cookiebar_close'] = 'Chiudi';
 
-$lang['home_nav'] = 'Home';
-$lang['about_nav'] = 'Informazioni';
-$lang['profiles_nav'] = 'Profilo';
-$lang['myprofile_nav'] = 'Il mio Profilo';
-$lang['login_nav'] = 'Accedi';
-$lang['logout_nav'] = 'Esci';
-$lang['register_nav'] = 'Registrati';
-$lang['blogs_nav'] = 'Blog';
-$lang['allblogs_nav'] = 'Tutti i Blog';
-$lang['myblogs_nav'] = 'I miei Blog';
-$lang['newblog_nav'] = 'Nuovo Blog';
-
-$lang['language_select_footer'] = 'Lingua';
-$lang['language_en_footer'] = 'Inglese';
-$lang['language_it_footer'] = 'Italiano';
-$lang['license'] = 'Licenza';
 $lang['designed_and_created_by'] = 'Ideato e realizzato da';
 
 $lang['logged_in'] = 'Hai già effettuato l\'accesso.';
 $lang['not_logged_in'] = 'Devi effettuare l\'accesso prima di poter vedere questa pagina.';
 $lang['login_now'] = 'Accedi adesso';
 $lang['or'] = 'o';
-$lang['register_now'] = 'Registrati';
 $lang['logged_in_fail'] = 'Il Nome Utente o la Password sono sbagliati. Riprova.';
 $lang['logged_out'] = 'Sei stato disconesso.';
 $lang['registered'] = 'Il tuo account è stato registrato.';
@@ -88,109 +124,29 @@ $lang['no_myblogs'] = 'Non hai ancora pubblicato nessun Blog.';
 $lang['no_blogs_link'] = 'Creane uno adesso!';
 $lang['to_create_one'] = 'per crearne uno.';
 
-$lang['profile_title'] = 'Profilo';
-$lang['profile_name'] = 'Nome';
-$lang['profile_surname'] = 'Cognome';
-$lang['profile_gender'] = 'Sesso';
-$lang['profile_gender_m'] = 'M';
-$lang['profile_gender_f'] = 'F';
-$lang['profile_username'] = 'Nome Utente';
-$lang['profile_email'] = 'Email';
-$lang['profile_phone'] = 'Telefono';
-$lang['profile_language'] = 'Lingua';
-$lang['profile_language_en'] = 'Inglese';
-$lang['profile_language_it'] = 'Italiano';
-$lang['profile_created_at'] = 'Creato il';
-$lang['profile_edit_profile'] = 'Modifica profilo';
-$lang['profile_change_password'] = 'Cambia password';
-$lang['profile_delete'] = 'Elimina Profilo';
-
-$lang['edit_profile_title'] = 'Modifica Profilo';
-$lang['edit_profile_button'] = 'Salva modifiche';
-
-$lang['login_title'] = 'Accedi';
-$lang['login_form_username'] = 'Nome Utente';
-$lang['login_form_password'] = 'Password';
-$lang['login_form_button'] = 'Accedi';
 $lang['forgot_password'] = 'Password dimenticata';
-$lang['forgot_password_email'] = 'Email';
-$lang['forgot_password_confirm'] = 'Conferma';
-$lang['forgot_password_close'] = 'Chiudi';
 $lang['forgot_password_text'] = 'Inserisci la tua Email. Ti invieremo un messaggio con la nuova Password.';
 $lang['forgot_password_success'] = 'Abbiamo inviato una nuova Password all\'indirizzo Email che hai inserito. Controlla la tua casella di posta.';
 $lang['forgot_password_fail'] = 'Non ci sono account con questa Email. Riprova.';
 $lang['forgot_password_email_subject'] = 'Nuova Password - Blogsonic.org';
 $lang['forgot_password_email_body'] = 'Ciao! Ecco la tua nuova Password per il tuo account su Blogsonic.org: ';
 
-$lang['logout_title'] = 'Esci';
-
-$lang['delete_title'] = 'Elimina Profilo';
-
-$lang['register_title'] = 'Registrati';
-$lang['register_form_name'] = 'Nome';
-$lang['register_form_surname'] = 'Cognome';
-$lang['register_form_gender'] = 'Sesso';
-$lang['register_form_gender_m'] = 'M';
-$lang['register_form_gender_f'] = 'F';
 $lang['register_form_no_gender'] = 'Preferisco non specificarlo';
-$lang['register_form_username'] = 'Nome Utente';
-$lang['register_form_password'] = 'Password';
-$lang['register_form_email'] = 'Email';
-$lang['register_form_phone'] = 'Telefono';
-$lang['register_form_language'] = 'Lingua';
-$lang['register_form_language_en'] = 'Inglese';
-$lang['register_form_language_it'] = 'Italiano';
-$lang['register_form_button'] = 'Registrati';
-$lang['register_form_reset'] = 'Ripristina';
 
 $lang['mandatory_fields'] = 'I campi con l\'asterisco sono obbligatori.';
 
 $lang['register_placeholder_name'] = 'Mario';
 $lang['register_placeholder_surname'] = 'Rossi';
 $lang['register_placeholder_username'] = 'mariorossi';
-$lang['register_placeholder_password'] = 'Password';
 $lang['register_placeholder_email'] = 'mario.rossi@esempio.com';
 $lang['register_placeholder_phone'] = '3331234567';
 
-$lang['password_title'] = 'Cambia Password';
-$lang['password_form_old_password'] = 'Vecchia Password';
-$lang['password_form_new_password'] = 'Nuova Password';
-$lang['password_form_button'] = 'Salva modifiche';
-
-$lang['blogs_title'] = 'Blog';
-$lang['blogs_actual_title'] = 'Titolo';
-$lang['blogs_user'] = 'Utente';
-$lang['blogs_created_at'] = 'Creato il';
-$lang['blogs_view'] = 'Vedi';
-$lang['blogs_body'] = 'Corpo';
-
-$lang['show'] = 'Mostra';
-$lang['order'] = 'Ordina';
 $lang['5_blogs'] = '5 Blog';
 $lang['10_blogs'] = '10 Blog';
 $lang['20_blogs'] = '20 Blog';
-$lang['desc'] = 'Dal più recente';
-$lang['asc'] = 'Dal meno recente';
 $lang['between'] = 'tra il';
 $lang['between_and'] = 'e il';
-$lang['apply'] = 'Applica';
-$lang['reset'] = 'Ripristina';
 
-$lang['myblogs_title'] = 'I miei Blog';
-
-$lang['newblog_title'] = 'Nuovo Blog';
-$lang['newblog_actual_title'] = 'Titolo';
-$lang['newblog_body'] = 'Corpo';
-$lang['newblog_button'] = 'Pubblica';
-$lang['newblog_reset'] = 'Ripristina';
-
-$lang['view_delete'] = 'Elimina';
-$lang['view_edit'] = 'Modifica Blog';
-$lang['view_title'] = 'Vedi Blog';
-
-$lang['edit_title'] = 'Modifica Blog';
-
-$lang['privacy_policy_link'] = 'Informativa sulla privacy';
 $lang['privacy_policy_1'] = 'Questa Informativa sulla privacy descrive come le vostre informazioni personali vengono raccolte, utilizzate e condivise quando visitate Blogsonic.org (il "Sito").';
 $lang['privacy_policy_2'] = 'Informazioni personali che raccogliamo';
 $lang['privacy_policy_3'] = 'Quando visitate il ​​Sito, raccogliamo automaticamente alcune informazioni sul vostro dispositivo, incluse informazioni sul browser web, indirizzo IP, fuso orario e alcuni dei cookie installati sul dispositivo. Raccogliamo informazioni sui dispositivi utilizzando i "cookie" - file di dati che vengono aggiunti sul dispositivo o sul computer e spesso includono un identificatore univoco anonimo.';

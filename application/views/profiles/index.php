@@ -3,7 +3,7 @@
         <?php
             if ( ! $this->session->userdata('logged_in')) {
                 echo '<div class="mt-4"><p>' . $this->lang->line('not_logged_in');
-                echo ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login') . '">' . $this->lang->line('login_now') . '</a> ' . $this->lang->line('or') . ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register') . '">' . $this->lang->line('register_now') . '</a>.</p></div>';
+                echo ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login') . '">' . $this->lang->line('login_now') . '</a> ' . $this->lang->line('or') . ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register') . '">' . $this->lang->line('register') . '</a>.</p></div>';
             } else {
         ?>
         <div class="form-group">
@@ -31,8 +31,8 @@
             <!-- </div> -->
         </div>
         <br>
-        <a class="col-sm-2 btn btn-light" id="edit" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/edit'); ?>"><?= $this->lang->line('profile_edit_profile'); ?></a>
-        <a class="col-sm-2 btn btn-light" id="change_password" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/password'); ?>"><?= $this->lang->line('profile_change_password'); ?></a>
+        <a class="col-sm-2 btn btn-light" id="edit" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/edit'); ?>"><?= $this->lang->line('edit_profile'); ?></a>
+        <a class="col-sm-2 btn btn-light" id="change_password" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/password'); ?>"><?= $this->lang->line('change_password'); ?></a>
         <?= form_open(); ?>
             <input type="hidden" name="id" value="<?= $id; ?>">
             <br><button onclick="return confirmationProfile()" type="submit" class="col-sm-4 btn btn-danger" id="delete"><?= $delete; ?></button>

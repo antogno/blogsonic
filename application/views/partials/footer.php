@@ -11,16 +11,16 @@
                 ?>
                     <label class="form-label">
                         <select class="form-select" id="change_language">
-                            <option value="" selected disabled hidden><?= $this->lang->line('language_select_footer'); ?></option>
-                            <option value="en" <?php if (substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1) == 'en') { echo 'selected'; } ?>><?= $this->lang->line('language_en_footer'); ?></option>
-                            <option value="it" <?php if (substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1) == 'it') { echo 'selected'; } ?>><?= $this->lang->line('language_it_footer'); ?></option>
+                            <option value="" selected disabled hidden><?= $this->lang->line('language'); ?></option>
+                            <option value="en" <?php if (substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1) == 'en') { echo 'selected'; } ?>><?= $this->lang->line('english'); ?></option>
+                            <option value="it" <?php if (substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1) == 'it') { echo 'selected'; } ?>><?= $this->lang->line('italian'); ?></option>
                         </select>
                     </label>
                     &mdash;
                 <?php
                     }
                 ?>
-                <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/privacy'); ?>" id="privacy_policy_link"><?= $this->lang->line('privacy_policy_link'); ?></a>
+                <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'pages/view/privacy'); ?>" id="privacy_policy_link"><?= $this->lang->line('privacy_policy'); ?></a>
                 &ndash;
                 <a target="_blank" href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><?= $this->lang->line('license'); ?></a>
                 &ndash;
@@ -46,7 +46,7 @@
 <script src="<?= base_url('public/js/script.js'); ?>"></script>
 <script>
 let confirmation_text = "<?= $this->lang->line('confirmation'); ?>";
-let confirmationProfile_text = "<?= $this->lang->line('confirmationProfile'); ?>";
+let confirmation_profile_text = "<?= $this->lang->line('confirmation_profile'); ?>";
 $(document).ready(function() {
     manageCookiebar();
     manageLanguageSwitcher();

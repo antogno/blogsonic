@@ -8,14 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Pages extends MY_Controller
 {
-
-    public function __construct()
-    {
-
-        parent::__construct();
-
-    }
-
     /**
      * View a particular static pages
      * 
@@ -24,7 +16,6 @@ class Pages extends MY_Controller
      */
     public function view(string $page = 'home')
     {
-
         if (file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
             $data['title'] = $this->lang->line($page . '_static_page_title');
             $data['meta_title'] = $this->lang->line($page . '_static_page_meta_title');
@@ -36,7 +27,5 @@ class Pages extends MY_Controller
         } else {
             show_404();
         }
-
     }
-
 }

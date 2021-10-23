@@ -9,9 +9,9 @@
     </label>
     <label class="form-label">
         <select class="form-select" id="change_order">
-            <option value="" selected disabled hidden><?= $this->lang->line('order'); ?></option>
-            <option value="desc"><?= $this->lang->line('desc'); ?></option>
-            <option value="asc"><?= $this->lang->line('asc'); ?></option>
+            <option value="" selected disabled hidden><?= $this->lang->line('order_by'); ?></option>
+            <option value="desc"><?= $this->lang->line('latest'); ?></option>
+            <option value="asc"><?= $this->lang->line('oldest'); ?></option>
         </select>
     </label>
     <label class="form-label"><?= $this->lang->line('between'); ?></label>

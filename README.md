@@ -321,6 +321,6 @@ For more information, see the [Creative Commons website][12].
 [15]: https://www.reddit.com/user/antogno "antogno - Reddit"
 [16]: https://stackoverflow.com/users/16877786/antogno "antogno - Stack Overflow"
 [17]: https://www.instagram.com/agranaldi/ "agranaldi - Instagram"
-[18]: https://fontawesome.com/ "Font Awesome - The iconic font and CSS toolkit"
+[18]: https://fontawesome.com/v4.7/ "Font Awesome - The iconic font and CSS toolkit"
 [19]: https://bootswatch.com/spacelab/ "Bootswatch - Free themes for Bootstrap"
 [20]: https://realfavicongenerator.net/ "Favicon Generator"

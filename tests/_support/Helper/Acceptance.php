@@ -8,7 +8,6 @@ use AcceptanceTester;
 
 class Acceptance extends \Codeception\Module
 {
-
     /**
      * Get the current URL
      * 
@@ -29,7 +28,6 @@ class Acceptance extends \Codeception\Module
      */
     public function register(AcceptanceTester $I, array $data)
     {
-
         $I->amOnPage('/en');
 
         $I->click('Profile');
@@ -58,7 +56,6 @@ class Acceptance extends \Codeception\Module
         $I->waitForElementVisible('#register');
         $I->waitForElementClickable('#register');
         $I->click('#register');
-
     }
 
     /**
@@ -70,7 +67,6 @@ class Acceptance extends \Codeception\Module
      */
     public function login(AcceptanceTester $I, array $credentials)
     {
-
         $I->amOnPage('/en');
 
         $I->click('Profile');
@@ -84,7 +80,6 @@ class Acceptance extends \Codeception\Module
         $I->fillField('password', $credentials['password']);
 
         $I->click('#login');
-
     }
 
     /**
@@ -95,14 +90,12 @@ class Acceptance extends \Codeception\Module
      */
     public function logout(AcceptanceTester $I)
     {
-
         $I->amOnPage('/en');
 
         $I->click('Profile');
         $I->click('Logout');
 
         $I->acceptPopup();
-
     }
 
     /**
@@ -114,7 +107,6 @@ class Acceptance extends \Codeception\Module
      */
     public function createNewBlog(AcceptanceTester $I, array $data)
     {
-
         $I->amOnPage('/en');
 
         $I->click('Blogs');
@@ -124,7 +116,6 @@ class Acceptance extends \Codeception\Module
         $I->fillField('blog_body', $data['body']);
 
         $I->click('#post');
-
     }
 
     /**
@@ -135,11 +126,8 @@ class Acceptance extends \Codeception\Module
      */
     public function acceptCookiePopup(AcceptanceTester $I)
     {
-
         $I->amOnPage('/en');
 
         $I->click('#cookiebar_hide');
-
     }
-
 }

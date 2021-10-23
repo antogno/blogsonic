@@ -5,7 +5,7 @@ function confirmation() {
 }
 
 function confirmationProfile() {
-    if ( ! confirm(confirmationProfile_text)) {
+    if ( ! confirm(confirmation_profile_text)) {
         return false;
     }
 }

@@ -5,7 +5,7 @@
             if ($this->session->userdata('logged_in')) {
                 echo ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/newblog') . '">' . $this->lang->line('no_blogs_link') . '</a></p></div>';
             } else {
-                echo ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login') . '">' . $this->lang->line('login_now') . '</a> ' . $this->lang->line('or') . ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register') . '">' . $this->lang->line('register_now') . '</a> ' . $this->lang->line('to_create_one') . '</p></div>';
+                echo ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login') . '">' . $this->lang->line('login_now') . '</a> ' . $this->lang->line('or') . ' <a href="' . base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/register') . '">' . $this->lang->line('register') . '</a> ' . $this->lang->line('to_create_one') . '</p></div>';
             }
         } else {
     ?>

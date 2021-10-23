@@ -58,7 +58,7 @@
                 </label>
                 <label for="password" class="col-sm-4 col-form-label"><strong><?= $form_password; ?></strong>*:
                     <span class="input-group">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="<?= $this->lang->line('register_placeholder_password'); ?>">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="<?= $this->lang->line('password'); ?>">
                         <button class="btn btn-primary" type="button" id="password_button">
                             <i class="fa fa-eye" aria-hidden="true"></i>
                         </button>

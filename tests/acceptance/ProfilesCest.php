@@ -2,7 +2,6 @@
 
 class ProfilesCest
 {
-
     public $data = [
         'name' => 'Profiles',
         'surname' => 'Test',
@@ -23,23 +22,18 @@ class ProfilesCest
 
     public function _before(AcceptanceTester $I)
     {
-
         $I->tryToAcceptCookiePopup($I);
-
     }
 
     public function register(AcceptanceTester $I)
     {
-
         $I->register($I, $this->data);
         $I->waitForElement('#success_popup');
         $I->see('Your account has been registered');
-
     }
 
     public function login(AcceptanceTester $I)
     {
-
         $I->register($I, $this->data);
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
@@ -56,12 +50,10 @@ class ProfilesCest
         $I->waitForElement('#page_body');
         $I->see('Login');
         $I->see('You are already logged in');
-
     }
 
     public function logout(AcceptanceTester $I)
     {
-
         $I->register($I, $this->data);
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
@@ -78,56 +70,10 @@ class ProfilesCest
         $I->waitForElement('#page_body');
         $I->see('Logout');
         $I->see('You have to login before you can see this page');
-
     }
-
-    // public function forgotPassword(AcceptanceTester $I)
-    // {
-
-    //     $I->amOnPage('/');
-
-    //     $I->click('Profile');
-    //     $I->click('Login');
-
-    //     $I->click('Forgot password?');
-
-    //     $I->waitForElement('#page_body');
-    //     $I->see('Forgot password');
-    //     $I->see('Enter your Email');
-
-    //     $I->fillField('email', 'random@email.com');
-
-    //     $I->click('#confirm');
-
-    //     $I->waitForElement('#danger_popup');
-    //     $I->see('There are no accounts with this Email');
-
-    //     $I->register($I, $this->data);
-
-    //     $I->click('Profile');
-    //     $I->click('Login');
-
-    //     $I->click('Forgot password?');
-
-    //     $I->waitForElement('#page_body');
-
-    //     $I->fillField('email', $this->data['email']);
-
-    //     $I->click('#confirm');
-
-    //     $I->waitForElement('#success_popup');
-    //     $I->see('We have sent a new Password to the Email address you entered');
-
-    //     $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
-
-    //     $I->waitForElement('#danger_popup');
-    //     $I->see('The Username or Password is incorrect');
-
-    // }
 
     public function editProfile(AcceptanceTester $I)
     {
-
         $I->register($I, $this->data);
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
@@ -153,12 +99,10 @@ class ProfilesCest
         $I->waitForElement('#page_body');
         $I->seeInField('name', $this->new_data['name']);
         $I->seeInField('surname', $this->new_data['surname']);
-
     }
 
     public function changePassword(AcceptanceTester $I)
     {
-
         $I->register($I, $this->data);
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
@@ -205,12 +149,10 @@ class ProfilesCest
 
         $I->dontSeeElement('#danger_popup');
         $I->dontSee('The Username or Password is incorrect');
-
     }
 
     public function deleteProfile(AcceptanceTester $I)
     {
-
         $I->register($I, $this->data);
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
@@ -225,7 +167,5 @@ class ProfilesCest
 
         $I->waitForElement('#danger_popup');
         $I->see('The Username or Password is incorrect');
-
     }
-
 }

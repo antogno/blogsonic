@@ -8,14 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class MY_Controller extends CI_Controller
 {
-
     public function __construct()
     {
-
         parent::__construct();
 
         $this->loadLanguage();
-
     }
     
     /**
@@ -25,20 +22,16 @@ class MY_Controller extends CI_Controller
      */
     public function loadLanguage()
     {
-
         $this->load->model('Profiles_model');
 
         if ($this->session->userdata('logged_in')) {
-
             $profile_language = $this->Profiles_model->getUser($this->encryption->decrypt($this->session->userdata('username')));
             $profile_language = $profile_language->language;
 
             if ($profile_language == 'it') {
                 $language = 'italian';
             }
-
         } else {
-
             if ($this->uri->segment(1) == 'it') {
                 $language = 'italian';
             } elseif ($this->uri->segment(1) == 'en') {
@@ -51,7 +44,6 @@ class MY_Controller extends CI_Controller
                     $language = 'italian';
                 }
             }
-
         }
 
         if ( ! isset($language)) {
@@ -60,13 +52,13 @@ class MY_Controller extends CI_Controller
 
         $uri_language = substr($language, 0, 2);
 
-        $user_session = array(
+        $user_session = [
             'language' => $this->encryption->encrypt($uri_language . '/')
-        );
+        ];
+
         $this->session->set_userdata($user_session);
         $this->config->set_item('language', $language);
         $this->lang->load('blogsonic', $language);
-
     }
     
     /**
@@ -76,7 +68,6 @@ class MY_Controller extends CI_Controller
      */
     public function newPassword()
     {
-
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.$!?@';
         $count = mb_strlen($chars);
 
@@ -86,7 +77,6 @@ class MY_Controller extends CI_Controller
         }
 
         return $password;
-
     }
     
     /**
@@ -98,7 +88,6 @@ class MY_Controller extends CI_Controller
      */
     public function sendNewPassword(string $email, string $password)
     {
-
         $this->load->library('email');
 
         $config['protocol'] = 'smtp';
@@ -122,7 +111,5 @@ class MY_Controller extends CI_Controller
         );
 
         $this->email->send();
-
     }
-
 }
