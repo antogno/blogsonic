@@ -23,9 +23,9 @@
         <div class="form-group">
             <!-- <div class="col-md-3"> -->
                 <label for="name" class="col-sm-4 col-form-label"><strong><?= $name; ?></strong>*:
-                <input type="text" class="form-control" id="name" name="name" value="<?= $profile_name; ?>"></label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="<?= $this->lang->line('register_placeholder_name'); ?>" value="<?= $profile_name; ?>"></label>
                 <label for="surname" class="col-sm-4 col-form-label"><strong><?= $surname; ?></strong>*:
-                <input type="text" class="form-control" id="surname" name="surname" value="<?= $profile_surname; ?>"></label><br>
+                <input type="text" class="form-control" id="surname" name="surname" placeholder="<?= $this->lang->line('register_placeholder_surname'); ?>" value="<?= $profile_surname; ?>"></label><br>
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $gender; ?></strong>:
                         <div class="form-check"> 
@@ -49,17 +49,17 @@
                     </label>
                 </fieldset>
                 <label for="username" class="col-sm-4 col-form-label"><strong><?= $username; ?></strong>*:
-                <input type="text" class="form-control" id="username" name="username" value="<?= $profile_username; ?>"></label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="<?= $this->lang->line('register_placeholder_username'); ?>" value="<?= $profile_username; ?>"></label>
                 <label for="email" class="col-sm-4 col-form-label"><strong><?= $email; ?></strong>*:
-                <input type="text" class="form-control" id="email" name="email" value="<?= $profile_email; ?>"></label><br>
+                <input type="text" class="form-control" id="email" name="email" placeholder="<?= $this->lang->line('register_placeholder_email'); ?>" value="<?= $profile_email; ?>"></label><br>
                 <label for="phone" class="col-sm-4 col-form-label"><strong><?= $phone; ?></strong>:
-                <input type="text" class="form-control" id="phone" name="phone" value="<?= $profile_phone; ?>"></label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="<?= $this->lang->line('register_placeholder_phone'); ?>" value="<?= $profile_phone; ?>"></label>
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $language; ?></strong>*:
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="language_en" name="language" value="en" checked>
-                                <?= $this->lang->line('profile_language_en'); ?>
+                                <?= $this->lang->line('english'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
