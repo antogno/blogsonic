@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Version 1.0.3][v1.0.3] - 2021-12-17
+### Added
+- You can now toggle the password fields visibility.
+- Placeholders in the edit Profile form.
+
+### Changed
+- When trying to post an invalid Blog, the fields don't lose their values after the page reloads.
+
+### Fixed
+- Minor bugs in the search bar.
+
 ## [Version 1.0.2][v1.0.2] - 2021-10-05
 ### Changed
 - Gender and phone fields are no longer mandatory when registering.
@@ -26,7 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Version 1.0][v1.0] - 2021-10-03
 ### Initial release
 
-[Unreleased]: https://github.com/antogno/blogsonic/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/antogno/blogsonic/compare/v1.0.3...HEAD
+[v1.0.3]: https://github.com/antogno/blogsonic/compare/v1.0.2...v1.0.3
 [v1.0.2]: https://github.com/antogno/blogsonic/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/antogno/blogsonic/compare/v1.0...v1.0.1
 [v1.0]: https://github.com/antogno/blogsonic/releases/tag/v1.0

@@ -44,6 +44,8 @@ Blogsonic is a simple CRUD Web Application in PHP.
 * [Codeception][8];
 * [realfavicongenerator.net][20].
 
+> **Note**: The existence of Blogsonic has the sole purpose of showing a very basic example of a CRUD Web Application. This means that not much attention has been paid to the code and its structure. **Blogsonic is a beginners' project made by a beginner**.
+
 ### Who created [Blogsonic][1]?
 
 The designer and creator of [Blogsonic][1] it's me, that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here][2].
