@@ -26,7 +26,7 @@
                 &ndash;
                 <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>
                 &vert;
-                <a target="_blank" href="https://github.com/antogno/blogsonic/releases/tag/v1.0.2"><span class="badge bg-primary"><?= $_SERVER['BS_VERSION']; ?></span></a>
+                <a target="_blank" href="https://github.com/antogno/blogsonic/compare/v1.0.3...HEAD"><span class="badge bg-primary"><?= $_SERVER['BS_VERSION']; ?></span></a>
             </p>
         </div>
         <div style="width: 30%; float: right">
