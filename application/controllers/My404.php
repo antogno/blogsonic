@@ -4,14 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Error 404 Controller Class
  * 
- * @author  Antonio Granaldi
+ * @author Antonio Granaldi <tonio.granaldi@gmail.com>
  */
 class My404 extends MY_Controller
 {
     /**
      * Shows a custom created page in case of a 404 error
      * 
-     * @return  void
+     * @return void
      */
     public function index()
     {

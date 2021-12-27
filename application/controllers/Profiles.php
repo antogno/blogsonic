@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Profiles Controller Class
  * 
- * @author  Antonio Granaldi
+ * @author Antonio Granaldi <tonio.granaldi@gmail.com>
  */
 class Profiles extends MY_Controller
 {   
@@ -18,7 +18,7 @@ class Profiles extends MY_Controller
     /**
      * Shows the main Profile page
      *
-     * @return  void
+     * @return void
      */
     public function index()
     {
@@ -88,7 +88,7 @@ class Profiles extends MY_Controller
     /**
      * Shows the login page
      *
-     * @return  void
+     * @return void
      */
     public function login()
     {
@@ -140,7 +140,7 @@ class Profiles extends MY_Controller
     /**
      * Logs out from the current logged-in Profile
      *
-     * @return  void
+     * @return void
      */
     public function logout()
     {
@@ -156,7 +156,7 @@ class Profiles extends MY_Controller
     /**
      * Shows the register page
      *
-     * @return  void
+     * @return void
      */
     public function register()
     {
@@ -210,7 +210,7 @@ class Profiles extends MY_Controller
     /**
      * Shows the edit page for the logged-in Profile
      *
-     * @return  void
+     * @return void
      */
     public function edit()
     {
@@ -291,7 +291,7 @@ class Profiles extends MY_Controller
     /**
      * Shows the change password page
      *
-     * @return  void
+     * @return void
      */
     public function password()
     {
@@ -339,7 +339,7 @@ class Profiles extends MY_Controller
     /**
      * Shows the forgot password page
      *
-     * @return  void
+     * @return void
      */
     public function forgot()
     {
@@ -389,7 +389,7 @@ class Profiles extends MY_Controller
     /**
      * Checks if a username is valid or not. It's used for the AJAX request in the registration form
      *
-     * @return  void
+     * @return void
      */
     public function checkUsername()
     {
@@ -412,7 +412,7 @@ class Profiles extends MY_Controller
     /**
      * Checks if an email is valid or not. It's used for the AJAX request in the registration form
      *
-     * @return  void
+     * @return void
      */
     public function checkEmail()
     {
@@ -435,7 +435,7 @@ class Profiles extends MY_Controller
     /**
      * Checks if a phone number is valid or not. It's used for the AJAX request in the registration form
      *
-     * @return  void
+     * @return void
      */
     public function checkPhone()
     {

@@ -4,15 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Static pages Controller Class
  * 
- * @author  Antonio Granaldi
+ * @author Antonio Granaldi <tonio.granaldi@gmail.com>
  */
 class Pages extends MY_Controller
 {
     /**
      * View a particular static pages
      * 
-     * @param   string  $page   the name of the page to view.
-     * @return  void
+     * @param string $page the name of the page to view.
+     * @return void
      */
     public function view(string $page = 'home')
     {

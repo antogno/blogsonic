@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Extension of the Exceptions Class
  * 
- * @author  Antonio Granaldi
+ * @author Antonio Granaldi <tonio.granaldi@gmail.com>
  */
 class MY_Exceptions extends CI_Exceptions
 {

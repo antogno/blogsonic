@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Extension of the Application Controller Class
  * 
- * @author  Antonio Granaldi
+ * @author Antonio Granaldi <tonio.granaldi@gmail.com>
  */
 class MY_Controller extends CI_Controller
 {
@@ -18,7 +18,7 @@ class MY_Controller extends CI_Controller
     /**
      * Loads the website language based on the Profile settings (if logged-in), the URL or the browser main language
      *
-     * @return  void
+     * @return void
      */
     public function loadLanguage()
     {
@@ -64,7 +64,7 @@ class MY_Controller extends CI_Controller
     /**
      * Generates a new password
      *
-     * @return  string  a random string.
+     * @return string a random string.
      */
     public function newPassword()
     {
@@ -82,9 +82,9 @@ class MY_Controller extends CI_Controller
     /**
      * Sends the given password to the given email address
      *
-     * @param   string  $email      the email address to send the new password to.
-     * @param   string  $password   the new password.
-     * @return  void
+     * @param string $email the email address to send the new password to.
+     * @param string $password the new password.
+     * @return void
      */
     public function sendNewPassword(string $email, string $password)
     {
