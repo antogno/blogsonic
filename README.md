@@ -23,6 +23,8 @@ Blogsonic is a simple CRUD Web Application in PHP.
 
 [Blogsonic][1] is an open source project. More specifically, is a CRUD Web Application. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.
 
+> **Note**: The existence of Blogsonic has the sole purpose of showing a very basic example of a CRUD Web Application. This means that not much attention has been paid to the general appereance of the website and to the code and its structure. Therefore, Blogsonic **should not** be used as a reference point in these respects, but should be considered as a starting point for beginners from which to start understanding the basic concepts.
+
 ### How was [Blogsonic][1] created?
 
 [Blogsonic][1] was created using the following tools and technologies:
@@ -43,8 +45,6 @@ Blogsonic is a simple CRUD Web Application in PHP.
 * [Bootswatch Spacelab theme][19];
 * [Codeception][8];
 * [realfavicongenerator.net][20].
-
-> **Note**: The existence of Blogsonic has the sole purpose of showing a very basic example of a CRUD Web Application. This means that not much attention has been paid to the code and its structure. **Blogsonic is a beginners' project made by a beginner**.
 
 ### Who created [Blogsonic][1]?
 
