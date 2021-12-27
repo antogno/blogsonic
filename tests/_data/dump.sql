@@ -25,16 +25,16 @@ CREATE TABLE IF NOT EXISTS `blogs` (
     ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS `ci_sessions` (
+CREATE TABLE IF NOT EXISTS `sessions` (
     `id` varchar(128) NOT NULL,
     `ip_address` varchar(45) NOT NULL,
     `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
     `data` blob NOT NULL,
-    KEY `ci_sessions_timestamp` (`timestamp`)
+    KEY `sessions_timestamp` (`timestamp`)
 );
 
 DELETE FROM `users`;
 
 DELETE FROM `blogs`;
 
-DELETE FROM `ci_sessions`;
+DELETE FROM `sessions`;
