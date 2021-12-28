@@ -393,7 +393,10 @@ class Profiles extends MY_Controller
      */
     public function checkUsername()
     {
-        $username = $this->input->post('value');
+        if ( ! $username = $this->input->post('value')) {
+            show_404();
+        }
+
         $username_field = $this->Profiles_model->checkUsersByField('username', $username);
 
         if ($username) {
@@ -416,7 +419,10 @@ class Profiles extends MY_Controller
      */
     public function checkEmail()
     {
-        $email = $this->input->post('value');
+        if ( ! $email = $this->input->post('value')) {
+            show_404();
+        }
+
         $email_field = $this->Profiles_model->checkUsersByField('email', $email);
 
         if ($email) {
@@ -439,7 +445,10 @@ class Profiles extends MY_Controller
      */
     public function checkPhone()
     {
-        $phone = $this->input->post('value');
+        if ( ! $phone = $this->input->post('value')) {
+            show_404();
+        }
+
         $phone_field = $this->Profiles_model->checkUsersByField('phone', $phone);
 
         if ($phone) {
