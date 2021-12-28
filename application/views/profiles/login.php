@@ -3,7 +3,7 @@
         <?php
             if ($this->session->userdata('logged_in')) {
                 echo '<div class="mt-4"><p>' . $this->lang->line('logged_in') . '</p></div>';
-            } elseif ($this->session->userdata('logged_in_fail') || !$this->session->userdata('logged_in')) {
+            } elseif ($this->session->userdata('logged_in_fail') || ! $this->session->userdata('logged_in')) {
                 if ($this->session->userdata('logged_in_fail')) {
         ?>
         <div class="alert alert-dismissible alert-danger" id="danger_popup">

@@ -18,10 +18,10 @@ class Blogs extends MY_Controller
     /**
      * Shows all the Blogs
      * 
-     * @param string  $limit the maximum number of Blogs to show.
-     * @param string  $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
-     * @param string  $date_min the minimum date in which to start showing Blogs.
-     * @param string  $date_max the maximum date of Blogs to show.
+     * @param string $limit the maximum number of Blogs to show.
+     * @param string $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
+     * @param string $date_min the minimum date in which to start showing Blogs.
+     * @param string $date_max the maximum date of Blogs to show.
      * @return void
      */
     public function all(string $limit = '5', string $order = 'desc', string $date_min = null, string $date_max = null)
@@ -88,10 +88,10 @@ class Blogs extends MY_Controller
     /**
      * Shows all the Blogs of the logged-in user
      * 
-     * @param string  $limit the maximum number of Blogs to show.
-     * @param string  $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
-     * @param string  $date_min the minimum date in which to start showing Blogs.
-     * @param string  $date_max the maximum date of showed Blogs.
+     * @param string $limit the maximum number of Blogs to show.
+     * @param string $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
+     * @param string $date_min the minimum date in which to start showing Blogs.
+     * @param string $date_max the maximum date of showed Blogs.
      * @return void
      */
     public function myblogs(string $limit = '5', string $order = 'desc', string $date_min = null, string $date_max = null)
