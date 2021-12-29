@@ -34,7 +34,7 @@
         ?>
         <div class="form-group">
             <!-- <div class="col-md-3"> -->
-                <label for="old_password" class="col-sm-4 col-form-label"><strong><?= $form_old_password; ?></strong>:
+                <label for="old_password" class="col-12 col-sm-4 col-form-label"><strong><?= $form_old_password; ?></strong>:
                     <span class="input-group">
                         <input type="password" class="form-control" id="old_password" name="old_password">
                         <button class="btn btn-primary" type="button" id="old_password_button">
@@ -43,7 +43,7 @@
                     </span>
                 </label>
                 <br>
-                <label for="new_password" class="col-sm-4 col-form-label"><strong><?= $form_new_password; ?></strong>:
+                <label for="new_password" class="col-12 col-sm-4 col-form-label"><strong><?= $form_new_password; ?></strong>:
                     <span class="input-group">
                         <input type="password" class="form-control" id="new_password" name="new_password">
                         <button class="btn btn-primary" type="button" id="new_password_button">
@@ -54,7 +54,7 @@
             <!-- </div> -->
         </div>
         <br>
-        <button onclick="return confirmation()" type="submit"  class="col-sm-2 btn btn-primary" id="save_changes"><?= $form_button; ?></button>
+        <button onclick="return confirmation()" type="submit"  class="col-6 col-sm-2 btn btn-primary" id="save_changes"><?= $form_button; ?></button>
         <a class="btn btn-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles'); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php

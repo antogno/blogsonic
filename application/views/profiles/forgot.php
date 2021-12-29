@@ -33,13 +33,13 @@
         ?>
         <div class="form-group">
             <!-- <div class="col-md-3"> -->
-                <label for="email" class="col-sm-4 col-form-label"><strong><?= $form_email; ?></strong>:
+                <label for="email" class="col-12 col-sm-4 col-form-label"><strong><?= $form_email; ?></strong>:
                 <input type="text" class="form-control" id="email" name="email">
                 <small class="form-text text-muted"><?= $form_text; ?></small></label><br>
             <!-- </div> -->
         </div>
         <br>
-        <button type="submit" class="col-sm-2 btn btn-primary" id="confirm"><?= $form_button; ?></button>
+        <button type="submit" class="col-5 col-sm-2 btn btn-primary" id="confirm"><?= $form_button; ?></button>
         <a class="btn btn-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/login'); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php

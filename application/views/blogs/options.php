@@ -14,12 +14,15 @@
             <option value="asc"><?= $this->lang->line('oldest'); ?></option>
         </select>
     </label>
-    <label class="form-label"><?= $this->lang->line('between'); ?></label>
-    <label for="date_min" class="form-label">
-    <input type="date" class="form-control" id="date_min"></label>
-    <label class="form-label"><?= $this->lang->line('between_and'); ?></label>
-    <label for="date_max" class="form-label">
-    <input type="date" class="form-control" id="date_max"></label>
-    <button type="submit" class="btn btn-secondary" id="change_options"><?= $this->lang->line('apply'); ?></button>
-    <button type="reset" class="btn btn-warning" id="reset"><?= $this->lang->line('reset'); ?></button>
+    <label class="form-label" for="date_range"><?= $this->lang->line('between'); ?>
+        <span id="date_range">
+            <label for="date_min" class="form-label">
+            <input type="date" class="form-control" id="date_min"></label>
+            <label class="form-label"><?= $this->lang->line('between_and'); ?></label>
+            <label for="date_max" class="form-label">
+            <input type="date" class="form-control" id="date_max"></label>
+        </span>
+    </label>
+    <button type="submit" class="col-4 col-sm-2 btn btn-secondary" id="change_options"><?= $this->lang->line('apply'); ?></button>
+    <button type="reset" class="col-4 col-sm-2 btn btn-warning" id="reset"><?= $this->lang->line('reset'); ?></button>
 </div>

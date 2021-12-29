@@ -26,11 +26,11 @@
         ?>
         <div class="form-group">
             <!-- <div class="col-md-3"> -->
-                <label for="username" class="col-sm-4 col-form-label"><strong><?= $form_username; ?></strong>:
+                <label for="username" class="col-12 col-sm-4 col-form-label"><strong><?= $form_username; ?></strong>:
                     <input type="text" class="form-control" id="username" name="username">
                 </label>
                 <br>
-                <label for="password" class="col-sm-4 col-form-label"><strong><?= $form_password; ?></strong>:
+                <label for="password" class="col-12 col-sm-4 col-form-label"><strong><?= $form_password; ?></strong>:
                     <span class="input-group">
                         <input type="password" class="form-control" id="password" name="password">
                         <button class="btn btn-primary" type="button" id="password_button">
@@ -41,8 +41,8 @@
             <!-- </div> -->
         </div>
         <br>
-        <button type="submit" class="col-sm-2 btn btn-primary" id="login"><?= $form_button; ?></button>
-        <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot'); ?>" class="col-sm-2 btn btn-link"><?= $this->lang->line('forgot_password'); ?>?</a>
+        <button type="submit" class="col-5 col-sm-2 btn btn-primary" id="login"><?= $form_button; ?></button>
+        <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot'); ?>" class="col-6 col-sm-2 btn btn-link"><?= $this->lang->line('forgot_password'); ?>?</a>
         <?= form_close(); ?>
         <?php
             }

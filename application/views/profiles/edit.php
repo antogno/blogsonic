@@ -22,9 +22,9 @@
         </div>
         <div class="form-group">
             <!-- <div class="col-md-3"> -->
-                <label for="name" class="col-sm-4 col-form-label"><strong><?= $name; ?></strong>*:
+                <label for="name" class="col-12 col-sm-4 col-form-label"><strong><?= $name; ?></strong>*:
                 <input type="text" class="form-control" id="name" name="name" placeholder="<?= $this->lang->line('register_placeholder_name'); ?>" value="<?= $profile_name; ?>"></label>
-                <label for="surname" class="col-sm-4 col-form-label"><strong><?= $surname; ?></strong>*:
+                <label for="surname" class="col-12 col-sm-4 col-form-label"><strong><?= $surname; ?></strong>*:
                 <input type="text" class="form-control" id="surname" name="surname" placeholder="<?= $this->lang->line('register_placeholder_surname'); ?>" value="<?= $profile_surname; ?>"></label><br>
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $gender; ?></strong>:
@@ -48,11 +48,11 @@
                         </div>
                     </label>
                 </fieldset>
-                <label for="username" class="col-sm-4 col-form-label"><strong><?= $username; ?></strong>*:
+                <label for="username" class="col-12 col-sm-4 col-form-label"><strong><?= $username; ?></strong>*:
                 <input type="text" class="form-control" id="username" name="username" placeholder="<?= $this->lang->line('register_placeholder_username'); ?>" value="<?= $profile_username; ?>"></label>
-                <label for="email" class="col-sm-4 col-form-label"><strong><?= $email; ?></strong>*:
+                <label for="email" class="col-12 col-sm-4 col-form-label"><strong><?= $email; ?></strong>*:
                 <input type="text" class="form-control" id="email" name="email" placeholder="<?= $this->lang->line('register_placeholder_email'); ?>" value="<?= $profile_email; ?>"></label><br>
-                <label for="phone" class="col-sm-4 col-form-label"><strong><?= $phone; ?></strong>:
+                <label for="phone" class="col-12 col-sm-4 col-form-label"><strong><?= $phone; ?></strong>:
                 <input type="text" class="form-control" id="phone" name="phone" placeholder="<?= $this->lang->line('register_placeholder_phone'); ?>" value="<?= $profile_phone; ?>"></label>
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $language; ?></strong>*:
@@ -73,7 +73,7 @@
             <!-- </div> -->
         </div>
         <br>
-        <button onclick="return confirmation()" class="col-sm-2 btn btn-primary" id="save_changes"><?= $button; ?></button>
+        <button onclick="return confirmation()" class="col-6 col-sm-2 btn btn-primary" id="save_changes"><?= $button; ?></button>
         <a class="btn btn-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'profiles'); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php

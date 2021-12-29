@@ -20,7 +20,7 @@
         <div class="form-group">
             <div class="card">
             <h3 class="card-header">
-                <label for="title" class="col-sm-4 col-form-label form-label">
+                <label for="title" class="col-12 col-sm-4 col-form-label form-label">
                 <input type="text" class="form-control" id="blog_title" name="blog_title" placeholder="<?= $form_title; ?>" value="<?php if (isset($blog_title)) { echo $blog_title; } ?>"></label></h3>
                 <div class="card-body">
                     <label for="body" class="col-sm-12 col-form-label form-label">
@@ -29,8 +29,8 @@
             </div>
         </div>
         <br>
-        <button type="submit" class="col-sm-2 btn btn-primary" id="post"><?= $form_button; ?></button>
-        <button type="reset" class="col-sm-2 btn btn-warning"><?= $form_reset; ?></button>
+        <button type="submit" class="col-5 col-sm-2 btn btn-primary" id="post"><?= $form_button; ?></button>
+        <button type="reset" class="col-5 col-sm-2 btn btn-warning"><?= $form_reset; ?></button>
         <?= form_close(); ?>
         <?php
             }
