@@ -58,13 +58,13 @@
                     <label class="form-label"><strong><?= $language; ?></strong>*:
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language_en" name="language" value="en" checked>
+                                <input type="radio" class="form-check-input" id="language_en" name="language" value="en" <?php if ($profile_language == 'en') { echo 'checked'; }?>>
                                 <?= $this->lang->line('english'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
                             <label for="language" class="form-check-label">
-                                <input type="radio" class="form-check-input" id="language_it" name="language" value="it">
+                                <input type="radio" class="form-check-input" id="language_it" name="language" value="it" <?php if ($profile_language == 'it') { echo 'checked'; }?>>
                                 <?= $this->lang->line('italian'); ?>
                             </label>
                         </div>

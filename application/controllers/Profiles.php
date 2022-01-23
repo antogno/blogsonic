@@ -264,12 +264,7 @@ class Profiles extends MY_Controller
 
                 $data['profile_email'] = $profile->email;
                 $data['profile_phone'] = $profile->phone;
-
-                if ($profile->language === 'en') {
-                    $data['profile_language'] = $this->lang->line('english');
-                } else {
-                    $data['profile_language'] = $this->lang->line('italian');
-                }
+                $data['profile_language'] = $profile->language;
 
                 $data['title'] = $this->lang->line('edit_profile');
                 $data['meta_title'] = $this->lang->line('edit_profile_meta_title');
