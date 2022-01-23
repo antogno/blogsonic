@@ -127,7 +127,7 @@ $lang['to_create_one'] = 'per crearne uno.';
 $lang['forgot_password'] = 'Password dimenticata';
 $lang['forgot_password_text'] = 'Inserisci la tua Email. Ti invieremo un messaggio con la nuova Password.';
 $lang['forgot_password_success'] = 'Abbiamo inviato una nuova Password all\'indirizzo Email che hai inserito. Controlla la tua casella di posta.';
-$lang['forgot_password_fail'] = 'Non ci sono account con questa Email. Riprova.';
+$lang['forgot_password_fail'] = 'Si è verificato un errore durante l\'invio dell\'Email. Assicurati che l\'indirizzo Email che hai inserito sia corretto. Se l\'errore persiste, si prega di contattare';
 $lang['forgot_password_email_subject'] = 'Nuova Password - Blogsonic.org';
 $lang['forgot_password_email_body'] = 'Ciao! Ecco la tua nuova Password per il tuo account su Blogsonic.org: ';
 

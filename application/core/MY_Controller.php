@@ -84,7 +84,7 @@ class MY_Controller extends CI_Controller
      *
      * @param string $email the email address to send the new password to.
      * @param string $password the new password.
-     * @return void
+     * @return bool `true` on success, `false` on failure.
      */
     public function sendNewPassword(string $email, string $password)
     {
@@ -110,6 +110,6 @@ class MY_Controller extends CI_Controller
             '<p>'.$this->lang->line('forgot_password_email_body') . '<strong>' . $password . '</strong></p>'
         );
 
-        $this->email->send();
+        return $this->email->send();
     }
 }

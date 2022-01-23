@@ -127,7 +127,7 @@ $lang['to_create_one'] = 'to create one.';
 $lang['forgot_password'] = 'Forgot password';
 $lang['forgot_password_text'] = 'Enter your Email. We\'ll send you a message with the new Password.';
 $lang['forgot_password_success'] = 'We have sent a new Password to the Email address you entered. Check your inbox.';
-$lang['forgot_password_fail'] = 'There are no accounts with this Email. Retry.';
+$lang['forgot_password_fail'] = 'An error occurred while sending the Email. Make sure the Email address you entered is correct. If the error persists, please contact';
 $lang['forgot_password_email_subject'] = 'New Password - Blogsonic.org';
 $lang['forgot_password_email_body'] = 'Hi! This is your new Password for your Blogsonic.org account: ';
 

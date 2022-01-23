@@ -15,7 +15,7 @@
         ?>
         <div class="alert alert-dismissible alert-danger" id="danger_popup">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <?= '<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;' . $this->lang->line('forgot_password_fail') . '</p>' ?>
+            <?= '<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;' . $this->lang->line('forgot_password_fail') . ' <a href="mailto:' . WEBSITE_EMAIL . '">' . WEBSITE_EMAIL . '</a>.</p>' ?>
         </div>
         <?php
             }

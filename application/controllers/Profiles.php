@@ -351,28 +351,27 @@ class Profiles extends MY_Controller
 
         if ($this->form_validation->run()) {
             $profile = $this->Profiles_model->getUserByEmail($this->input->post('email'));
+
+            $result = false;
             if ($profile) {
                 $email = $this->input->post('email');
                 $password = $this->newPassword();
-                $this->Profiles_model->newPassword($email, $password);
-                $this->sendNewPassword($email, $password);
-
-                $user_session = [
-                    'forgot_password_success' => true,
-                    'forgot_password_fail' => false
-                ];
-                $this->session->set_userdata($user_session);
-
-                redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot', 'refresh');
-            } else {
-                $user_session = [
-                    'forgot_password_success' => false,
-                    'forgot_password_fail' => true
-                ];
-                $this->session->set_userdata($user_session);
-
-                redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot', 'refresh');
+                
+                $result = $this->sendNewPassword($email, $password);
             }
+
+            if ($result) {
+                $this->Profiles_model->newPassword($email, $password);
+            }
+
+            $user_session = [
+                'forgot_password_success' =>  $result,
+                'forgot_password_fail' => ! $result
+            ];
+
+            $this->session->set_userdata($user_session);
+
+            redirect($this->encryption->decrypt($this->session->userdata('language')) . 'profiles/forgot', 'refresh');
         } else {
             $this->load->view('partials/header', $data);
             $this->load->view('profiles/forgot', $data);

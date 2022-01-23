@@ -144,6 +144,12 @@ $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
 
 > **Note**: This step is optional. Obviously, not doing this means not making the "Forgot password" feature work.
 
+### Add an email to be used for contact purposes in the `application/config/constants.php` file
+
+```php
+define('WEBSITE_EMAIL', ''); // Email address to be used publicly for contact purposes  (e.g.: example@gmail.com)
+```
+
 ### Edit the `robots.txt` and `sitemap.xml` files according to your data
 
 `robots.txt`:
