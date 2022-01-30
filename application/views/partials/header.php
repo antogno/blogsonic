@@ -85,7 +85,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand col-4 col-sm-3 col-md-2 col-lg-1 col-xl-1" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language'))); ?>"><img src="<?= base_url('public/img/blogsonic-logo-min.png'); ?>" class="img-fluid" alt="Blogsonic"></a>
+            <a class="navbar-brand" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language'))); ?>"><img src="<?= base_url('public/img/blogsonic-logo-min.png'); ?>" alt="Blogsonic" style="height: 30px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -165,6 +165,6 @@
 <!-- Section -->
 <section>
     <div>
-        <h1 style="padding: 4.625rem 0 0 1rem"><?= $title; ?></h1>
+        <h1 style="padding: 70px 0 0 20px"><?= $title; ?></h1>
     </div>
-    <div style="padding: 0 1rem 0 1rem" id="page_body">
+    <div style="padding: 0 20px 0 20px" id="page_body">
