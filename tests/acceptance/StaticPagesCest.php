@@ -12,18 +12,18 @@ class StaticPagesCest
     public function homePage(AcceptanceTester $I)
     {
         $I->waitForElement('#page_body');
-        $I->see('Welcome to Blogsonic.org');
+        $I->see('Welcome to Blogsonic');
 
         $I->click('Home');
         $I->waitForElement('#page_body');
-        $I->see('Welcome to Blogsonic.org');
+        $I->see('Welcome to Blogsonic');
     }
 
     public function aboutPage(AcceptanceTester $I)
     {
         $I->click('About');
         $I->waitForElement('#page_body');
-        $I->see('Welcome to the About page of Blogsonic.org');
+        $I->see('Welcome to the About page of Blogsonic');
     }
 
     public function privacyPolicyPage(AcceptanceTester $I)

@@ -11,7 +11,7 @@ Blogsonic is a simple CRUD Web Application in PHP.
 
 ---
 
-## Table of Contents
+## Table of contents
 
 - [What is Blogsonic?](#what-is-blogsonic)
 - [Installation](#installation)
@@ -139,7 +139,7 @@ $config['smtp_host'] = ''; // SMTP host (e.g.: ssl://smtp.googlemail.com)
 $config['smtp_user'] = ''; // User (e.g.: example@gmail.com)
 $config['smtp_pass'] = ''; // Password
 
-$this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
+$this->email->from('', 'Blogsonic'); // Email (e.g.: example@gmail.com)
 ```
 
 > **Note**: This step is optional. Obviously, not doing this means not making the "Forgot password" feature work.

@@ -102,7 +102,7 @@ class MY_Controller extends CI_Controller
         $config['validate'] = true; 
 
         $this->email->initialize($config);
-        $this->email->from('', 'Blogsonic.org'); // Email (e.g.: example@gmail.com)
+        $this->email->from('', 'Blogsonic'); // Email (e.g.: example@gmail.com)
         $this->email->to($email);
         $this->email->subject($this->lang->line('forgot_password_email_subject'));
 
