@@ -1,7 +1,7 @@
 <div class="mt-4">
     <form id="filter_blogs" method="get">
         <label class="form-label">
-            <input type="number" class="form-control" name="limit" id="limit" value="<?= $limit; ?>" placeholder="<?= $this->lang->line('show'); ?>" min="1" max="<?= $max_limit; ?>"></input>
+            <input type="number" class="form-control" size="6" name="limit" id="limit" value="<?= $limit; ?>" placeholder="<?= $this->lang->line('show'); ?>" min="1" max="<?= $max_limit; ?>"></input>
         </label>
         <label class="form-label">
             <select class="form-select" name="order" id="order">
