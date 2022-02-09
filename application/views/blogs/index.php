@@ -14,7 +14,7 @@
             <div class="card-body">
                 <h4 class="card-title"><?= $blog_title; ?></h4>
                 <h6 class="card-subtitle mb-2 text-muted"><strong><?= $user; ?></strong>:&nbsp;<?= $blog_user; ?></h6>
-                <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/view/' . $blog_id); ?>" class="card-link"><?= $view; ?></a>
+                <a href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/view?id=' . $blog_id); ?>" class="card-link"><?= $view; ?></a>
             </div>
             <div class="card-footer text-muted">
                 <?= $blog_created_at; ?>

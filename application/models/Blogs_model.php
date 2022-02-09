@@ -14,16 +14,6 @@ class Blogs_model extends CI_Model
     }
 
     /**
-     * Gets the number of Blogs in the database
-     * 
-     * @return int the number of rows in the Blogs table.
-     */
-    public function blogsNumber()
-    {
-        return $this->db->get('blogs')->num_rows();
-    }
-
-    /**
      * Gets the username of the user with the given ID
      * 
      * @param int $user_id the ID of the user.
@@ -52,53 +42,70 @@ class Blogs_model extends CI_Model
     }
 
     /**
-     * Gets the given number of Blogs in the given order and between the given dates. If a ID is given, that particular Blog is returned
+     * Gets the given number of Blogs in the given order and between the given dates
      * 
      * @param int $limit the number of Blogs to show.
      * @param string $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
-     * @param string $date_min the minimum date in which to start showing Blogs.
-     * @param string $date_max the maximum date of showed Blogs.
-     * @param int $id the Blog ID.
+     * @param DateTime $date_min the minimum date in which to start showing Blogs.
+     * @param DateTime $date_max the maximum date of showed Blogs.
      * @param string $search the term to search in the Blog title or body.
+     * @param int $user_id the user ID of which to show the Blogs.
      * @return array|object|false if an ID isn't passed, it returns an array containing the fetched rows. If an ID is given, it returns the row of the requested Blog. If a Blog with the given ID doesn't exists, it returns false.
      */
-    public function getBlog(int $limit, string $order, string $date_min = null, string $date_max = null, int $id = null, string $search = null)
+    public function getBlogs(int $limit, string $order, DateTime $date_min = null, DateTime $date_max = null, string $search = null, int $user_id = null)
     {
-        if ( ! isset($date_min)) {
-            $date_min = date('Y-m-d H:i:s', 0);
+        $this->db->order_by('created_at', $order);
+        $this->db->limit($limit);
+
+        if (isset($date_min)) {
+            $this->db->where('created_at >=',
+                $date_min
+                    ->setTime(0, 0, 0)
+                    ->format('Y-m-d H:i:s')
+            );
         }
 
-        if ( ! isset($date_max)) {
-            $date_max = date('Y-m-d', strtotime('tomorrow')) . ' 23:59:59';
+        if (isset($date_max)) {
+            $this->db->where('created_at <=',
+                $date_max
+                    ->setTime(23, 59, 59)
+                    ->format('Y-m-d H:i:s')
+            );
         }
 
-        if ( ! $id) {
-            $this->db->order_by('created_at', $order);
-            $this->db->limit($limit);
-            $this->db->where('created_at >=', $date_min);
-            $this->db->where('created_at <=', $date_max);
-            
-            if ($search) {
-                $this->db->like('body', $search);
-                $this->db->or_like('title', $search);
-            }
-            
-            $query = $this->db->get('blogs');
+        if (isset($user_id)) {
+            $this->db->where('user_id =', $user_id);
+        }
+        
+        if ($search) {
+            $this->db->like('body', $search);
+            $this->db->or_like('title', $search);
+        }
+        
+        $query = $this->db->get('blogs');
 
-            if ($query->num_rows() > 0) {
-                return $query->result();
-            } else {
-                return false;
-            }
+        if ($query->num_rows() > 0) {
+            return $query->result();
         } else {
-            $this->db->where('id', $id);
-            $query = $this->db->get('blogs');
+            return false;
+        }
+    }
 
-            if ($query->num_rows() > 0) {
-                return $query->row();
-            } else {
-                return false;
-            }
+    /**
+     * Gets a particular Blog
+     * 
+     * @param int $id the Blog ID.
+     * @return object|false it returns the row of the requested Blog. If a Blog with the given ID doesn't exists, it returns false.
+     */
+    public function getBlog(int $id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('blogs');
+
+        if ($query->num_rows() === 1) {
+            return $query->row();
+        } else {
+            return false;
         }
     }
 

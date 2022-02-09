@@ -17,7 +17,7 @@
                     <?php
                         if (strtolower($view_user) === strtolower($this->encryption->decrypt($this->session->userdata('username')))) {
                     ?>
-                    <a class="col-5 col-sm-2 btn btn-light" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/edit/' . $id); ?>" id="edit"><?= $edit; ?></a>
+                    <a class="col-5 col-sm-2 btn btn-light" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/edit?id=' . $id); ?>" id="edit"><?= $edit; ?></a>
                     <?php
                         }
                     ?>

@@ -18,135 +18,21 @@ class Blogs extends MY_Controller
     /**
      * Shows all the Blogs
      * 
-     * @param string $limit the maximum number of Blogs to show.
-     * @param string $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
-     * @param string $date_min the minimum date in which to start showing Blogs.
-     * @param string $date_max the maximum date of Blogs to show.
      * @return void
      */
-    public function all(string $limit = '5', string $order = 'desc', string $date_min = null, string $date_max = null)
+    public function all()
     {
-        $data = [
-            'blogs' => false,
-            'title' => $this->lang->line('blogs'),
-            'meta_title' => $this->lang->line('blogs_meta_title'),
-            'meta_description' => $this->lang->line('blogs_meta_description'),
-            'blogs_title' => $this->lang->line('title'),
-            'user' => $this->lang->line('user'),
-            'created_at' => $this->lang->line('created_at'),
-            'view' => $this->lang->line('view')
-        ];
-
-        if ((is_numeric($limit) && $limit > 0 && $limit <= 20) && ($order == 'desc' || $order == 'asc')) {
-            if (isset($date_min)) {
-                $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-            }
-            if (isset($date_max)) {
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
-            }
-
-            if ( ! $search = trim($this->input->get('search'))) {
-                $search = null;
-            }
-
-            $blogs = $this->Blogs_model->getBlog($limit, $order, $date_min, $date_max, null, $search);
-
-            if ($blogs) {
-                $data['blogs'] = true;
-                
-                $this->load->view('partials/header', $data);
-                $this->load->view('blogs/options');
-
-                if ($search) {
-                    $this->load->view('blogs/search');
-                }
-
-                foreach ($blogs as $blog) {
-                    $data['blog_id'] = $blog->id;
-                    $data['blog_title'] = html_escape($blog->title);
-                    $data['blog_user'] = $this->Blogs_model->getUser($blog->user_id);
-                    $data['blog_created_at'] = date('d-m-Y H:i', strtotime($blog->created_at));
-                    $this->load->view('blogs/index', $data);
-                }
-            } else {
-                $this->load->view('partials/header', $data);
-                $this->load->view('blogs/options');
-
-                if ($search) {
-                    $this->load->view('blogs/search');
-                }
-
-                $this->load->view('blogs/index', $data);
-            }
-
-            $this->load->view('partials/footer');
-        } else {
-            redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/all', 'refresh');
-        }
+        $this->showBlogs('all');
     }
 
     /**
      * Shows all the Blogs of the logged-in user
      * 
-     * @param string $limit the maximum number of Blogs to show.
-     * @param string $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
-     * @param string $date_min the minimum date in which to start showing Blogs.
-     * @param string $date_max the maximum date of showed Blogs.
      * @return void
      */
-    public function myblogs(string $limit = '5', string $order = 'desc', string $date_min = null, string $date_max = null)
+    public function myblogs()
     {
-        $data = [
-            'blogs' => false,
-            'myblogs' => false,
-            'title' => $this->lang->line('my_blogs'),
-            'meta_title' => $this->lang->line('myblogs_meta_title'),
-            'meta_description' => $this->lang->line('myblogs_meta_description'),
-            'blogs_title' => $this->lang->line('title'),
-            'user' => $this->lang->line('user'),
-            'created_at' => $this->lang->line('created_at'),
-            'view' => $this->lang->line('view')
-        ];
-
-        if ((is_numeric($limit) && $limit > 0 && $limit <= 20) && ($order == 'desc' || $order == 'asc')) {
-            if (isset($date_min)) {
-                $date_min = date('Y-m-d H:i:s', strtotime($date_min));
-            }
-            if (isset($date_max)) {
-                $date_max = date('Y-m-d H:i:s', strtotime($date_max . ' 23:59:59'));
-            }
-            
-            $blogs = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), $order, $date_min, $date_max);
-
-            if ($blogs) {
-                $data['blogs'] = true;
-                $this->load->view('partials/header', $data);
-                $this->load->view('blogs/options');
-
-                foreach ($blogs as $key => $blog) {
-                    $user = $this->Blogs_model->getUser($blog->user_id);
-                    if ((strtolower($user) == strtolower($this->encryption->decrypt($this->session->userdata('username')))) && ($limit > 0)) {
-                        $data['myblogs'] = true;
-                        $data['blog_id'] = $blog->id;
-                        $data['blog_title'] = html_escape($blog->title);
-                        $data['blog_user'] = $user;
-                        $data['blog_created_at'] = date('d-m-Y H:i', strtotime($blog->created_at));
-                        $this->load->view('blogs/myblogs', $data);
-                        $limit--;
-                    } elseif ($key === array_key_last($blogs) && $data['myblogs'] === false) {
-                        $this->load->view('blogs/myblogs', $data);
-                    }
-                }
-            } else {
-                $this->load->view('partials/header', $data);
-                $this->load->view('blogs/options');
-                $this->load->view('blogs/myblogs', $data);
-            }
-
-            $this->load->view('partials/footer');
-        } else {
-            redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs', 'refresh');
-        }
+        $this->showBlogs('myblogs');
     }
 
     /**
@@ -186,16 +72,16 @@ class Blogs extends MY_Controller
     }
 
     /**
-     * View a particular Blog
+     * Shows a particular Blog
      * 
      * @return void
      */
     public function view()
     {
-        $id = $this->uri->segment(4);
+        $id = $this->input->get('id') ?: $this->input->post('id');
 
         if (is_numeric($id)) {
-            $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', false, false, $id);
+            $blog = $this->Blogs_model->getBlog($id);
 
             if ($blog) {
                 $data = [
@@ -218,7 +104,7 @@ class Blogs extends MY_Controller
 
                 if ($this->form_validation->run()) {
                     $this->Blogs_model->deleteBlog($data['id']);
-                    redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/all');
+                    redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs');
                 } else {
                     $this->load->view('partials/header', $data);
                     $this->load->view('blogs/view', $data);
@@ -239,10 +125,10 @@ class Blogs extends MY_Controller
      */
     public function edit()
     {
-        $id = $this->uri->segment(4);
+        $id = $this->input->get('id') ?: $this->input->post('id');
 
         if (is_numeric($id)) {
-            $blog = $this->Blogs_model->getBlog($this->Blogs_model->blogsNumber(), 'desc', false, false, $id);
+            $blog = $this->Blogs_model->getBlog($id);
 
             if ($blog) {
                 $user = $this->Blogs_model->getUser($blog->user_id);
@@ -272,7 +158,7 @@ class Blogs extends MY_Controller
                         ];
                         $this->Blogs_model->updateBlog($data);
                         
-                        redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs');
+                        redirect($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/view?id=' . $id);
                     } else {
                         $this->load->view('partials/header', $data);
                         $this->load->view('blogs/edit', array_merge($data, $this->input->post()));
@@ -285,5 +171,127 @@ class Blogs extends MY_Controller
         }
 
         show_404();
+    }
+
+    /**
+     * Method used for managing the display of Blogs
+     * 
+     * @param string $type the type of Blogs list to show. 'all' to show all the Blogs or 'myblogs' to show all the Blogs of the logged-in user.
+     * @return void
+     * @throws InvalidArgumentException if `$type` is neither 'all' or 'myblogs'.
+     */
+    private function showBlogs($type)
+    {
+        if ($type != 'all' && $type != 'myblogs') {
+            throw new InvalidArgumentException('The type of Blogs list to show is invalid.');
+        }
+
+        $data = [
+            'blogs' => false,
+            'blogs_title' => $this->lang->line('title'),
+            'user' => $this->lang->line('user'),
+            'created_at' => $this->lang->line('created_at'),
+            'view' => $this->lang->line('view')
+        ];
+
+        if ($type == 'all') {
+            $data['title'] = $this->lang->line('blogs');
+            $data['meta_title'] = $this->lang->line('blogs_meta_title');
+            $data['meta_description'] = $this->lang->line('blogs_meta_description');
+        } else {
+            $data['myblogs'] = false;
+            $data['title'] = $this->lang->line('my_blogs');
+            $data['meta_title'] = $this->lang->line('myblogs_meta_title');
+            $data['meta_description'] = $this->lang->line('myblogs_meta_description');
+        }
+
+        $limit = $this->input->get('limit');
+        $order = $this->input->get('order');
+        $date_min = $this->input->get('date_min') ?: null;
+        $date_max = $this->input->get('date_max') ?: null;
+
+        $max_limit = 100;
+
+        if ( ! is_numeric($limit) || $limit < 0 || $limit > $max_limit) {
+            $limit = 5;
+        }
+
+        if ($order != 'desc' && $order != 'asc') {
+            $order = 'desc';
+        }
+
+        $options_data = [
+            'limit' => $limit,
+            'max_limit' => $max_limit,
+            'order' => $order
+        ];
+
+        if (DateTime::createFromFormat('Y-m-d', $date_min) !== false) {
+            $date_min = DateTime::createFromFormat('Y-m-d', $date_min);
+            $date_min->setTime(0, 0, 0);
+
+            $options_data['date_min'] = $date_min->format('Y-m-d');
+        }
+
+        if (DateTime::createFromFormat('Y-m-d', $date_max) !== false) {
+            $date_max = DateTime::createFromFormat('Y-m-d', $date_max);
+            $date_max->setTime(23, 59, 59);
+
+            $options_data['date_max'] = $date_max->format('Y-m-d');
+        }
+
+        $search = trim($this->input->get('search'));
+
+        $blogs = false;
+        if ($type == 'all') {
+            $blogs = $this->Blogs_model->getBlogs($limit, $order, $date_min, $date_max, $search);
+        } else {
+            if ($this->session->userdata('logged_in')) {
+                $blogs = $this->Blogs_model->getBlogs($limit, $order, $date_min, $date_max, null, $this->Blogs_model->getUserId($this->encryption->decrypt($this->session->userdata('username'))));
+            }
+        }
+
+        if ($blogs) {
+            $data['blogs'] = true;
+            
+            $this->load->view('partials/header', $data);
+            $this->load->view('blogs/options', $options_data);
+
+            if ($search && $type == 'all') {
+                $this->load->view('blogs/search');
+            }
+
+            foreach ($blogs as $blog) {
+                if ($type == 'myblogs') {
+                    $data['myblogs'] = true;
+                }
+
+                $data['blog_id'] = $blog->id;
+                $data['blog_title'] = html_escape($blog->title);
+                $data['blog_user'] = $this->Blogs_model->getUser($blog->user_id);
+                $data['blog_created_at'] = date('d-m-Y H:i', strtotime($blog->created_at));
+                
+                if ($type == 'all') {
+                    $this->load->view('blogs/index', $data);
+                } else {
+                    $this->load->view('blogs/myblogs', $data);
+                }
+            }
+        } else {
+            $this->load->view('partials/header', $data);
+            $this->load->view('blogs/options', $options_data);
+
+            if ($search && $type == 'all') {
+                $this->load->view('blogs/search');
+            }
+
+            if ($type == 'all') {
+                $this->load->view('blogs/index', $data);
+            } else {
+                $this->load->view('blogs/myblogs', $data);
+            }
+        }
+
+        $this->load->view('partials/footer');
     }
 }

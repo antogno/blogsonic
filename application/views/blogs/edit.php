@@ -27,11 +27,12 @@
                     <textarea class="form-control" id="blog_body" name="blog_body" placeholder="<?= $form_body; ?>" rows="10" cols="40" style="resize: none;"><?php if (isset($blog_body)) { echo $blog_body; } else { echo $edit_body; } ?></textarea></label>
                 </div>
             </div>
+            <input type="hidden" name="id" value="<?= $id; ?>">
         </div>
         <br>
         <button onclick="return confirmation()" type="submit" class="col-4 col-sm-2 btn btn-primary" id="post"><?= $form_button; ?></button>
         <button type="reset" class="col-4 col-sm-2 btn btn-warning"><?= $form_reset; ?></button>
-        <a class="btn btn-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/view/' . $id); ?>">&laquo; <?= $this->lang->line('back');?></a>
+        <a class="btn btn-link" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/view?id=' . $id); ?>">&laquo; <?= $this->lang->line('back');?></a>
         <?= form_close(); ?>
         <?php
             }

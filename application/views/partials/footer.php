@@ -51,7 +51,7 @@ $(document).ready(function() {
     manageCookiebar();
     manageLanguageSwitcher();
     trimText('search');
-    <?php if ($this->router->fetch_class() == 'blogs') { echo 'manageBlogsOptions();'; } ?>
+    <?php if ($this->router->fetch_class() == 'blogs' && $this->router->fetch_method() == 'all') { echo 'manageBlogsOptions();'; } ?>
     <?php if ($this->router->fetch_class() == 'profiles' && ($this->router->fetch_method() == 'login' || $this->router->fetch_method() == 'register')) { echo 'managePasswordField("password", "password_button");'; } ?>
     <?php if ($this->router->fetch_class() == 'profiles' && $this->router->fetch_method() == 'password') { echo 'managePasswordField("new_password", "new_password_button"); managePasswordField("old_password", "old_password_button");'; } ?>
     <?php if ($this->router->fetch_class() == 'profiles' && $this->router->fetch_method() == 'register') { echo 'resetRegistrationForm();'; } ?>
