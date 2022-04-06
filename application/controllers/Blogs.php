@@ -36,7 +36,7 @@ class Blogs extends MY_Controller
     }
 
     /**
-     * Creates a new Blog
+     * Shows the Blog creation form and saves any Blog sent
      * 
      * @return void
      */
@@ -72,7 +72,7 @@ class Blogs extends MY_Controller
     }
 
     /**
-     * Shows a particular Blog
+     * Shows a particular Blog and deletes it if requested
      * 
      * @return void
      */
@@ -119,7 +119,7 @@ class Blogs extends MY_Controller
     }
 
     /**
-     * Edits a particular Blog
+     * Shows the Blog edit form and updates it if requested
      * 
      * @return void
      */
@@ -176,9 +176,12 @@ class Blogs extends MY_Controller
     /**
      * Method used for managing the display of Blogs
      * 
-     * @param string $type the type of Blogs list to show. 'all' to show all the Blogs or 'myblogs' to show all the Blogs of the logged-in user.
+     * @param string $type the type of Blogs list to show. 'all'
+     * to show all the Blogs or 'myblogs' to show all the Blogs
+     * of the logged-in user.
      * @return void
-     * @throws InvalidArgumentException if `$type` is neither 'all' or 'myblogs'.
+     * @throws InvalidArgumentException if `$type` is neither 'all' nor
+     * 'myblogs'.
      */
     private function showBlogs($type)
     {
@@ -212,7 +215,11 @@ class Blogs extends MY_Controller
 
         $max_limit = 100;
 
-        if ( ! is_numeric($limit) || $limit < 0 || $limit > $max_limit) {
+        if (
+            !is_numeric($limit)
+            || $limit < 0
+            || $limit > $max_limit
+        ) {
             $limit = 5;
         }
 
@@ -247,7 +254,14 @@ class Blogs extends MY_Controller
             $blogs = $this->Blogs_model->getBlogs($limit, $order, $date_min, $date_max, $search);
         } else {
             if ($this->session->userdata('logged_in')) {
-                $blogs = $this->Blogs_model->getBlogs($limit, $order, $date_min, $date_max, null, $this->Blogs_model->getUserId($this->encryption->decrypt($this->session->userdata('username'))));
+                $blogs = $this->Blogs_model->getBlogs(
+                    $limit,
+                    $order,
+                    $date_min,
+                    $date_max,
+                    null,
+                    $this->Blogs_model->getUserId($this->encryption->decrypt($this->session->userdata('username')))
+                );
             }
         }
 

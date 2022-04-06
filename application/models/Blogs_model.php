@@ -17,7 +17,8 @@ class Blogs_model extends CI_Model
      * Gets the username of the user with the given ID
      * 
      * @param int $user_id the ID of the user.
-     * @return string|false the username as a string, or false if a user with the given ID doesn't exists.
+     * @return string|false the username as a string, or false
+     * if a user with the given ID doesn't exists.
      */
     public function getUser(int $user_id)
     {
@@ -31,7 +32,8 @@ class Blogs_model extends CI_Model
      * Gets the ID of the user with the given username
      * 
      * @param string $username the username.
-     * @return int|false the ID as a int, or false if a user with the given username doesn't exists.
+     * @return int|false the ID as a int, or false if a user with
+     * the given username doesn't exists.
      */
     public function getUserId(string $username)
     {
@@ -42,15 +44,22 @@ class Blogs_model extends CI_Model
     }
 
     /**
-     * Gets the given number of Blogs in the given order and between the given dates
+     * Gets the given number of Blogs in the given order and between
+     * the given dates
      * 
      * @param int $limit the number of Blogs to show.
-     * @param string $order the order in which the Blogs are showed. 'desc' for descending order and 'asc' for ascending order.
-     * @param DateTime $date_min the minimum date in which to start showing Blogs.
+     * @param string $order the order in which the Blogs are showed.
+     * 'desc' for descending order and 'asc' for ascending order.
+     * @param DateTime $date_min the minimum date in which to start
+     * showing Blogs.
      * @param DateTime $date_max the maximum date of showed Blogs.
-     * @param string $search the term to search in the Blog title or body.
+     * @param string $search the term to search in the Blog title or
+     * body.
      * @param int $user_id the user ID of which to show the Blogs.
-     * @return array|object|false if an ID isn't passed, it returns an array containing the fetched rows. If an ID is given, it returns the row of the requested Blog. If a Blog with the given ID doesn't exists, it returns false.
+     * @return array|object|false if an ID isn't passed, it returns
+     * an array containing the fetched rows. If an ID is given, it
+     * returns the row of the requested Blog. If a Blog with the given
+     * ID doesn't exists, it returns false.
      */
     public function getBlogs(int $limit, string $order, DateTime $date_min = null, DateTime $date_max = null, string $search = null, int $user_id = null)
     {
@@ -95,7 +104,8 @@ class Blogs_model extends CI_Model
      * Gets a particular Blog
      * 
      * @param int $id the Blog ID.
-     * @return object|false it returns the row of the requested Blog. If a Blog with the given ID doesn't exists, it returns false.
+     * @return object|false it returns the row of the requested Blog.
+     * If a Blog with the given ID doesn't exists, it returns false.
      */
     public function getBlog(int $id)
     {

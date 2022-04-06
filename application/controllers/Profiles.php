@@ -16,7 +16,7 @@ class Profiles extends MY_Controller
     }
     
     /**
-     * Shows the main Profile page
+     * Shows the Profile page and deletes it if requested
      *
      * @return void
      */
@@ -366,7 +366,7 @@ class Profiles extends MY_Controller
 
             $user_session = [
                 'forgot_password_success' =>  $result,
-                'forgot_password_fail' => ! $result
+                'forgot_password_fail' => !$result
             ];
 
             $this->session->set_userdata($user_session);
@@ -381,22 +381,34 @@ class Profiles extends MY_Controller
     }
 
     /**
-     * Checks if a username is valid or not. It's used for the AJAX request in the registration form
+     * Checks if a username is valid or not. It's used for the AJAX
+     * request in the registration form
      *
      * @return void
      */
     public function checkUsername()
     {
-        if ( ! $username = $this->input->post('value')) {
+        if (!$username = $this->input->post('value')) {
             show_404();
         }
 
         $username_field = $this->Profiles_model->checkUsersByField('username', $username);
 
         if ($username) {
-            if ((( ! $username_field) || (strtolower($username_field) == strtolower($this->encryption->decrypt($this->session->userdata('username'))) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
-                (strlen($username) >= 6 && strlen($username) <= 50) &&
-                (preg_match('/^[a-z0-9_-]+$/i', $username))) {
+            if (
+                (
+                    !$username_field
+                    || (
+                        strtolower($username_field) == strtolower($this->encryption->decrypt($this->session->userdata('username')))
+                        && (
+                            $this->router->fetch_class() == 'profiles'
+                            && $this->input->post('method') == 'edit'
+                        )
+                    )
+                ) && (
+                    strlen($username) >= 6 && strlen($username) <= 50
+                ) && (preg_match('/^[a-z0-9_-]+$/i', $username))
+            ) {
                 echo 'true';
             } else {
                 echo 'false';
@@ -407,22 +419,36 @@ class Profiles extends MY_Controller
     }
 
     /**
-     * Checks if an email is valid or not. It's used for the AJAX request in the registration form
+     * Checks if an email is valid or not. It's used for the AJAX
+     * request in the registration form
      *
      * @return void
      */
     public function checkEmail()
     {
-        if ( ! $email = $this->input->post('value')) {
+        if (!$email = $this->input->post('value')) {
             show_404();
         }
 
         $email_field = $this->Profiles_model->checkUsersByField('email', $email);
 
         if ($email) {
-            if ((( ! $email_field) || (strtolower($email_field) == strtolower($this->encryption->decrypt($this->session->userdata('email'))) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
-                (strlen($email) <= 50) &&
-                ((bool)filter_var($email, FILTER_VALIDATE_EMAIL))) {
+            if (
+                (
+                    !$email_field
+                    || (
+                        strtolower($email_field) == strtolower($this->encryption->decrypt($this->session->userdata('email')))
+                        && (
+                            $this->router->fetch_class() == 'profiles'
+                            && $this->input->post('method') == 'edit'
+                        )
+                    )
+                ) && (
+                    strlen($email) <= 50
+                ) && (
+                    (bool)filter_var($email, FILTER_VALIDATE_EMAIL)
+                )
+            ) {
                 echo 'true';
             } else {
                 echo 'false';
@@ -433,22 +459,34 @@ class Profiles extends MY_Controller
     }
 
     /**
-     * Checks if a phone number is valid or not. It's used for the AJAX request in the registration form
+     * Checks if a phone number is valid or not. It's used for the AJAX
+     * request in the registration form
      *
      * @return void
      */
     public function checkPhone()
     {
-        if ( ! $phone = $this->input->post('value')) {
+        if (!$phone = $this->input->post('value')) {
             show_404();
         }
 
         $phone_field = $this->Profiles_model->checkUsersByField('phone', $phone);
 
         if ($phone) {
-            if ((( ! $phone_field) || ($phone_field == $this->encryption->decrypt($this->session->userdata('phone')) && ($this->router->fetch_class() == 'profiles' && $this->input->post('method') == 'edit'))) &&
-                (strlen($phone) == 10) &&
-                (ctype_digit($phone))) {
+            if (
+                (
+                    !$phone_field
+                    || (
+                        $phone_field == $this->encryption->decrypt($this->session->userdata('phone'))
+                        && ($this->router->fetch_class() == 'profiles'
+                        && $this->input->post('method') == 'edit')
+                    )
+                ) && (
+                    strlen($phone) == 10
+                ) && (
+                    ctype_digit($phone)
+                )
+            ) {
                 echo 'true';
             } else {
                 echo 'false';

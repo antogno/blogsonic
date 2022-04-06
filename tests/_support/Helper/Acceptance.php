@@ -23,7 +23,8 @@ class Acceptance extends \Codeception\Module
      * Register a new Profile
      * 
      * @param AcceptanceTester $I
-     * @param array $data the user data in an array with the fields as keys.
+     * @param array $data the user data in an array with the fields
+     * as keys.
      * @return void
      */
     public function register(AcceptanceTester $I, array $data)
@@ -62,7 +63,8 @@ class Acceptance extends \Codeception\Module
      * Login to the Profile with the given credentials
      * 
      * @param AcceptanceTester $I
-     * @param array $credentials the user credentials in an array with the fields as keys.
+     * @param array $credentials the user credentials in an array
+     * with the fields as keys.
      * @return void
      */
     public function login(AcceptanceTester $I, array $credentials)

@@ -17,7 +17,8 @@ class Profiles_model extends CI_Model
      * Gets the user data of the user with the given username
      * 
      * @param string $username the username.
-     * @return object|null an object with the user data or null if a user with the given username doesn't exists.
+     * @return object|null an object with the user data or null if a
+     * user with the given username doesn't exists.
      */
     public function getUser(string $username)
     {
@@ -32,7 +33,8 @@ class Profiles_model extends CI_Model
      * 
      * @param string $field the field in which to search the value.
      * @param string $value the field value to search for.
-     * @return true|false if a user with the given value in the given field exists, it return true, otherwise it returns false.
+     * @return true|false if a user with the given value in the given
+     * field exists, it return true, otherwise it returns false.
      */
     public function checkUsersByField(string $field, string $value)
     {
@@ -50,7 +52,8 @@ class Profiles_model extends CI_Model
      * Gets the user data of the user with the given email address
      * 
      * @param string $email the email address.
-     * @return object|null an object with the user data or null if a user with the given email address doesn't exists.
+     * @return object|null an object with the user data or null if
+     * a user with the given email address doesn't exists.
      */
     public function getUserByEmail(string $email)
     {
@@ -96,8 +99,10 @@ class Profiles_model extends CI_Model
     /**
      * Checks if the login attempt is successful
      * 
-     * @param array $data array with the username and the password as elements.
-     * @return true|false true if the login attempt is successful, false otherwise.
+     * @param array $data array with the username and the password as
+     * elements.
+     * @return true|false true if the login attempt is successful, false
+     * otherwise.
      */
     public function login(array $data)
     {
