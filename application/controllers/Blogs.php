@@ -210,8 +210,8 @@ class Blogs extends MY_Controller
 
         $limit = $this->input->get('limit');
         $order = $this->input->get('order');
-        $date_min = $this->input->get('date_min') ?: null;
-        $date_max = $this->input->get('date_max') ?: null;
+        $date_min = $this->input->get('date_min');
+        $date_max = $this->input->get('date_max');
 
         $max_limit = 100;
 
@@ -238,6 +238,8 @@ class Blogs extends MY_Controller
             $date_min->setTime(0, 0, 0);
 
             $options_data['date_min'] = $date_min->format('Y-m-d');
+        } else {
+            $date_min = null;
         }
 
         if (DateTime::createFromFormat('Y-m-d', $date_max) !== false) {
@@ -245,6 +247,8 @@ class Blogs extends MY_Controller
             $date_max->setTime(23, 59, 59);
 
             $options_data['date_max'] = $date_max->format('Y-m-d');
+        } else {
+            $date_max = null;
         }
 
         $search = trim($this->input->get('search'));
