@@ -150,33 +150,6 @@ $this->email->from('', 'Blogsonic'); // Email (e.g.: example@gmail.com)
 define('WEBSITE_EMAIL', ''); // Email address to be used publicly for contact purposes  (e.g.: example@gmail.com)
 ```
 
-### Edit the `robots.txt` and `sitemap.xml` files according to your data
-
-`robots.txt`:
-
-```txt
-User-agent: *
-Disallow: /tests/
-
-# URL to the sitemap.xml
-Sitemap: http://localhost/blogsonic/sitemap.xml
-```
-
-`sitemap.xml`:
-
-```xml
-<url>
-    <loc>http://localhost/blogsonic/</loc> <!-- Page URL -->
-    <lastmod>2021-10-02</lastmod> <!-- Last update -->
-    <changefreq>always</changefreq>
-    <priority>1.0</priority>
-</url>
-```
-
-> **Note**: This step is optional. These files are only used for the purpose of improving SEO Positioning.
-
-For more information, see the [Sitemap protocol website][6] and the official [Google documentation][7].
-
 ### Set your domain in the Twitter meta tag in the `application/views/partials/header.php` file
 
 ```html

@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /tests/
-
-Sitemap: https://www.blogsonic.org/sitemap.xml
