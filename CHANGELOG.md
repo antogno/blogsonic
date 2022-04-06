@@ -6,6 +6,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Version 1.0.4][v1.0.4] - 2022-04-07
+### Added
+- Icons for the login, logout and Profile links.
+
+### Changed
+- Blogs search filters are now GET parameters.
+- The number of Blogs to show is now an input field instead of a selection.
+- The Blogs and Profile links in the navbar swapped places.
+- If an user is logged in, the Profile link in the navbar shows its username.
+
+### Fixed
+- Input fields formatting on small displays.
+- Better visualization of the navbar on large displays.
+- Language selection bug on the Profile edit form.
+- The password change is only successful if the email notification is sent correctly.
+
 ## [Version 1.0.3][v1.0.3] - 2021-12-17
 ### Added
 - You can now toggle the password fields visibility.
@@ -37,7 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Version 1.0][v1.0] - 2021-10-03
 ### Initial release
 
-[Unreleased]: https://github.com/antogno/blogsonic/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/antogno/blogsonic/compare/v1.0.4...HEAD
+[v1.0.4]: https://github.com/antogno/blogsonic/compare/v1.0.3...v1.0.4
 [v1.0.3]: https://github.com/antogno/blogsonic/compare/v1.0.2...v1.0.3
 [v1.0.2]: https://github.com/antogno/blogsonic/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/antogno/blogsonic/compare/v1.0...v1.0.1
