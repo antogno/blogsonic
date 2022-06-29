@@ -217,7 +217,7 @@ class Blogs extends MY_Controller
 
         if (
             !is_numeric($limit)
-            || $limit < 0
+            || $limit < 1
             || $limit > $max_limit
         ) {
             $limit = 5;
