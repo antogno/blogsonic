@@ -24,18 +24,6 @@
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="640">
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="blogsonic.org">
-    <meta property="twitter:url" content="<?= base_url(); ?>">
-    <meta name="twitter:title" content="<?php if (isset($meta_title)) { ?><?= $meta_title; ?><?php } else { ?><?= $title; ?><?php } ?>">
-    <?php if (isset($meta_description)) { ?> <meta name="twitter:description" content="<?= $meta_description; ?>"> <?php } ?>
-    <meta name="twitter:image" content="<?= base_url('public/img/blogsonic-social-preview.png'); ?>">
-
-    <!-- Microsoft Meta Tags -->
-    <meta name="msapplication-TileColor" content="#426e9c">
-    <meta name="msapplication-config" content="<?= base_url('public/icon/browserconfig.xml'); ?>">    
-
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('public/icon/apple-touch-icon.png'); ?>">
     <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('public/icon/favicon-32x32.png'); ?>">
