@@ -29,19 +29,19 @@
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $gender; ?></strong>:
                         <div class="form-check"> 
-                            <label for="gender" class="form-check-label">
+                            <label for="gender_m" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="gender_m" name="gender" value="m" <?php if ($profile_gender == $this->lang->line('gender_m')) { echo 'checked'; } ?>>
                                 <?= $this->lang->line('gender_m'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
-                            <label for="gender" class="form-check-label">
+                            <label for="gender_f" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="gender_f" name="gender" value="f" <?php if ($profile_gender == $this->lang->line('gender_f')) { echo 'checked'; } ?>>
                                 <?= $this->lang->line('gender_f'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
-                            <label for="gender" class="form-check-label">
+                            <label for="no_gender" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="no_gender" name="gender" value="" <?php if ( ! $profile_gender) { echo 'checked'; } ?>>
                                 <i><?= $this->lang->line('register_form_no_gender'); ?></i>
                             </label>
@@ -57,13 +57,13 @@
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $language; ?></strong>*:
                         <div class="form-check"> 
-                            <label for="language" class="form-check-label">
+                            <label for="language_en" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="language_en" name="language" value="en" <?php if ($profile_language == 'en') { echo 'checked'; }?>>
                                 <?= $this->lang->line('english'); ?>
                             </label>
                         </div>
                         <div class="form-check"> 
-                            <label for="language" class="form-check-label">
+                            <label for="language_it" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="language_it" name="language" value="it" <?php if ($profile_language == 'it') { echo 'checked'; }?>>
                                 <?= $this->lang->line('italian'); ?>
                             </label>

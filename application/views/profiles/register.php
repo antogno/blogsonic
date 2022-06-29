@@ -34,19 +34,19 @@
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $form_gender; ?></strong>:
                         <div class="form-check"> 
-                            <label for="gender" class="form-check-label">
+                            <label for="gender_m" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="gender_m" name="gender" value="m" <?php if (isset($gender) && $gender == 'm') { echo 'checked'; }?>>
                                 <?= $form_gender_m; ?>
                             </label>
                         </div>
                         <div class="form-check"> 
-                            <label for="gender" class="form-check-label">
+                            <label for="gender_f" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="gender_f" name="gender" value="f" <?php if (isset($gender) && $gender == 'f') { echo 'checked'; }?>>
                                 <?= $form_gender_f; ?>
                             </label>
                         </div>
                         <div class="form-check"> 
-                            <label for="gender" class="form-check-label">
+                            <label for="no_gender" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="no_gender" name="gender" value="" <?php if (( ! isset($gender)) || (isset($gender) && $gender == '')) { echo 'checked'; }?>>
                                 <i><?= $form_no_gender; ?></i>
                             </label>
@@ -75,14 +75,14 @@
                 <fieldset class="form-group">
                     <label class="form-label"><strong><?= $form_language; ?></strong>*:
                         <div class="form-check"> 
-                            <label for="language" class="form-check-label">
+                            <label for="language_en" class="form-check-label">
                                 <?php if ( ! isset($language)) { $language = substr($this->encryption->decrypt($this->session->userdata('language')), 0, -1); } ?>
                                 <input type="radio" class="form-check-input" id="language_en" name="language" value="en" <?php if ($language == 'en') { echo 'checked'; }?>>
                                 <?= $form_language_en; ?>
                             </label>
                         </div>
                         <div class="form-check"> 
-                            <label for="language" class="form-check-label">
+                            <label for="language_it" class="form-check-label">
                                 <input type="radio" class="form-check-input" id="language_it" name="language" value="it" <?php if ($language == 'it') { echo 'checked'; }?>>
                                 <?= $form_language_it; ?>
                             </label>
