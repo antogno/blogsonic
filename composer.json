@@ -9,7 +9,6 @@
             "email": "tonio.granaldi@gmail.com"
         }
     ],
-    "homepage": "https://www.blogsonic.org",
     "require": {
         "php": ">=5.3.7"
     },

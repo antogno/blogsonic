@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Keywords -->
-    <meta name="keywords" content="blogsonic.org, blogsonic, blogs, open source, CRUD, CRUD web application, PHP, php website">
+    <meta name="keywords" content="blogsonic, blogs, open source, CRUD, CRUD web application, PHP, php website">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:url" content="<?= base_url(); ?>">
