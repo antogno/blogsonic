@@ -26,7 +26,17 @@
                 &ndash;
                 <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>
                 &vert;
-                <a target="_blank" href="https://github.com/antogno/blogsonic/releases/tag/v1.0.4"><span class="badge bg-primary"><?= $_SERVER['BS_VERSION']; ?></span></a>
+                <?php
+                    if ($_SERVER['BS_VERSION'] == 'HEAD') {
+                ?>
+                    <a target="_blank" href="https://github.com/antogno/blogsonic/tree/master"><span class="badge bg-primary"><?= $_SERVER['BS_VERSION']; ?></span></a>
+                <?php
+                    } else { 
+                ?>
+                    <a target="_blank" href="https://github.com/antogno/blogsonic/releases/tag/<?= $_SERVER['BS_VERSION']; ?>"><span class="badge bg-primary"><?= $_SERVER['BS_VERSION']; ?></span></a>
+                <?php
+                    }
+                ?>
             </p>
         </div>
         <div style="width: 30%; float: right">
