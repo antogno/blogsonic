@@ -1,4 +1,4 @@
-# [Blogsonic][1]
+# Blogsonic
 
 <p>
     <a href="https://www.blogsonic.org/"><img src="https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fwww.blogsonic.org" alt="Blogsonic.org"></a>
@@ -19,15 +19,15 @@ Blogsonic is a simple CRUD Web Application in PHP.
 - [License](#license)
 - [Links](#links)
 
-## What is [Blogsonic][1]?
+## What is Blogsonic?
 
-[Blogsonic][1] is an open source project. More specifically, is a CRUD Web Application. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.
+Blogsonic is an open source project. More specifically, is a CRUD Web Application. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.
 
 > **Note**: The existence of Blogsonic has the sole purpose of showing a very basic example of a CRUD Web Application. This means that not much attention has been paid to the general appereance of the website and to the code and its structure. Therefore, Blogsonic **should not** be used as a reference point in these respects, but should be considered as a starting point for beginners from which to start understanding the basic concepts.
 
-### How was [Blogsonic][1] created?
+### How was Blogsonic created?
 
-[Blogsonic][1] was created using the following tools and technologies:
+Blogsonic was created using the following tools and technologies:
 
 * Front-end:
     * HTML;
@@ -39,22 +39,22 @@ Blogsonic is a simple CRUD Web Application in PHP.
     * PHP (framework: CodeIgniter 3.1.11);
     * MySQL.
 
-[Blogsonic][1] also exists thanks to:
+Blogsonic also exists thanks to:
 
 * [Font Awesome 4.7.0 icons][18];
 * [Bootswatch Spacelab theme][19];
 * [Codeception][8];
 * [realfavicongenerator.net][20].
 
-### Who created [Blogsonic][1]?
+### Who created Blogsonic?
 
-The designer and creator of [Blogsonic][1] it's me, that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here][2].
+The designer and creator of Blogsonic it's me, that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here][2].
 
 ### How can I contact you?
 
 You can contact me on my LinkedIn profile above, or by sending an email to [tonio.granaldi@gmail.com](mailto:tonio.granaldi@gmail.com).
 
-### Can I use the [Blogsonic][1] source code?
+### Can I use the Blogsonic source code?
 
 Of course! You can find everything you need on [GitHub][3].
 
@@ -270,22 +270,16 @@ For more information, see the official [Codeception documentation][10].
 
 ## License
 
-[Blogsonic][1] is licensed under the terms of the [Creative Commons Zero v1.0 Universal license][11].
+Blogsonic is licensed under the terms of the [Creative Commons Zero v1.0 Universal license][11].
 
 For more information, see the [Creative Commons website][12].
 
 ## Links
 
-* [Blogsonic.org][1]
 * [GitHub][3]
 * [LinkedIn][2]
-* [Facebook][13]
 * [Twitter][14]
-* [Instagram][17]
-* [Reddit][15]
-* [Stack Overflow][16]
 
-[1]: https://www.blogsonic.org/ "Blogsonic.org - Simple CRUD Web Application in PHP"
 [2]: https://www.linkedin.com/in/antonio-granaldi/ "Antonio Granaldi - Linkedin"
 [3]: https://github.com/antogno/blogsonic "Blogsonic - GitHub"
 [4]: https://randomkeygen.com/ "RandomKeygen"
@@ -297,11 +291,7 @@ For more information, see the [Creative Commons website][12].
 [10]: https://codeception.com/docs/modules/Db "Documentation - Codeception"
 [11]: https://github.com/antogno/blogsonic/blob/master/LICENSE "License"
 [12]: https://creativecommons.org/publicdomain/zero/1.0/ "Creative Commons"
-[13]: https://www.facebook.com/antonio.granaldi "Antonio Granaldi - Facebook"
 [14]: https://twitter.com/AGranaldi "AGranaldi - Twitter"
-[15]: https://www.reddit.com/user/antogno "antogno - Reddit"
-[16]: https://stackoverflow.com/users/16877786/antogno "antogno - Stack Overflow"
-[17]: https://www.instagram.com/agranaldi/ "agranaldi - Instagram"
 [18]: https://fontawesome.com/v4.7/ "Font Awesome - The iconic font and CSS toolkit"
 [19]: https://bootswatch.com/spacelab/ "Bootswatch - Free themes for Bootstrap"
 [20]: https://realfavicongenerator.net/ "Favicon Generator"
