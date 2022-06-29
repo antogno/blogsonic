@@ -28,7 +28,7 @@ class ProfilesCest
     public function register(AcceptanceTester $I)
     {
         $I->register($I, $this->data);
-        $I->waitForElement('#success_popup');
+        $I->waitPageLoad($I);
         $I->see('Your account has been registered');
     }
 
@@ -37,7 +37,7 @@ class ProfilesCest
         $I->register($I, $this->data);
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->seeInField('name', $this->data['name']);
         $I->seeInField('surname', $this->data['surname']);
         $I->seeInField('gender', strtoupper($this->data['gender']));
@@ -47,7 +47,7 @@ class ProfilesCest
 
         $I->amOnPage('en/profiles/login');
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->see('Login');
         $I->see('You are already logged in');
     }
@@ -57,17 +57,17 @@ class ProfilesCest
         $I->register($I, $this->data);
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
-        $I->click('Profile');
+        $I->click('#profile_dropdown');
         $I->click('Logout');
 
         $I->acceptPopup();
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->see('Home');
 
         $I->amOnPage('/en/profiles/logout');
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->see('Logout');
         $I->see('You have to login before you can see this page');
     }
@@ -79,7 +79,7 @@ class ProfilesCest
 
         $I->click('#edit');
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->seeInField('name', $this->data['name']);
         $I->seeInField('surname', $this->data['surname']);
         $I->see('Gender');
@@ -96,7 +96,7 @@ class ProfilesCest
 
         $I->acceptPopup();
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->seeInField('name', $this->new_data['name']);
         $I->seeInField('surname', $this->new_data['surname']);
     }
@@ -115,7 +115,7 @@ class ProfilesCest
 
         $I->acceptPopup();
 
-        $I->waitForElement('#danger_popup');
+        $I->waitPageLoad($I);
         $I->see('The Old Password is wrong');
 
         $I->fillField('old_password', $this->data['password']);
@@ -125,7 +125,7 @@ class ProfilesCest
 
         $I->acceptPopup();
 
-        $I->waitForElement('#warning_popup');
+        $I->waitPageLoad($I);
         $I->see('The New Password field must be at least 8 characters in length');
 
         $I->fillField('old_password', $this->data['password']);
@@ -135,14 +135,14 @@ class ProfilesCest
 
         $I->acceptPopup();
 
-        $I->waitForElement('#success_popup');
+        $I->waitPageLoad($I);
         $I->see('Your Password has been successfully updated');
 
         $I->logout($I);
 
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
-        $I->waitForElement('#danger_popup');
+        $I->waitPageLoad($I);
         $I->see('The Username or Password is incorrect');
 
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->new_data['password']]);
@@ -160,12 +160,12 @@ class ProfilesCest
 
         $I->acceptPopup();
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->see('Home');
 
         $I->login($I, ['username' => $this->data['username'], 'password' => $this->data['password']]);
 
-        $I->waitForElement('#danger_popup');
+        $I->waitPageLoad($I);
         $I->see('The Username or Password is incorrect');
     }
 }

@@ -98,7 +98,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle <?php if ($this->router->fetch_class() == 'profiles') { echo 'active'; } ?>" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle <?php if ($this->router->fetch_class() == 'profiles') { echo 'active'; } ?>" data-bs-toggle="dropdown" href="#" id="profile_dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <?php
                                 if ($this->session->userdata('logged_in')) {
                                     echo '<i id="user_icon" class="fa fa-user" aria-hidden="true"></i> ' . $this->encryption->decrypt($this->session->userdata('username')) . '</span>';

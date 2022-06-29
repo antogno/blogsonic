@@ -18,7 +18,7 @@ modules:
                     prefs:
                         download.default_directory: "..."
         - Db:
-            dsn: '' # PDO DSN (eg.: mysql:host=localhost)
+            dsn: '' # PDO DSN (e.g.: mysql:host=localhost)
             user: '' # Database username (e.g.: root)
             dbname: '' # Database name (e.g.: blogsonic)
             password: '' # Password

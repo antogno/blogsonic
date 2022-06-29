@@ -20,10 +20,10 @@ class LanguageSwitcherCest
     {
         $I->amOnPage($page);
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->see($before);
         $I->selectOption('#change_language', $new_language);
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->see($after);
     }
 }

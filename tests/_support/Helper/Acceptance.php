@@ -31,10 +31,10 @@ class Acceptance extends \Codeception\Module
     {
         $I->amOnPage('/en');
 
-        $I->click('Profile');
+        $I->click('#profile_dropdown');
         $I->click('Register');
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->see('Name');
         $I->see('Surname');
         $I->see('Gender');
@@ -54,8 +54,7 @@ class Acceptance extends \Codeception\Module
         $I->click('#language_en');
 
         $I->scrollTo('#register');
-        $I->waitForElementVisible('#register');
-        $I->waitForElementClickable('#register');
+        $I->waitPageLoad($I);
         $I->click('#register');
     }
 
@@ -71,10 +70,10 @@ class Acceptance extends \Codeception\Module
     {
         $I->amOnPage('/en');
 
-        $I->click('Profile');
+        $I->click('#profile_dropdown');
         $I->click('Login');
 
-        $I->waitForElement('#page_body');
+        $I->waitPageLoad($I);
         $I->see('Username');
         $I->see('Password');
 
@@ -94,7 +93,7 @@ class Acceptance extends \Codeception\Module
     {
         $I->amOnPage('/en');
 
-        $I->click('Profile');
+        $I->click('#profile_dropdown');
         $I->click('Logout');
 
         $I->acceptPopup();
@@ -105,9 +104,11 @@ class Acceptance extends \Codeception\Module
      * 
      * @param AcceptanceTester $I
      * @param array $data the Blog's data (title and body).
+     * @param int $wait how many seconds it should wait after creating
+     * the blog.
      * @return void
      */
-    public function createNewBlog(AcceptanceTester $I, array $data)
+    public function createNewBlog(AcceptanceTester $I, array $data, int $wait = 0)
     {
         $I->amOnPage('/en');
 
@@ -118,6 +119,10 @@ class Acceptance extends \Codeception\Module
         $I->fillField('blog_body', $data['body']);
 
         $I->click('#post');
+
+        $I->waitPageLoad($I);
+
+        $I->wait($wait);
     }
 
     /**
@@ -131,5 +136,16 @@ class Acceptance extends \Codeception\Module
         $I->amOnPage('/en');
 
         $I->click('#cookiebar_hide');
+    }
+
+    /**
+     * Waits for the page to be fully loaded
+     * 
+     * @param AcceptanceTester $I
+     * @return void
+     */
+    public function waitPageLoad(AcceptanceTester $I, $timeout = 10)
+    {
+        $I->waitForJs('return document.readyState == "complete"', $timeout);
     }
 }
