@@ -150,12 +150,6 @@ $this->email->from('', 'Blogsonic'); // Email (e.g.: example@gmail.com)
 define('WEBSITE_EMAIL', ''); // Email address to be used publicly for contact purposes  (e.g.: example@gmail.com)
 ```
 
-### Set your domain in the Twitter meta tag in the `application/views/partials/header.php` file
-
-```html
-<meta property="twitter:domain" content="blogsonic.org"> <!-- Domain -->
-```
-
 ### Set the current environment in the `.htaccess` file
 
 ```apache
@@ -211,7 +205,7 @@ modules:
         - WebDriver:
             url: # Base URL (e.g.: http://localhost/blogsonic)
         - Db:
-            dsn: '' # PDO DSN (eg.: mysql:host=localhost)
+            dsn: '' # PDO DSN (e.g.: mysql:host=localhost)
             user: '' # Database username (e.g.: root)
             dbname: '' # Database name (e.g.: blogsonic)
             password: '' # Password
