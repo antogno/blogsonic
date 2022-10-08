@@ -1,7 +1,6 @@
 # Blogsonic
 
 <p>
-    <a href="https://www.blogsonic.org/"><img src="https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fwww.blogsonic.org" alt="Blogsonic.org"></a>
     <a href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><img src="https://img.shields.io/github/license/antogno/blogsonic" alt="License"></a>
     <a href="https://github.com/antogno/blogsonic/commits"><img src="https://img.shields.io/github/last-commit/antogno/blogsonic" alt="Last commit"></a>
     <a href="https://github.com/antogno/blogsonic/releases/latest"><img src="https://img.shields.io/github/v/tag/antogno/blogsonic?label=last%20release" alt="Last release"></a>
@@ -10,7 +9,7 @@
 Blogsonic is a simple CRUD Web Application in PHP.
 
 <p align="center">
-  <img alt="Blogsonic screenshot" src="https://raw.githubusercontent.com/antogno/blogsonic/master/public/img/blogsonic-screenshot.png" style="border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.09) 0 3px 12px;">
+	<img alt="Blogsonic screenshot" src="https://raw.githubusercontent.com/antogno/blogsonic/master/public/img/blogsonic-screenshot.png" style="border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.09) 0 3px 12px;">
 </p>
 
 ---
@@ -45,14 +44,14 @@ Blogsonic was created using the following tools and technologies:
 
 Blogsonic also exists thanks to:
 
-* [Font Awesome 4.7.0 icons][18];
-* [Bootswatch Spacelab theme][19];
-* [Codeception][8];
-* [realfavicongenerator.net][20].
+* [Font Awesome 4.7.0 icons][1];
+* [Bootswatch Spacelab theme][2];
+* [Codeception][3];
+* [realfavicongenerator.net][4].
 
 ### Who created Blogsonic?
 
-The designer and creator of Blogsonic it's me, that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here][2].
+The designer and creator of Blogsonic it's me, that is Antonio Granaldi. You can see my LinkedIn profile by [clicking here][5].
 
 ### How can I contact you?
 
@@ -60,7 +59,7 @@ You can contact me on my LinkedIn profile above, or by sending an email to [toni
 
 ### Can I use the Blogsonic source code?
 
-Of course! You can find everything you need on [GitHub][3].
+Of course! You can find everything you need on [GitHub][6].
 
 ## Installation
 
@@ -72,7 +71,7 @@ Follow the next steps to set up Blogsonic.
 
     You can also find these tables in `application/tables/`.
 
-    ~~~~sql
+    ```sql
     CREATE TABLE `users` (
         `id` int NOT NULL AUTO_INCREMENT,
         `name` varchar(50) NOT NULL,
@@ -86,9 +85,9 @@ Follow the next steps to set up Blogsonic.
         `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (`id`)
     );
-    ~~~~
+    ```
 
-    ~~~~sql
+    ```sql
     CREATE TABLE `blogs` (
         `id` int NOT NULL AUTO_INCREMENT,
         `user_id` int NOT NULL,
@@ -101,9 +100,9 @@ Follow the next steps to set up Blogsonic.
         ON UPDATE CASCADE
         ON DELETE CASCADE
     );
-    ~~~~
+    ```
 
-    ~~~~sql
+    ```sql
     CREATE TABLE IF NOT EXISTS `sessions` (
         `id` varchar(128) NOT NULL,
         `ip_address` varchar(45) NOT NULL,
@@ -111,14 +110,14 @@ Follow the next steps to set up Blogsonic.
         `data` blob NOT NULL,
         KEY `sessions_timestamp` (`timestamp`)
     );
-    ~~~~
+    ```
 
 2. Add the database's information in the `application/config/database.php` file.
 
     ```php
     $db['default'] = array(
         'hostname' => '', // Hostname (e.g.: localhost)
-        'username' => '', // Database username (e.g.: root)
+        'username' => '', // Username (e.g.: root)
         'password' => '', // Password
         'database' => '' // Database name (e.g.: blogsonic)
     );
@@ -132,11 +131,11 @@ $config['base_url'] = ''; // Base URL (e.g.: http://localhost/blogsonic/)
 $config['encryption_key'] = ''; // Encryption key (e.g.: F7z4zM0L3ua6e9rdZgy0StgIYA8xIFai)
 ```
 
-To generate an encryption key, you can go to [RandomKeygen][4] and scroll down to "CodeIgniter Encryption Keys".
+To generate an encryption key, you can go to [RandomKeygen][7] and scroll down to "CodeIgniter Encryption Keys".
 
 ### Add your email information in the `application/core/MY_Controller.php` file
 
-This email will be used to send a new password to a user who has forgotten it. If you use Gmail, Google may block the automatic sending of the email. To turn this off, login to your Google account and enable the option "Allow less secure apps", [by clicking here][5].
+This email will be used to send a new password to a user who has forgotten it. If you use Gmail, Google may block the automatic sending of the email. To turn this off, login to your Google account and enable the option "Allow less secure apps", [by clicking here][8].
 
 ```php
 $config['smtp_host'] = ''; // SMTP host (e.g.: ssl://smtp.googlemail.com)
@@ -164,7 +163,7 @@ The available options are: `development`, `testing` and `production`. Setting th
 
 ## Running the acceptance tests
 
-If you want to, you can also run the acceptance tests made with [Codeception][8]. To do this, follow the next steps.
+If you want to, you can also run the acceptance tests made with [Codeception][3]. To do this, follow the next steps.
 
 > **Note**: If you decide to run the acceptance tests before actually using Blogsonic, you can skip the previous [tables creation](#set-up-database) step.
 
@@ -274,22 +273,20 @@ For more information, see the [Creative Commons website][12].
 
 ## Links
 
-* [GitHub][3]
-* [LinkedIn][2]
-* [Twitter][14]
+* [GitHub][6]
+* [LinkedIn][5]
+* [Twitter][13]
 
-[2]: https://www.linkedin.com/in/antonio-granaldi/ "Antonio Granaldi - Linkedin"
-[3]: https://github.com/antogno/blogsonic "Blogsonic - GitHub"
-[4]: https://randomkeygen.com/ "RandomKeygen"
-[5]: https://myaccount.google.com/lesssecureapps "Less secure apps - Google Accounts"
-[6]: https://www.sitemaps.org/ "sitemaps.org"
-[7]: https://developers.google.com/search/docs/advanced/robots/create-robots-txt "Create and submit a robots.txt file - Google Search Central"
-[8]: https://codeception.com/ "Codeception - PHP testing framework"
+[1]: https://fontawesome.com/v4.7/ "Font Awesome - The iconic font and CSS toolkit"
+[2]: https://bootswatch.com/spacelab/ "Bootswatch - Free themes for Bootstrap"
+[3]: https://codeception.com/ "Codeception - PHP testing framework"
+[4]: https://realfavicongenerator.net/ "Favicon Generator"
+[5]: https://www.linkedin.com/in/antonio-granaldi/ "Antonio Granaldi - Linkedin"
+[6]: https://github.com/antogno/blogsonic "Blogsonic - GitHub"
+[7]: https://randomkeygen.com/ "RandomKeygen"
+[8]: https://myaccount.google.com/lesssecureapps "Less secure apps - Google Accounts"
 [9]: https://chromedriver.chromium.org/downloads "ChromeDriver - WebDriver for Chrome"
 [10]: https://codeception.com/docs/modules/Db "Documentation - Codeception"
 [11]: https://github.com/antogno/blogsonic/blob/master/LICENSE "License"
 [12]: https://creativecommons.org/publicdomain/zero/1.0/ "Creative Commons"
-[14]: https://twitter.com/AGranaldi "AGranaldi - Twitter"
-[18]: https://fontawesome.com/v4.7/ "Font Awesome - The iconic font and CSS toolkit"
-[19]: https://bootswatch.com/spacelab/ "Bootswatch - Free themes for Bootstrap"
-[20]: https://realfavicongenerator.net/ "Favicon Generator"
+[13]: https://twitter.com/AGranaldi "AGranaldi - Twitter"
