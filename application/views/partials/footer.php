@@ -27,13 +27,13 @@
                 <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>
                 &vert;
                 <?php
-                    if ($_SERVER['BS_VERSION'] == 'HEAD') {
+                    if ($_ENV['BLOGSONIC_VERSION'] == 'HEAD') {
                 ?>
-                    <a target="_blank" href="https://github.com/antogno/blogsonic/tree/master"><span class="badge bg-primary"><?= $_SERVER['BS_VERSION']; ?></span></a>
+                    <a target="_blank" href="https://github.com/antogno/blogsonic/tree/master"><span class="badge bg-primary"><?= $_ENV['BLOGSONIC_VERSION']; ?></span></a>
                 <?php
                     } else { 
                 ?>
-                    <a target="_blank" href="https://github.com/antogno/blogsonic/releases/tag/<?= $_SERVER['BS_VERSION']; ?>"><span class="badge bg-primary"><?= $_SERVER['BS_VERSION']; ?></span></a>
+                    <a target="_blank" href="https://github.com/antogno/blogsonic/releases/tag/<?= $_ENV['BLOGSONIC_VERSION']; ?>"><span class="badge bg-primary"><?= $_ENV['BLOGSONIC_VERSION']; ?></span></a>
                 <?php
                     }
                 ?>

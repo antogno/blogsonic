@@ -6,28 +6,34 @@
 
 actor: AcceptanceTester
 modules:
-    enabled:
-        - WebDriver:
-            url: # Base URL (e.g.: http://localhost/blogsonic)
-            window_size: false
-            port: 9515
-            browser: chrome
-            capabilities:
-                chromeOptions:
-                    args: ["--headless", "--disable-gpu", "--no-sandbox", "--window-size=1920,1080"]
-                    prefs:
-                        download.default_directory: "..."
-        - Db:
-            dsn: '' # PDO DSN (e.g.: mysql:host=localhost)
-            user: '' # Database username (e.g.: root)
-            dbname: '' # Database name (e.g.: blogsonic)
-            password: '' # Password
-            dump: 'tests/_data/dump.sql'
-            populate: true
-            cleanup: true
-            initial_queries:
-                - 'CREATE DATABASE IF NOT EXISTS ;' # Add the database name (e.g.: CREATE DATABASE IF NOT EXISTS blogsonic;)
-                - 'USE ;' # Add the database name (e.g.: USE blogsonic;)
-        - \Helper\Acceptance
+  enabled:
+    - WebDriver:
+        url: "%BLOGSONIC_BASE_URL%"
+        window_size: false
+        port: 9515
+        browser: chrome
+        capabilities:
+          chromeOptions:
+            args:
+              [
+                "--headless",
+                "--disable-gpu",
+                "--no-sandbox",
+                "--window-size=1920,1080",
+              ]
+            prefs:
+              download.default_directory: "..."
+    - Db:
+        dsn: "mysql:host=%DB_HOST%"
+        user: "%DB_USER%"
+        dbname: "%DB_NAME%"
+        password: "%DB_PASS%"
+        dump: "tests/_data/dump.sql"
+        populate: true
+        cleanup: true
+        initial_queries:
+          - "CREATE DATABASE IF NOT EXISTS %DB_NAME%;"
+          - "USE %DB_NAME%;"
+    - \Helper\Acceptance
 step_decorators:
-    - \Codeception\Step\TryTo
+  - \Codeception\Step\TryTo

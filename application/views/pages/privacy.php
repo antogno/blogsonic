@@ -13,5 +13,5 @@
     <p><strong><?= $this->lang->line('privacy_policy_12'); ?></strong></p>
     <p><?= $this->lang->line('privacy_policy_13'); ?></p>
     <p><strong><?= $this->lang->line('privacy_policy_14'); ?></strong></p>
-    <p><?= $this->lang->line('privacy_policy_15'); ?> <a href="mailto:<?= WEBSITE_EMAIL ?>"><?= WEBSITE_EMAIL ?></a>.</p>
+    <p><?= $this->lang->line('privacy_policy_15'); ?> <a href="mailto:<?= $_ENV['BLOGSONIC_IN_EMAIL'] ?>"><?= $_ENV['BLOGSONIC_IN_EMAIL'] ?></a>.</p>
 </div>

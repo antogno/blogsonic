@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = ''; // Base URL (e.g.: http://localhost/blogsonic/)
+$config['base_url'] = $_ENV['BLOGSONIC_BASE_URL'];
 
 /*
 |--------------------------------------------------------------------------
@@ -324,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = ''; // Encryption key (e.g.: F7z4zM0L3ua6e9rdZgy0StgIYA8xIFai)
+$config['encryption_key'] = $_ENV['BLOGSONIC_ENCRYPTION_KEY'];
 
 /*
 |--------------------------------------------------------------------------

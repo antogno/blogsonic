@@ -32,22 +32,22 @@ Blogsonic is an open source project. More specifically, is a CRUD Web Applicatio
 
 Blogsonic was created using the following tools and technologies:
 
-* Front-end:
-    * HTML;
-    * CSS (framework: Bootstrap);
-    * JavaScript;
-    * jQuery;
-    * AJAX.
-* Back-end:
-    * PHP (framework: CodeIgniter 3.1.11);
-    * MySQL.
+- Front-end:
+  - HTML;
+  - CSS (framework: Bootstrap);
+  - JavaScript;
+  - jQuery;
+  - AJAX.
+- Back-end:
+  - PHP (framework: CodeIgniter 3.1.11);
+  - MySQL.
 
 Blogsonic also exists thanks to:
 
-* [Font Awesome 4.7.0 icons][1];
-* [Bootswatch Spacelab theme][2];
-* [Codeception][3];
-* [realfavicongenerator.net][4].
+- [Font Awesome 4.7.0 icons][1];
+- [Bootswatch Spacelab theme][2];
+- [Codeception][3];
+- [realfavicongenerator.net][4].
 
 ### Who created Blogsonic?
 
@@ -67,99 +67,73 @@ Follow the next steps to set up Blogsonic.
 
 ### Set up database
 
-1. Create a database and add the following tables.
+Create a database and add the following tables. You can also find these tables in `application/tables/`.
 
-    You can also find these tables in `application/tables/`.
-
-    ```sql
-    CREATE TABLE `users` (
-        `id` int NOT NULL AUTO_INCREMENT,
-        `name` varchar(50) NOT NULL,
-        `surname` varchar(50) NOT NULL,
-        `gender` varchar(1) NOT NULL,
-        `username` varchar(50) NOT NULL,
-        `password` varchar(255) NOT NULL,
-        `email` varchar(50) NOT NULL,
-        `phone` varchar(13) NOT NULL,
-        `language` varchar(2) NOT NULL,
-        `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (`id`)
-    );
-    ```
-
-    ```sql
-    CREATE TABLE `blogs` (
-        `id` int NOT NULL AUTO_INCREMENT,
-        `user_id` int NOT NULL,
-        `title` varchar(20) NOT NULL,
-        `body` text NOT NULL,
-        `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        PRIMARY KEY (`id`),
-        CONSTRAINT `fk_usersblogs` FOREIGN KEY (`user_id`)
-        REFERENCES `users`(`id`)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
-    );
-    ```
-
-    ```sql
-    CREATE TABLE IF NOT EXISTS `sessions` (
-        `id` varchar(128) NOT NULL,
-        `ip_address` varchar(45) NOT NULL,
-        `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
-        `data` blob NOT NULL,
-        KEY `sessions_timestamp` (`timestamp`)
-    );
-    ```
-
-2. Add the database's information in the `application/config/database.php` file.
-
-    ```php
-    $db['default'] = array(
-        'hostname' => '', // Hostname (e.g.: localhost)
-        'username' => '', // Username (e.g.: root)
-        'password' => '', // Password
-        'database' => '' // Database name (e.g.: blogsonic)
-    );
-    ```
-
-### Add your base URL and an encryption key in the `application/config/config.php` file
-
-```php
-$config['base_url'] = ''; // Base URL (e.g.: http://localhost/blogsonic/)
-
-$config['encryption_key'] = ''; // Encryption key (e.g.: F7z4zM0L3ua6e9rdZgy0StgIYA8xIFai)
+```sql
+CREATE TABLE `users` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(50) NOT NULL,
+    `surname` varchar(50) NOT NULL,
+    `gender` varchar(1) NOT NULL,
+    `username` varchar(50) NOT NULL,
+    `password` varchar(255) NOT NULL,
+    `email` varchar(50) NOT NULL,
+    `phone` varchar(13) NOT NULL,
+    `language` varchar(2) NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+);
 ```
 
-To generate an encryption key, you can go to [RandomKeygen][7] and scroll down to "CodeIgniter Encryption Keys".
-
-### Add your email information in the `application/core/MY_Controller.php` file
-
-This email will be used to send a new password to a user who has forgotten it. If you use Gmail, Google may block the automatic sending of the email. To turn this off, login to your Google account and enable the option "Allow less secure apps", [by clicking here][8].
-
-```php
-$config['smtp_host'] = ''; // SMTP host (e.g.: ssl://smtp.googlemail.com)
-$config['smtp_user'] = ''; // User (e.g.: example@gmail.com)
-$config['smtp_pass'] = ''; // Password
-
-$this->email->from('', 'Blogsonic'); // Email (e.g.: example@gmail.com)
+```sql
+CREATE TABLE `blogs` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `user_id` int NOT NULL,
+    `title` varchar(20) NOT NULL,
+    `body` text NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_usersblogs` FOREIGN KEY (`user_id`)
+    REFERENCES `users`(`id`)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
 ```
 
-> **Note**: This step is optional. Obviously, not doing this means not making the "Forgot password" feature work.
-
-### Add an email to be used for contact purposes in the `application/config/constants.php` file
-
-```php
-define('WEBSITE_EMAIL', ''); // Email address to be used publicly for contact purposes  (e.g.: example@gmail.com)
+```sql
+CREATE TABLE IF NOT EXISTS `sessions` (
+    `id` varchar(128) NOT NULL,
+    `ip_address` varchar(45) NOT NULL,
+    `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+    `data` blob NOT NULL,
+    KEY `sessions_timestamp` (`timestamp`)
+);
 ```
 
-### Set the current environment in the `.htaccess` file
+### Create the `.env` file
 
-```apache
-SetEnv CI_ENV development
+Copy the `.env.example` file in the root of the project and name it `.env`.
+
+```console
+$ cp .env.example .env
 ```
 
-The available options are: `development`, `testing` and `production`. Setting the constant to a value of `development` will cause all PHP errors to be rendered to the browser when they occur. Conversely, setting the constant to `production` will disable all error output.
+The valid variables are:
+
+- `CI_ENV`: defines the current environment. The available options are: `development`, `testing` and `production`. Setting the variable to a value of `development` will cause all PHP errors to be rendered to the browser when they occur. Conversely, setting the variable to `production` will disable all error output;
+- `BLOGSONIC_BASE_URL`
+- `BLOGSONIC_ENCRYPTION_KEY`: to generate an encryption key, you can go to [RandomKeygen][7] and scroll down to "CodeIgniter Encryption Keys";
+- `BLOGSONIC_VERSION`: `HEAD` or a [valid GitHub tag][14];
+- `BLOGSONIC_IN_EMAIL`: email address to be used publicly for contact purposes;
+- `BLOGSONIC_OUT_EMAIL`: the outgoing email (e.g.: sending the forgotten password email);
+- `BLOGSONIC_OUT_EMAIL_SMTP_PORT`
+- `BLOGSONIC_OUT_EMAIL_SMTP_HOST`
+- `BLOGSONIC_OUT_EMAIL_SMTP_USER`
+- `BLOGSONIC_OUT_EMAIL_SMTP_PASS`
+- `DB_HOST`
+- `DB_USER`
+- `DB_PASS`
+- `DB_NAME`
 
 ## Running the acceptance tests
 
@@ -198,26 +172,6 @@ From the `blogsonic/` folder, run the following command:
 ```console
 $ bin/composer install
 ```
-
-### Add your base URL and the database's information in the `tests/acceptance.suite.yml` file
-
-```yml
-actor: AcceptanceTester
-modules:
-    enabled:
-        - WebDriver:
-            url: # Base URL (e.g.: http://localhost/blogsonic)
-        - Db:
-            dsn: '' # PDO DSN (e.g.: mysql:host=localhost)
-            user: '' # Database username (e.g.: root)
-            dbname: '' # Database name (e.g.: blogsonic)
-            password: '' # Password
-            initial_queries:
-                - 'CREATE DATABASE IF NOT EXISTS ;' # Add the database name (e.g.: CREATE DATABASE IF NOT EXISTS blogsonic;)
-                - 'USE ;' # Add the database name (e.g.: USE blogsonic;)
-```
-
-> **Note**: This configuration will only work with MySQL. If you need to change it, see the official [Codeception documentation][10].
 
 ### Start ChromeDriver
 
@@ -273,9 +227,9 @@ For more information, see the [Creative Commons website][12].
 
 ## Links
 
-* [GitHub][6]
-* [LinkedIn][5]
-* [Twitter][13]
+- [GitHub][6]
+- [LinkedIn][5]
+- [Twitter][13]
 
 [1]: https://fontawesome.com/v4.7/ "Font Awesome - The iconic font and CSS toolkit"
 [2]: https://bootswatch.com/spacelab/ "Bootswatch - Free themes for Bootstrap"
@@ -283,10 +237,11 @@ For more information, see the [Creative Commons website][12].
 [4]: https://realfavicongenerator.net/ "Favicon Generator"
 [5]: https://www.linkedin.com/in/antonio-granaldi/ "Antonio Granaldi - Linkedin"
 [6]: https://github.com/antogno/blogsonic "Blogsonic - GitHub"
-[7]: https://randomkeygen.com/ "RandomKeygen"
+[7]: https://randomkeygen.com/#ci_key "RandomKeygen"
 [8]: https://myaccount.google.com/lesssecureapps "Less secure apps - Google Accounts"
 [9]: https://chromedriver.chromium.org/downloads "ChromeDriver - WebDriver for Chrome"
 [10]: https://codeception.com/docs/modules/Db "Documentation - Codeception"
 [11]: https://github.com/antogno/blogsonic/blob/master/LICENSE "License"
 [12]: https://creativecommons.org/publicdomain/zero/1.0/ "Creative Commons"
 [13]: https://twitter.com/AGranaldi "AGranaldi - Twitter"
+[14]: https://github.com/antogno/blogsonic/ "Tags"

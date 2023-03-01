@@ -1,6 +1,3 @@
-SetEnv CI_ENV development
-SetEnv BS_VERSION HEAD
-
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f

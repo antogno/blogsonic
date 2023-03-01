@@ -91,10 +91,10 @@ class MY_Controller extends CI_Controller
         $this->load->library('email');
 
         $config['protocol'] = 'smtp';
-        $config['smtp_port'] = '465';
-        $config['smtp_host'] = ''; // SMTP host (e.g.: ssl://smtp.googlemail.com)
-        $config['smtp_user'] = ''; // User (e.g.: example@gmail.com)
-        $config['smtp_pass'] = ''; // Password
+        $config['smtp_port'] = $_ENV['BLOGSONIC_OUT_EMAIL_SMTP_PORT'] ?? '465';
+        $config['smtp_host'] = $_ENV['BLOGSONIC_OUT_EMAIL_SMTP_HOST'] ?? '';
+        $config['smtp_user'] = $_ENV['BLOGSONIC_OUT_EMAIL_SMTP_USER'] ?? '';
+        $config['smtp_pass'] = $_ENV['BLOGSONIC_OUT_EMAIL_SMTP_PASS'] ?? '';
         $config['charset'] = 'iso-8859-1';
         $config['crlf'] = "\r\n";
         $config['newline'] = "\r\n";
@@ -102,7 +102,7 @@ class MY_Controller extends CI_Controller
         $config['validate'] = true; 
 
         $this->email->initialize($config);
-        $this->email->from('', 'Blogsonic'); // Email (e.g.: example@gmail.com)
+        $this->email->from($_ENV['BLOGSONIC_OUT_EMAIL'] ?? '', 'Blogsonic');
         $this->email->to($email);
         $this->email->subject($this->lang->line('forgot_password_email_subject'));
 
