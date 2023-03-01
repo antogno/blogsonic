@@ -1,9 +1,9 @@
 # Blogsonic
 
 <p>
-    <a href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><img src="https://img.shields.io/github/license/antogno/blogsonic" alt="License"></a>
-    <a href="https://github.com/antogno/blogsonic/commits"><img src="https://img.shields.io/github/last-commit/antogno/blogsonic" alt="Last commit"></a>
-    <a href="https://github.com/antogno/blogsonic/releases/latest"><img src="https://img.shields.io/github/v/tag/antogno/blogsonic?label=last%20release" alt="Last release"></a>
+	<a href="https://github.com/antogno/blogsonic/blob/master/LICENSE"><img src="https://img.shields.io/github/license/antogno/blogsonic" alt="License"></a>
+	<a href="https://github.com/antogno/blogsonic/commits"><img src="https://img.shields.io/github/last-commit/antogno/blogsonic" alt="Last commit"></a>
+	<a href="https://github.com/antogno/blogsonic/releases/latest"><img src="https://img.shields.io/github/v/tag/antogno/blogsonic?label=last%20release" alt="Last release"></a>
 </p>
 
 Blogsonic is a simple CRUD Web Application in PHP.
@@ -71,42 +71,42 @@ Create a database and add the following tables. You can also find these tables i
 
 ```sql
 CREATE TABLE `users` (
-    `id` int NOT NULL AUTO_INCREMENT,
-    `name` varchar(50) NOT NULL,
-    `surname` varchar(50) NOT NULL,
-    `gender` varchar(1) NOT NULL,
-    `username` varchar(50) NOT NULL,
-    `password` varchar(255) NOT NULL,
-    `email` varchar(50) NOT NULL,
-    `phone` varchar(13) NOT NULL,
-    `language` varchar(2) NOT NULL,
-    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`)
+	`id` int NOT NULL AUTO_INCREMENT,
+	`name` varchar(50) NOT NULL,
+	`surname` varchar(50) NOT NULL,
+	`gender` varchar(1) NOT NULL,
+	`username` varchar(50) NOT NULL,
+	`password` varchar(255) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`phone` varchar(13) NOT NULL,
+	`language` varchar(2) NOT NULL,
+	`created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
 );
 ```
 
 ```sql
 CREATE TABLE `blogs` (
-    `id` int NOT NULL AUTO_INCREMENT,
-    `user_id` int NOT NULL,
-    `title` varchar(20) NOT NULL,
-    `body` text NOT NULL,
-    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_usersblogs` FOREIGN KEY (`user_id`)
-    REFERENCES `users`(`id`)
-    ON UPDATE CASCADE
-    ON DELETE CASCADE
+	`id` int NOT NULL AUTO_INCREMENT,
+	`user_id` int NOT NULL,
+	`title` varchar(20) NOT NULL,
+	`body` text NOT NULL,
+	`created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`),
+	CONSTRAINT `fk_usersblogs` FOREIGN KEY (`user_id`)
+	REFERENCES `users`(`id`)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 );
 ```
 
 ```sql
 CREATE TABLE IF NOT EXISTS `sessions` (
-    `id` varchar(128) NOT NULL,
-    `ip_address` varchar(45) NOT NULL,
-    `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
-    `data` blob NOT NULL,
-    KEY `sessions_timestamp` (`timestamp`)
+	`id` varchar(128) NOT NULL,
+	`ip_address` varchar(45) NOT NULL,
+	`timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+	`data` blob NOT NULL,
+	KEY `sessions_timestamp` (`timestamp`)
 );
 ```
 
@@ -244,4 +244,4 @@ For more information, see the [Creative Commons website][12].
 [11]: https://github.com/antogno/blogsonic/blob/master/LICENSE "License"
 [12]: https://creativecommons.org/publicdomain/zero/1.0/ "Creative Commons"
 [13]: https://twitter.com/AGranaldi "AGranaldi - Twitter"
-[14]: https://github.com/antogno/blogsonic/ "Tags"
+[14]: https://github.com/antogno/blogsonic/tags "Tags"
