@@ -123,7 +123,6 @@ The valid variables are:
 - `CI_ENV`: defines the current environment. The available options are: `development`, `testing` and `production`. Setting the variable to a value of `development` will cause all PHP errors to be rendered to the browser when they occur. Conversely, setting the variable to `production` will disable all error output;
 - `BLOGSONIC_BASE_URL`
 - `BLOGSONIC_ENCRYPTION_KEY`: to generate an encryption key, you can go to [RandomKeygen][7] and scroll down to "CodeIgniter Encryption Keys";
-- `BLOGSONIC_VERSION`: `HEAD` or a [valid GitHub tag][14];
 - `BLOGSONIC_IN_EMAIL`: email address to be used publicly for contact purposes;
 - `BLOGSONIC_OUT_EMAIL`: the outgoing email (e.g.: sending the forgotten password email);
 - `BLOGSONIC_OUT_EMAIL_SMTP_PORT`
@@ -244,4 +243,3 @@ For more information, see the [Creative Commons website][12].
 [11]: https://github.com/antogno/blogsonic/blob/master/LICENSE "License"
 [12]: https://creativecommons.org/publicdomain/zero/1.0/ "Creative Commons"
 [13]: https://twitter.com/AGranaldi "AGranaldi - Twitter"
-[14]: https://github.com/antogno/blogsonic/tags "Tags"

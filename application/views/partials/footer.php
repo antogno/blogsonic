@@ -26,17 +26,17 @@
                 &ndash;
                 <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>
                 &vert;
-                <?php
-                    if ($_ENV['BLOGSONIC_VERSION'] == 'HEAD') {
-                ?>
-                    <a target="_blank" href="https://github.com/antogno/blogsonic/tree/master"><span class="badge bg-primary"><?= $_ENV['BLOGSONIC_VERSION']; ?></span></a>
-                <?php
-                    } else { 
-                ?>
-                    <a target="_blank" href="https://github.com/antogno/blogsonic/releases/tag/<?= $_ENV['BLOGSONIC_VERSION']; ?>"><span class="badge bg-primary"><?= $_ENV['BLOGSONIC_VERSION']; ?></span></a>
-                <?php
-                    }
-                ?>
+
+                <?php $git_info = getCurrentGitInfo(); ?>
+                <a
+                    target="_blank"
+                    href="<? $git_info['url']; ?>"
+                >
+                    <span class="badge bg-primary">
+                        <i class="fa fa-code-fork"></i>
+                        <?= $git_info['label']; ?>
+                    </span>
+                </a>
             </p>
         </div>
         <div style="width: 30%; float: right">
