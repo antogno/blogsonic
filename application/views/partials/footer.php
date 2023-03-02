@@ -30,7 +30,7 @@
                 <?php $git_info = getCurrentGitInfo(); ?>
                 <a
                     target="_blank"
-                    href="<? $git_info['url']; ?>"
+                    href="<?= $git_info['url']; ?>"
                 >
                     <span class="badge bg-primary">
                         <i class="fa fa-code-fork"></i>

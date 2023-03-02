@@ -11,24 +11,23 @@ if (!function_exists('getCurrentGitInfo')) {
      */
     function getCurrentGitInfo()
     {
-        $url = 'https://github.com/antogno/blogsonic/';
+        $origin = 'https://github.com/antogno/blogsonic/';
 
         $hash = getCurrentGitCommitHash(false);
         $tag = getCurrentGitTag();
         $branch = getCurrentGitBranch();
 
+        $url = $origin . "tree/$hash";
+        $label = '%s';
         if (isCurrentlyInAGitTag()) {
-            $url .= "tree/$tag";
-            $label = $tag;
-        } else {
-            $label = $branch;
-            if (isCurrentlyInGitHead()) {
-                $url .= "tree/$branch";
-            } else {
-                $url .= "tree/$hash";
-                $label .= " ($hash)";
-            }
+            $url = $origin . "tree/$tag";
+            $label = "$tag (%s)";
+        } elseif (isCurrentlyInGitHead()) {
+            $url = $origin . "tree/$branch";
+            $label = "$branch (HEAD)";
         }
+
+        $label = sprintf($label, $hash);
 
         return compact('url', 'hash', 'branch', 'tag', 'label');
     }
@@ -155,6 +154,18 @@ if (!function_exists('isCurrentlyInGitHead')) {
         }
 
         return getCurrentGitCommitHash() === $output;
+    }
+}
+
+if (!function_exists('isCurrentlyInDetachedHead')) {
+    /**
+     * Whether you are in a 'detached HEAD' status or not
+     *
+     * @return bool
+    */
+    function isCurrentlyInDetachedHead()
+    {
+        return getCurrentGitBranch() === false;
     }
 }
 
