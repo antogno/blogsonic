@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "666dcd0b2ea3d4ca5f1236fccf309efe",
+    "content-hash": "02c4deefb951862412cce624213600fd",
     "packages": [
+        {
+            "name": "antogno/gitinfo",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antogno/gitinfo.git",
+                "reference": "7c77433a1c45c3d8bdae6015178f36c76e3059af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antogno/gitinfo/zipball/7c77433a1c45c3d8bdae6015178f36c76e3059af",
+                "reference": "7c77433a1c45c3d8bdae6015178f36c76e3059af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "antogno\\GitInfo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC0-1.0"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Granaldi",
+                    "email": "tonio.granaldi@gmail.com"
+                }
+            ],
+            "description": "GitInfo is a tool that lets you get information about the current Git repository",
+            "keywords": [
+                "git",
+                "tool"
+            ],
+            "support": {
+                "issues": "https://github.com/antogno/gitinfo/issues",
+                "source": "https://github.com/antogno/gitinfo/tree/v1.0.0"
+            },
+            "time": "2023-03-25T16:39:50+00:00"
+        },
         {
             "name": "graham-campbell/result-type",
             "version": "v1.1.1",

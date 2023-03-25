@@ -27,7 +27,7 @@
                 <?= $this->lang->line('designed_and_created_by'); ?> <a target="_blank" href="https://www.linkedin.com/in/antonio-granaldi/">Antonio Granaldi</a>
                 &vert;
 
-                <?php $git_info = getCurrentGitInfo(); ?>
+                <?php $git_info = getGitInfo(); ?>
                 <a
                     target="_blank"
                     href="<?= $git_info['url']; ?>"
