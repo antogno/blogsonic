@@ -21,7 +21,7 @@ if (!function_exists('getGitInfo')) {
 
         return [
             'label' => $label,
-            'url' => $git->getCurrentRemote()->getUrl()
+            'url' => $git->getRemote('origin')->getUrl()
         ];
     }
 }
