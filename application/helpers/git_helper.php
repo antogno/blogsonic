@@ -13,15 +13,23 @@ if (!function_exists('getGitInfo')) {
     {
         $git = new \antogno\GitInfo\GitInfo;
 
+        $url = 'https://github.com/antogno/blogsonic';
+
         try {
-            $label = $git->getCurrentTag()->getName();
+            $tag = $git->getCurrentTag()->getName();
+            $url .= "/tree/$tag";
+            $label = $tag;
         } catch (Exception $e) {
-            $label = $git->getCurrentBranch()->getName() . ' (' . $git->getCurrentCommit()->getShortHash() .  ')';
+            $branch = $git->getCurrentBranch()->getName();
+            $url .= "/tree/$branch";
+            $hash = $git->getCurrentCommit()->getShortHash();
+            $label = "$branch ($hash)";
         }
+
 
         return [
             'label' => $label,
-            'url' => $git->getRemote('origin')->getUrl()
+            'url' => $url
         ];
     }
 }
