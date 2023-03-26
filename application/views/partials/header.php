@@ -91,7 +91,7 @@
                             ?>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/myblogs'); ?>"><?= $this->lang->line('my_blogs'); ?></a>
-                            <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/newblog'); ?>"><?= $this->lang->line('new_blog'); ?></a>
+                            <a class="dropdown-item" href="<?= base_url($this->encryption->decrypt($this->session->userdata('language')) . 'blogs/newblog'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> <?= $this->lang->line('new_blog'); ?></a>
                             <?php
                                 }
                             ?>
