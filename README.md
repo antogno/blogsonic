@@ -9,7 +9,7 @@
 Blogsonic is a simple CRUD Web Application in PHP.
 
 <p align="center">
-	<img alt="Blogsonic screenshot" src="https://raw.githubusercontent.com/antogno/blogsonic/master/public/img/blogsonic-screenshot.png" style="border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.09) 0 3px 12px;">
+	<img alt="Blogsonic screenshot" src="https://raw.githubusercontent.com/antogno/blogsonic/master/public/img/blogsonic-screenshot.png">
 </p>
 
 ---
