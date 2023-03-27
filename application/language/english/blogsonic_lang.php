@@ -72,14 +72,14 @@ $lang['license'] = 'License';
 
 $lang['home_1'] = 'Welcome to Blogsonic!';
 $lang['home_2'] = 'What is Blogsonic?';
-$lang['home_3'] = 'Blogsonic is an open source project. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.';
+$lang['home_3'] = 'Blogsonic is a simple CRUD Web Application. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.';
 $lang['home_4'] = 'Why?';
 $lang['home_5'] = 'The existence of Blogsonic has the sole purpose of showing an example of a CRUD Web Application. For more information,';
 $lang['home_6'] = 'click here';
 
 $lang['about_1'] = 'Welcome to the About page of Blogsonic!';
 $lang['about_2'] = 'What is Blogsonic?';
-$lang['about_3'] = 'Blogsonic is an open source project. More specifically, is a CRUD Web Application.';
+$lang['about_3'] = 'Blogsonic is a simple CRUD Web Application. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.';
 $lang['about_4'] = 'How was Blogsonic created?';
 $lang['about_5'] = 'Blogsonic was created using the following tools and technologies';
 $lang['about_6'] = 'Front-end';
@@ -164,8 +164,8 @@ $lang['privacy_policy_14'] = 'Contact us';
 $lang['privacy_policy_15'] = 'For more information on our Privacy policy, if you have any questions, or if you want to make a complaint, please contact us using this email address:';
 
 $lang['404_meta_description'] = 'The page you requested was not found.';
-$lang['home_static_page_meta_description'] = 'Blogsonic is an open source project. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.';
-$lang['about_static_page_meta_description'] = 'Blogsonic is an open source project. More specifically, is a CRUD Web Application. It was mainly created with PHP (framework: CodeIgniter 3.1.11).';
+$lang['home_static_page_meta_description'] = 'Blogsonic is a simple CRUD Web Application. It could be defined as a mini Social Network that allows you to post text content (called Blogs) visible to all.';
+$lang['about_static_page_meta_description'] = 'Blogsonic is a simple CRUD Web Application. It was mainly created with PHP (framework: CodeIgniter 3.1.11).';
 $lang['privacy_static_page_meta_description'] = 'This Privacy policy describes how your personal information is collected, used and shared when you visit Blogsonic (the \'Site\').';
 $lang['blogs_meta_description'] = 'On Blogsonic you can create Blogs. A Blog is just like a Tweet on Twitter or a Post on Facebook. Write a title and whatever is on your mind... et voilà!';
 $lang['myblogs_meta_description'] = 'If you\'re registered on Blogsonic, you can write, edit or delete Blogs. See all your posted Blogs now!';
